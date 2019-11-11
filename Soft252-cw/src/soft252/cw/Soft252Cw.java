@@ -6,5 +6,7 @@ public class Soft252Cw
     public static void main(String[] args) 
     {
         
+        
+        
     }    
 }
