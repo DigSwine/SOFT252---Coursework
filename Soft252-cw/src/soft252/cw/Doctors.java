@@ -12,15 +12,17 @@ public class Doctors
     protected String Doctor_StreetName = "Unknown";
     protected String Doctor_City = "Plymouth";
     protected String Doctor_Postcode = "PL1";
-    public String hello;
   
-  
-    public Doctors(String Doctor_FirstName) {
+    //Constructor
+    public Doctors(String Doctor_FirstName, String Doctor_SurName, Integer Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode) {
         this.Doctor_FirstName = Doctor_FirstName;
+        this.Doctor_SurName = Doctor_SurName;
+        this.Doctor_StreetNumber = Doctor_StreetNumber;
+        this.Doctor_StreetName = Doctor_StreetName;
+        this.Doctor_City = Doctor_City;
+        this.Doctor_Postcode = Doctor_Postcode;       
     }
-  
-    
-    
+
     //Getters
     public String getDoctor_IdentificationLetter() {
         return Doctor_IdentificationLetter;

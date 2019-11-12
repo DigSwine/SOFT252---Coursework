@@ -15,6 +15,19 @@ public class Patients
     protected String Patient_CityName = "Plymouth";
     protected String Patient_PostCode = "PL1 1AA";
 
+    //Constructor
+
+    public Patients(String Patient_Firstname, String Patient_Surname, String Patient_Gender, Integer Patient_Age, Integer Patient_StreetNumber, String Patient_StreetName, String Patient_CityName, String Patient_PostCode) {
+        this.Patient_Firstname = Patient_Firstname;
+        this.Patient_Surname = Patient_Surname;
+        this.Patient_Gender = Patient_Gender;
+        this.Patient_Age = Patient_Age;
+        this.Patient_StreetNumber = Patient_StreetNumber;
+        this.Patient_StreetName = Patient_StreetName;
+        this.Patient_CityName = Patient_CityName;
+        this.Patient_PostCode = Patient_PostCode;    
+    }
+
     //Getters
     public String getPatient_IdendificationLetter() {
         return Patient_IdendificationLetter;
