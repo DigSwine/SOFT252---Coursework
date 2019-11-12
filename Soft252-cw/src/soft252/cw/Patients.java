@@ -54,7 +54,7 @@ public class Patients
         }  
     }
     public void setPatient_IdentificationNumber(Integer Patient_IdentificationNumber) {
-        if(Patient_IdentificationNumber != null && !Patient_IdentificationNumber.isEmpty()){
+        if(Patient_IdentificationNumber != null){
         this.Patient_IdentificationNumber = Patient_IdentificationNumber;
         }
     }
@@ -88,6 +88,5 @@ public class Patients
     public void setPatient_PostCode(String Patient_PostCode) {
         this.Patient_PostCode = Patient_PostCode;
     }
-    
     
 }

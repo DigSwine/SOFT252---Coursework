@@ -12,7 +12,15 @@ public class Doctors
     protected String Doctor_StreetName = "Unknown";
     protected String Doctor_City = "Plymouth";
     protected String Doctor_Postcode = "PL1";
-
+    public String hello;
+  
+  
+    public Doctors(String Doctor_FirstName) {
+        this.Doctor_FirstName = Doctor_FirstName;
+    }
+  
+    
+    
     //Getters
     public String getDoctor_IdentificationLetter() {
         return Doctor_IdentificationLetter;
