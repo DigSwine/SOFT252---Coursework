@@ -18,7 +18,14 @@ public class Soft252Cw
         Clinic Drug_one = new Clinic("Paracetomol", 1.50, "Over The Counter - Drug", "12 Tablets, Releaves Pain", 100);
         Clinic Drug_two = new Clinic("Ibuprofen", 1.25, "Over The Counter - Drug", "12 Tablets, Releaves Pain", 100);
         Clinic Drug_three = new Clinic("Epipen", 5.00, "Over The Counter  - Drug", "1 use, Emergancy Useage", 100);
-        
+        Clinic Drug_four = new Clinic("Norflex", 10.00, "Perscription  - Drug", "26 Tablets, Muscle Relaxer", 100);
+        Clinic Drug_five = new Clinic("Calcium Carbonate", 3.50, "Over The Counter  - Drug", "20 Tablets, prevent or to treat a calcium deficiency", 100);
+        Clinic Drug_six = new Clinic("Morphine", 12.00, "Perscription  - Drug", "10 Patches,  Treats moderate to severe pain", 100);
+        Clinic Drug_seven = new Clinic("Beclomethasone Nasal", 5.50, "Over The Counter  - Drug", "Nasle Spray - 24 Sprays, prevent hayfeaver allergies", 100);
+        Clinic Drug_eight = new Clinic("Opium Tincture", 3.50, "Perscription  - Drug", "5 Tablets, used to treat diarrhea", 100);
+        Clinic Drug_nine = new Clinic("Dextroamphetamine", 1.50, "Perscription  - Drug", "20 Tablets,  used to treat narcolepsy and ADHD", 100);
+        Clinic Drug_ten = new Clinic("Baclofene", 3.50, "Perscription  - Drug", "24 Tablets, muscle relaxer and an antispasmodic agent.", 100);
+       
         System.out.println("Doctors");
         System.out.println(Doc_one.getDoctor_FirstName());
         System.out.println(Doc_two.getDoctor_FirstName());
@@ -42,5 +49,12 @@ public class Soft252Cw
         System.out.println(Drug_one.getItem_Name() + " Quantity: " + Drug_one.getItem_Stock());
         System.out.println(Drug_two.getItem_Name() + " Quantity: " + Drug_two.getItem_Stock());
         System.out.println(Drug_three.getItem_Name() + " Quantity: " + Drug_three.getItem_Stock());
+        System.out.println(Drug_four.getItem_Name() + " Quantity: " + Drug_four.getItem_Stock());
+        System.out.println(Drug_five.getItem_Name() + " Quantity: " + Drug_five.getItem_Stock());
+        System.out.println(Drug_six.getItem_Name() + " Quantity: " + Drug_six.getItem_Stock());
+        System.out.println(Drug_seven.getItem_Name() + " Quantity: " + Drug_seven.getItem_Stock());
+        System.out.println(Drug_eight.getItem_Name() + " Quantity: " + Drug_eight.getItem_Stock());
+        System.out.println(Drug_nine.getItem_Name() + " Quantity: " + Drug_nine.getItem_Stock());
+        System.out.println(Drug_ten.getItem_Name() + " Quantity: " + Drug_ten.getItem_Stock());
     }    
 }
