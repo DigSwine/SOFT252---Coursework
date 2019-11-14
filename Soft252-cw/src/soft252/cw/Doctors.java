@@ -13,6 +13,8 @@ public class Doctors
     protected String Doctor_City = "Plymouth";
     protected String Doctor_Postcode = "PL1";
   
+    
+    
     //Constructor
     public Doctors(String Doctor_FirstName, String Doctor_SurName, Integer Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode) {
         this.Doctor_FirstName = Doctor_FirstName;

@@ -16,7 +16,6 @@ public class Patients
     protected String Patient_PostCode = "PL1 1AA";
 
     //Constructor
-
     public Patients(String Patient_Firstname, String Patient_Surname, String Patient_Gender, Integer Patient_Age, Integer Patient_StreetNumber, String Patient_StreetName, String Patient_CityName, String Patient_PostCode) {
         this.Patient_Firstname = Patient_Firstname;
         this.Patient_Surname = Patient_Surname;

@@ -5,6 +5,7 @@ public class Soft252Cw
 {
     public static void main(String[] args) 
     {
+        
         //Setting Patients, Doctors, Admin, Secatery
         Doctors Doc_one = new Doctors("Jess", "KimBrook", 15 , "Shorsberry Avanue", "Plymouth", "PL3 3TD");
         Doctors Doc_two = new Doctors("Drew", "Valintine", 10, "Shortway Road", "Plymouth", "PL1 1WL");
@@ -25,9 +26,17 @@ public class Soft252Cw
         Clinic Drug_eight = new Clinic("Opium Tincture", 3.50, "Perscription  - Drug", "5 Tablets, used to treat diarrhea", 100);
         Clinic Drug_nine = new Clinic("Dextroamphetamine", 1.50, "Perscription  - Drug", "20 Tablets,  used to treat narcolepsy and ADHD", 100);
         Clinic Drug_ten = new Clinic("Baclofene", 3.50, "Perscription  - Drug", "24 Tablets, muscle relaxer and an antispasmodic agent.", 100);
-       
+        
+        //SetAppointments
+        Appointments Appt_one = new Appointments(0003,0002,"This patient is suffering from hayfever");
+        
+        
+        //SetPerscritions
+        Perscriptions Per_one = new Perscriptions(0003, 0007, "Beclomethasone Nasal", 1, 1);
+        
+        
         System.out.println("Doctors");
-        System.out.println(Doc_one.getDoctor_FirstName());
+        System.out.println(Doc_one.getDoctor_FirstName());        
         System.out.println(Doc_two.getDoctor_FirstName());
         System.out.println(Doc_three.getDoctor_FirstName());
         System.out.println("");
@@ -56,5 +65,14 @@ public class Soft252Cw
         System.out.println(Drug_eight.getItem_Name() + " Quantity: " + Drug_eight.getItem_Stock());
         System.out.println(Drug_nine.getItem_Name() + " Quantity: " + Drug_nine.getItem_Stock());
         System.out.println(Drug_ten.getItem_Name() + " Quantity: " + Drug_ten.getItem_Stock());
-    }    
+        System.out.println(Appt_one.getPatient_Notes());
+        System.out.println(Per_one.getPerscription_Name());
+    
+    
+    }   
+    
+    public void SetDocs()
+    {
+     
+    }
 }
