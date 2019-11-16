@@ -1,12 +1,17 @@
 // @author mwilson-slider
 
 package soft252.cw;
+
 public class Soft252Cw 
 {
     public static void main(String[] args) 
     {
-        
-        //Setting Patients, Doctors, Admin, Secatery
+        SetAll();
+    }   
+    
+    public static void SetAll()
+    {
+     //Setting Patients, Doctors, Admin, Secatery
         Doctors Doc_one = new Doctors("Jess", "KimBrook", 15 , "Shorsberry Avanue", "Plymouth", "PL3 3TD");
         Doctors Doc_two = new Doctors("Drew", "Valintine", 10, "Shortway Road", "Plymouth", "PL1 1WL");
         Doctors Doc_three = new Doctors("Bob", "Ross", 1, "Golden Street", "Plymouth", "PL4 4DX");
@@ -34,45 +39,38 @@ public class Soft252Cw
         //SetPerscritions
         Perscriptions Per_one = new Perscriptions(0003, 0007, "Beclomethasone Nasal", 1, 1);
         
+//        System.out.println("Doctors");
+//        System.out.println(Doc_one.getDoctor_FirstName());        
+//        System.out.println(Doc_two.getDoctor_FirstName());
+//        System.out.println(Doc_three.getDoctor_FirstName());
+//        System.out.println("");
+//        System.out.println("Patients");
+//        System.out.println(Pat_one.getPatient_Firstname());
+//        System.out.println(Pat_two.getPatient_Firstname());
+//        System.out.println(Pat_three.getPatient_Firstname());
+//        System.out.println("");
+//        System.out.println("Admin");
+//        System.out.println(Adm_one.Admin_FirstName);
+//        System.out.println("");
+//        System.out.println("Secretary");
+//        System.out.println(Sec_one.getSecretary_FirstName());
+//        System.out.println("");
+//        System.out.println("Clinic");
+//        System.out.println(Cli_one.getClinic_Name());
+//        System.out.println("");
+//        System.out.println("Clinic Stock");
+//        System.out.println(Drug_one.getItem_Name() + " Quantity: " + Drug_one.getItem_Stock());
+//        System.out.println(Drug_two.getItem_Name() + " Quantity: " + Drug_two.getItem_Stock());
+//        System.out.println(Drug_three.getItem_Name() + " Quantity: " + Drug_three.getItem_Stock());
+//        System.out.println(Drug_four.getItem_Name() + " Quantity: " + Drug_four.getItem_Stock());
+//        System.out.println(Drug_five.getItem_Name() + " Quantity: " + Drug_five.getItem_Stock());
+//        System.out.println(Drug_six.getItem_Name() + " Quantity: " + Drug_six.getItem_Stock());
+//        System.out.println(Drug_seven.getItem_Name() + " Quantity: " + Drug_seven.getItem_Stock());
+//        System.out.println(Drug_eight.getItem_Name() + " Quantity: " + Drug_eight.getItem_Stock());
+//        System.out.println(Drug_nine.getItem_Name() + " Quantity: " + Drug_nine.getItem_Stock());
+//        System.out.println(Drug_ten.getItem_Name() + " Quantity: " + Drug_ten.getItem_Stock());
+//        System.out.println(Appt_one.getPatient_Notes());
+//        System.out.println(Per_one.getPerscription_Name());
         
-        System.out.println("Doctors");
-        System.out.println(Doc_one.getDoctor_FirstName());        
-        System.out.println(Doc_two.getDoctor_FirstName());
-        System.out.println(Doc_three.getDoctor_FirstName());
-        System.out.println("");
-        System.out.println("Patients");
-        System.out.println(Pat_one.getPatient_Firstname());
-        System.out.println(Pat_two.getPatient_Firstname());
-        System.out.println(Pat_three.getPatient_Firstname());
-        System.out.println("");
-        System.out.println("Admin");
-        System.out.println(Adm_one.Admin_FirstName);
-        System.out.println("");
-        System.out.println("Secretary");
-        System.out.println(Sec_one.getSecretary_FirstName());
-        System.out.println("");
-        System.out.println("Clinic");
-        System.out.println(Cli_one.getClinic_Name());
-        System.out.println("");
-        System.out.println("Clinic Stock");
-        System.out.println(Drug_one.getItem_Name() + " Quantity: " + Drug_one.getItem_Stock());
-        System.out.println(Drug_two.getItem_Name() + " Quantity: " + Drug_two.getItem_Stock());
-        System.out.println(Drug_three.getItem_Name() + " Quantity: " + Drug_three.getItem_Stock());
-        System.out.println(Drug_four.getItem_Name() + " Quantity: " + Drug_four.getItem_Stock());
-        System.out.println(Drug_five.getItem_Name() + " Quantity: " + Drug_five.getItem_Stock());
-        System.out.println(Drug_six.getItem_Name() + " Quantity: " + Drug_six.getItem_Stock());
-        System.out.println(Drug_seven.getItem_Name() + " Quantity: " + Drug_seven.getItem_Stock());
-        System.out.println(Drug_eight.getItem_Name() + " Quantity: " + Drug_eight.getItem_Stock());
-        System.out.println(Drug_nine.getItem_Name() + " Quantity: " + Drug_nine.getItem_Stock());
-        System.out.println(Drug_ten.getItem_Name() + " Quantity: " + Drug_ten.getItem_Stock());
-        System.out.println(Appt_one.getPatient_Notes());
-        System.out.println(Per_one.getPerscription_Name());
-    
-    
-    }   
-    
-    public void SetDocs()
-    {
-     
     }
 }
