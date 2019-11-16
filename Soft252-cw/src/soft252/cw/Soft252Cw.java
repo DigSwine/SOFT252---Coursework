@@ -33,7 +33,7 @@ public class Soft252Cw
         Clinic Drug_ten = new Clinic("Baclofene", 3.50, "Perscription  - Drug", "24 Tablets, muscle relaxer and an antispasmodic agent.", 100);
         
         //SetAppointments
-        Appointments Appt_one = new Appointments(0003,0002,"This patient is suffering from hayfever");
+        Appointments Appt_one = new Appointments(0003, 0002, "This patient is suffering from hayfever");
         
         
         //SetPerscritions
@@ -41,7 +41,7 @@ public class Soft252Cw
         
 //        System.out.println("Doctors");
 //        System.out.println(Doc_one.getDoctor_FirstName());        
-//        System.out.println(Doc_two.getDoctor_FirstName());
+//        System.out.println(Doc_two);
 //        System.out.println(Doc_three.getDoctor_FirstName());
 //        System.out.println("");
 //        System.out.println("Patients");
