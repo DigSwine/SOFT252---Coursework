@@ -7,6 +7,10 @@ public class Soft252Cw
     public static void main(String[] args) 
     {
         SetAll();
+        
+        GUI_Home Home = new GUI_Home();
+        Home.show();
+        
     }   
     
     public static void SetAll()
