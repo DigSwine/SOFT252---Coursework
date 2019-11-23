@@ -115,7 +115,7 @@ public class GUI_Home extends javax.swing.JFrame {
         Password[6] = ("1");
         Password[7] = ("1");
     }
-    
+       
     private void Btn_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogInActionPerformed
 
         //Get Combobox item
@@ -132,9 +132,7 @@ public class GUI_Home extends javax.swing.JFrame {
                             //Open New Window
                             GUI_User Next = new GUI_User();
                             Next.show();
-                        
-                            //Close Window
-                            //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING)); 
+                            this.hide();
                         }
                     }
                 }
@@ -148,6 +146,7 @@ public class GUI_Home extends javax.swing.JFrame {
                         if(Txt_Password.getText().equals(Password[x])){
                            GUI_Doctor Doc = new GUI_Doctor();
                            Doc.show();
+                           this.hide();
                         }           
                     }
                }
@@ -198,6 +197,7 @@ public class GUI_Home extends javax.swing.JFrame {
     
     }//GEN-LAST:event_Cmb_UserTypeActionPerformed
 
+  
    
     public static void main(String args[]) {
        //Display Form
