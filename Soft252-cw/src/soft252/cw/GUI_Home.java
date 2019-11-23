@@ -97,14 +97,14 @@ public class GUI_Home extends javax.swing.JFrame {
         Username[6] = ("7");
         Username[7] = ("8");   
         
-        Type[0] = ("P");
-        Type[1] = ("P");
-        Type[2] = ("P");
-        Type[3] = ("D");
-        Type[4] = ("D");
-        Type[5] = ("D");
-        Type[6] = ("S");
-        Type[7] = ("A");
+        Type[0] = ("P"); //1
+        Type[1] = ("P"); //2
+        Type[2] = ("P"); //3
+        Type[3] = ("D"); //4
+        Type[4] = ("D"); //5
+        Type[5] = ("D"); //6
+        Type[6] = ("S"); //7
+        Type[7] = ("A"); //8
         
         Password[0] = ("1");
         Password[1] = ("1");
@@ -124,41 +124,36 @@ public class GUI_Home extends javax.swing.JFrame {
         //output
         if("Patient".equals(SelectedUser)){
         //Validation
-        for(int x = 0; x < 8; x++){
-            if(Txt_Username.getText().equals(Username[x])){
-                if(Type[x].equals("P")){
-                    if(Txt_Password.getText().equals(Password[x])){
+            for(int x = 0; x < 8; x++){
+                if(Txt_Username.getText().equals(Username[x])){
+                    if(Type[x].equals("P")){
+                        if(Txt_Password.getText().equals(Password[x])){
                        
-                        //Open New Window
-                        GUI_User Next = new GUI_User();
-                        Next.show();
+                            //Open New Window
+                            GUI_User Next = new GUI_User();
+                            Next.show();
                         
-                        //Close Window
-                        //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING)); 
+                            //Close Window
+                            //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING)); 
+                        }
                     }
-                } 
-            }        
-        }   
-    }
+                }
+            }
+        }
         
+        if("Doctor".equals(SelectedUser)) {
+           for(int x = 0; x < 8; x++){
+               if(Txt_Username.getText().equals(Username[x])){
+                    if(Type[x].equals("D")){
+                        if(Txt_Password.getText().equals(Password[x])){
+                           GUI_Doctor Doc = new GUI_Doctor();
+                           Doc.show();
+                        }           
+                    }
+               }
+            }
+        }
         
-        if("Doctor".equals(SelectedUser)){
-          //Validation
-//        for(int x = 0; x < 8; x++){
-//            if(Txt_Username.getText().equals(Username[x])){
-//                if(Type[x].equals("D")){
-//                    if(Txt_Password.getText().equals(Password[x])){
-//                       
-//                        //Open New Window
-//                        GUI_Doctor Next = new GUI_Doctor();
-//                        Next.show();
-                        
-                        //Close Window
-                        //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING)); 
-//                    }
-//                } 
-//            }        
-        }  
         if("Secetery".equals(SelectedUser)){
            //Validation
 //        for(int x = 0; x < 8; x++){
