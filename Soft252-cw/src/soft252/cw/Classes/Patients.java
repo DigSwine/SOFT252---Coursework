@@ -4,19 +4,21 @@ package soft252.cw;
 public class Patients 
 {
     //Variables
-    protected String Patient_IdendificationLetter = "P";
-    protected Integer Patient_IdentificationNumber = 0001;
-    protected String Patient_Firstname = "Unknown";
-    protected String Patient_Surname = "Unknown";
-    protected String Patient_Gender = "Unknown";
-    protected Integer Patient_Age = 0;
-    protected Integer Patient_StreetNumber = 0;
-    protected String Patient_StreetName = "Unknown";
-    protected String Patient_CityName = "Plymouth";
-    protected String Patient_PostCode = "PL1 1AA";
-
+    private String Patient_IdendificationLetter = "P";
+    private Integer Patient_IdentificationNumber = 0001;
+    private String Patient_Firstname = "Unknown";
+    private String Patient_Surname = "Unknown";
+    private String Patient_Gender = "Unknown";
+    private Integer Patient_Age = 0;
+    private Integer Patient_StreetNumber = 0;
+    private String Patient_StreetName = "Unknown";
+    private String Patient_CityName = "Plymouth";
+    private String Patient_PostCode = "PL1 1AA";
+    private String Patient_Username = "Unknown";
+    private String Patient_Password = "Unknown";
+    
     //Constructor
-    public Patients(String Patient_Firstname, String Patient_Surname, String Patient_Gender, Integer Patient_Age, Integer Patient_StreetNumber, String Patient_StreetName, String Patient_CityName, String Patient_PostCode) {
+    public Patients(String Patient_Firstname, String Patient_Surname, String Patient_Gender, Integer Patient_Age, Integer Patient_StreetNumber, String Patient_StreetName, String Patient_CityName, String Patient_PostCode, String Patient_Username, String Patient_Password) {
         this.Patient_Firstname = Patient_Firstname;
         this.Patient_Surname = Patient_Surname;
         this.Patient_Gender = Patient_Gender;
@@ -25,6 +27,8 @@ public class Patients
         this.Patient_StreetName = Patient_StreetName;
         this.Patient_CityName = Patient_CityName;
         this.Patient_PostCode = Patient_PostCode;    
+        this.Patient_Username = Patient_Username;
+        this.Patient_Password = Patient_Password;
     }
 
     //Getters
@@ -58,7 +62,13 @@ public class Patients
     public String getPatient_PostCode() {
         return Patient_PostCode;
     }
-
+    public String getPatient_Username() {
+        return Patient_Username;
+    }
+    public String getPatient_Password() {
+        return Patient_Password;
+    }
+    
     //Setters
     public void setPatient_IdendificationLetter(String Patient_IdendificationLetter) {
         if(Patient_IdendificationLetter != null && !Patient_IdendificationLetter.isEmpty()){
@@ -99,6 +109,12 @@ public class Patients
     }
     public void setPatient_PostCode(String Patient_PostCode) {
         this.Patient_PostCode = Patient_PostCode;
+    }
+    public void setPatient_Username(String Patient_Username) {
+        this.Patient_Username = Patient_Username;
+    }
+    public void setPatient_Password(String Patient_Password) {
+        this.Patient_Password = Patient_Password;
     }
     
 }

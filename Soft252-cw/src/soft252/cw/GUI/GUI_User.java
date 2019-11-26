@@ -1,7 +1,8 @@
 // @author mwilson-slider
 
-package soft252.cw;
+package soft252.cw.GUI;
 
+import soft252.cw.GUI.GUI_Home;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;

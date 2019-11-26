@@ -1,6 +1,6 @@
 // @author mwilson-slider
 
-package soft252.cw;
+package soft252.cw.Classes;
 public class Clinic 
 {
     //Variables for clinc

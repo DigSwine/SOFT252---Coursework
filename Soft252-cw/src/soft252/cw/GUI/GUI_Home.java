@@ -1,9 +1,10 @@
 // @author mwilson-slider
 
-package soft252.cw;
+package soft252.cw.GUI;
 
 import java.awt.event.WindowEvent;
 import static javax.swing.JOptionPane.showMessageDialog;
+
 
 public class GUI_Home extends javax.swing.JFrame {
 
@@ -88,32 +89,29 @@ public class GUI_Home extends javax.swing.JFrame {
     String Type[] = new String[8];
     
     private void SetLogins(){
-        Username[0] = ("1"); 
-        Username[1] = ("2");
-        Username[2] = ("3");
-        Username[3] = ("4");
-        Username[4] = ("5");
-        Username[5] = ("6");
-        Username[6] = ("7");
-        Username[7] = ("8");   
         
-        Type[0] = ("P"); //1
-        Type[1] = ("P"); //2
-        Type[2] = ("P"); //3
-        Type[3] = ("D"); //4
-        Type[4] = ("D"); //5
-        Type[5] = ("D"); //6
-        Type[6] = ("S"); //7
-        Type[7] = ("A"); //8
         
-        Password[0] = ("1");
-        Password[1] = ("1");
-        Password[2] = ("1");
-        Password[3] = ("1");
-        Password[4] = ("1");
-        Password[5] = ("1");
-        Password[6] = ("1");
-        Password[7] = ("1");
+        for(Integer x = 0; x < 8; x++){
+            Username[x] = x.toString();
+        }
+        
+      
+                        
+        Type[0] = ("P"); //0
+        Type[1] = ("P"); //1
+        Type[2] = ("P"); //2
+        
+        Type[3] = ("D"); //3
+        Type[4] = ("D"); //4
+        Type[5] = ("D"); //5
+        
+        Type[6] = ("S"); //6
+        
+        Type[7] = ("A"); //7
+        
+       for(Integer x = 0; x < 8; x++){
+            Password[x] = "1";
+        }
     }
        
     private void Btn_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogInActionPerformed

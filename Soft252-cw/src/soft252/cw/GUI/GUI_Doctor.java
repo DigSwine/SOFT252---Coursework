@@ -1,6 +1,6 @@
 //@author mwilson-slider
 
-package soft252.cw;
+package soft252.cw.GUI;
 public class GUI_Doctor extends javax.swing.JFrame {
 
     public GUI_Doctor() {
