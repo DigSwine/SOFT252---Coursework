@@ -1,6 +1,6 @@
 // @author mwilson-slider
 
-package soft252.cw;
+package soft252.cw.Classes;
 public class Doctors 
 {
     //Variables
@@ -8,21 +8,24 @@ public class Doctors
     protected Integer Doctor_IdentificationNumber = 0001;
     protected String Doctor_FirstName = "Unknown";
     protected String Doctor_SurName = "Unknown";
-    protected Integer Doctor_StreetNumber = 00;
+    protected String Doctor_StreetNumber = "00";
     protected String Doctor_StreetName = "Unknown";
     protected String Doctor_City = "Plymouth";
     protected String Doctor_Postcode = "PL1";
-  
+    private String Doctor_User = "Unknown";
+    private String Doctor_Password="Unknown";
     
     
     //Constructor
-    public Doctors(String Doctor_FirstName, String Doctor_SurName, Integer Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode) {
+    public Doctors(String Doctor_FirstName, String Doctor_SurName, String Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode, String Doctor_User, String Doctor_Password) {
         this.Doctor_FirstName = Doctor_FirstName;
         this.Doctor_SurName = Doctor_SurName;
         this.Doctor_StreetNumber = Doctor_StreetNumber;
         this.Doctor_StreetName = Doctor_StreetName;
         this.Doctor_City = Doctor_City;
         this.Doctor_Postcode = Doctor_Postcode;       
+        this.Doctor_User = Doctor_User;
+        this.Doctor_Password = Doctor_Password;
     }
 
     //Getters
@@ -38,7 +41,7 @@ public class Doctors
     public String getDoctor_SurName() {
         return Doctor_SurName;
     }
-    public Integer getDoctor_StreetNumber() {
+    public String getDoctor_StreetNumber() {
         return Doctor_StreetNumber;
     }
     public String getDoctor_StreetName() {
@@ -49,6 +52,13 @@ public class Doctors
     }
     public String getDoctor_Postcode() {
         return Doctor_Postcode;
+    }
+    public String getDoctor_User() {
+        return Doctor_User;
+    }
+
+    public String getDoctor_Password() {
+        return Doctor_Password;
     }
 
     //Setters
@@ -68,7 +78,7 @@ public class Doctors
         this.Doctor_SurName = Doctor_SurName;
         }
     }
-    public void setDoctor_StreetNumber(Integer Doctor_StreetNumber) {
+    public void setDoctor_StreetNumber(String Doctor_StreetNumber) {
         this.Doctor_StreetNumber = Doctor_StreetNumber;
     }
     public void setDoctor_StreetName(String Doctor_StreetName) {
@@ -79,6 +89,13 @@ public class Doctors
     }
     public void setDoctor_Postcode(String Doctor_Postcode) {
         this.Doctor_Postcode = Doctor_Postcode;
+    }
+    public void setDoctor_User(String Doctor_User) {
+        this.Doctor_User = Doctor_User;
+    }
+
+    public void setDoctor_Password(String Doctor_Password) {
+        this.Doctor_Password = Doctor_Password;
     }
     
     
