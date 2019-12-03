@@ -8,13 +8,13 @@ public class Admin
     protected Integer Admin_IdentificationNumber = 0001;
     protected String Admin_FirstName = "Unknown";
     protected String Admin_SurName = "Unknown";
-    protected Integer Admin_StreetNumber = 00;
+    protected String Admin_StreetNumber = "00";
     protected String Admin_StreetName = "Unknown";
     protected String Admin_City = "Plymouth";
     protected String Admin_PostCode = "PL1";
 
     //Constructor
-    public Admin(String Admin_FirstName, String Admin_SurName, Integer Admin_StreetNumber, String Admin_StreetName, String Admin_City, String Admin_PostCode) {
+    public Admin(String Admin_FirstName, String Admin_SurName, String Admin_StreetNumber, String Admin_StreetName, String Admin_City, String Admin_PostCode) {
         this.Admin_FirstName = Admin_FirstName;
         this.Admin_SurName = Admin_SurName;
         this.Admin_StreetNumber = Admin_StreetNumber;
@@ -37,7 +37,7 @@ public class Admin
     public String getAdmin_SurName() {
         return Admin_SurName;
     }
-    public Integer getAdmin_StreetNumber() {
+    public String getAdmin_StreetNumber() {
         return Admin_StreetNumber;
     
     }
@@ -70,7 +70,7 @@ public class Admin
         this.Admin_SurName = Admin_SurName;
         }
     }
-    public void setAdmin_StreetNumber(Integer Admin_StreetNumber) {
+    public void setAdmin_StreetNumber(String Admin_StreetNumber) {
         this.Admin_StreetNumber = Admin_StreetNumber;
     }
     public void setAdmin_StreetName(String Admin_StreetName) {

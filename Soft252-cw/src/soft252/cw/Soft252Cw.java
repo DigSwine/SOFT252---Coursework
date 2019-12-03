@@ -7,7 +7,7 @@ import soft252.cw.Classes.Appointments;
 import soft252.cw.Classes.Clinic;
 import soft252.cw.Classes.Perscriptions;
 import soft252.cw.Classes.Doctors;
-
+import soft252.cw.Classes.Patients;
 
 
 
@@ -15,8 +15,13 @@ import soft252.cw.Classes.Doctors;
 //Data Imports
 import java.io.*;
 import java.io.File; 
-import java.io.FileNotFoundException; 
-import java.util.Scanner; 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import soft252.cw.Classes.Admin;
+import soft252.cw.Classes.Secretary;
 
         
         
@@ -25,12 +30,13 @@ public class Soft252Cw
 
     public static void main(String[] args) throws IOException 
     {
+        ArrayList<Doctors> doctorList = new ArrayList<>();
         // Set Defult Data
         String content = 
             "D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345\n"
             + "D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345\n"
             + "D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345\n"
-            + "P, David, Charger, Male, 54, 99, Long Road, Plymouth, PL5 2RT, DCharger, 12345\n"
+            + "P, David, Charger, Male, 54, 99, Long Road, Plymouth, PL5 2RT, DCharger, 123456\n"
             + "P, Kimberly, Little, Female, 23, 12, Foxwood Road, Plymouth, PL2 4DZ, KLittle, 1212\n"
             + "P, Luke, Walker, Male, 17, 23, Berry Road, Plymouth, PL1 2BR, LWalker, 123123\n"
             + "A, Karran, Southbank, 29, Hallow Way, Plymouth, PL8 9KL\n"
@@ -55,6 +61,7 @@ public class Soft252Cw
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(content);
         bw.close();
+        
 
         
         //DataReader
@@ -86,139 +93,210 @@ BufferedReader reader;
                         char a = line.charAt(0);
                         char b = line.charAt(1);
                         char c = line.charAt(2);
-                        char letterone = line.charAt(3);
-                        char lettertwo = line.charAt(4);
-                        //check to first and second letter of the line
                         //Doctors
                         if(a == 'D'){
                             if(b == ','){
-                                System.out.println(line);
-                                int y = 0;
-                                //Set FirstName
-                                FirstName = String.valueOf(letterone);
-                                for(int x = 4; x < 1000; x++){      
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        FirstName = FirstName + String.valueOf(letterone);
-                                        lettertwo = line.charAt(x + 1);
-                                        y = x + 3; 
+//Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    if (times == 8){
+                                        Pass = x;
+                                        times = 0;
                                     }
-                                }
-                                //Set SurName
-                                letterone = line.charAt(y);
-                                SurName = String.valueOf(letterone);
-                                lettertwo = line.charAt(y+1);
-                                for(int x = y + 1; x < 1000; x++){
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        SurName = SurName + String.valueOf(letterone);
-                                        lettertwo = line.charAt(x + 1);
-                                        y = x + 3;
+                                    if (times == 7) {
+                                        User = x;
+                                        times = times + 1;
                                     }
-                                }
-                                //Set Street Address
-                                letterone = line.charAt(y);
-                                HAddress = String.valueOf(letterone);
-                                lettertwo = line.charAt(y  + 1);
-                                for(int x = y + 1; x < 1000; x++){
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        HAddress = HAddress + String.valueOf(letterone);
-                                        lettertwo = line.charAt(x + 1);
-                                        y = x + 3;
+                                    if(times == 6){
+                                        PC = x;
+                                        times = times + 1;
                                     }
-                                }
-                                //Set Street Name
-                                letterone = line.charAt(y);
-                                SName = String.valueOf(letterone);
-                                lettertwo = line.charAt(y  + 1);
-                                for(int x = y + 1; x < 1000; x++){
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        SName = SName + String.valueOf(letterone);
-                                        lettertwo = line.charAt(x + 1);
-                                        y = x + 3;
+                                    if(times == 5){
+                                        CName = x;
+                                        times = times + 1;
                                     }
-                                }
-                                //Set City Name
-                                letterone = line.charAt(y);
-                                CName = String.valueOf(letterone);
-                                lettertwo = line.charAt(y  + 1);
-                                for(int x = y + 1; x < 1000; x++){
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        CName = CName + String.valueOf(letterone);
-                                        lettertwo = line.charAt(x + 1);
-                                        y = x + 3;
+                                    if(times == 4){
+                                        SName = x;
+                                        times = times +1;
                                     }
-                                }
-                                 //Set Post Code
-                                letterone = line.charAt(y);
-                                PC = String.valueOf(letterone);
-                                lettertwo = line.charAt(y + 1);
-                                for(int x = y + 1; x < line.length(); x++){
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        PC = PC + String.valueOf(letterone);
-
-                                       lettertwo = line.charAt(x + 1);
+                                    if(times == 3){
+                                        HAddress = x;
+                                        times = times + 1;
                                     }
-                                }
-                                //Set User
-                                letterone = line.charAt(y);
-                                User = String.valueOf(letterone);
-                                lettertwo = line.charAt(y + 1);
-                                for(int x = y + 1; x < line.length(); x++){
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        User = User + String.valueOf(letterone);
-
-                                      // lettertwo = line.charAt(x + 1);
+                                    if(times == 2){
+                                        SurName = x;
+                                        times = times + 1;
                                     }
-                                }
-                                //Set Pass
-                                letterone = line.charAt(y);
-                                User = String.valueOf(letterone);
-                                lettertwo = line.charAt(y + 1);
-                                for(int x = y + 1; x < line.length(); x++){
-                                    if(lettertwo != ','){
-                                        letterone = line.charAt(x);
-                                        User = User + String.valueOf(letterone);
-
-                                      // lettertwo = line.charAt(x + 1);
-                                }
-                                
-                                
-                                
-                                
-                                
-                                
-                              
-                                
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+//Create Instance Of Doctor       
                                 Doctors Doc;
                                 Doc = new Doctors(FirstName, SurName, HAddress, SName, CName, PC, User, Pass);
-                              
+                                
+                                doctorList.add(Doc);
+                                
+//Print Doctor Details
                                 System.out.println("D, " + Doc.getDoctor_FirstName() + " " + Doc.getDoctor_SurName() + " " + Doc.getDoctor_StreetNumber() + " " + Doc.getDoctor_StreetName() + " " + Doc.getDoctor_City() + " " + Doc.getDoctor_Postcode() + " " + Doc.getDoctor_User() + " " + Doc.getDoctor_Password());
+                                System.out.println(doctorList.size());
                             }
                         }
-//                        //Patients
-//                        if(a == 'P'){
-//                            if(b ==','){
-//                                System.out.println(a + "" + b);
-//                            }
-//                        }
-//                        //Admin
-//                        if(a == 'A'){
-//                            if(b ==','){
-//                                System.out.println(a + "" + b);
-//                            }
-//                        }
-//                        //Secretary
-//                        if(a == 'S'){
-//                            if(b ==','){
-//                                System.out.println(a + "" + b);
-//                            }
-//                        }
+                        //Patients
+                        if(a == 'P'){
+                            if(b ==','){
+//Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    if(times == 11){
+                                        //Pass = x;
+                                        times = 0;
+                                    }
+                                    if(times == 10){
+                                        Pass = x;
+                                        times = times + 1;
+                                    }
+                                    if (times == 9){
+                                        User = x;
+                                        times = times + 1;
+                                    }
+                                    if (times == 8){
+                                        PC = x;
+                                        times = times + 1;
+                                    }
+                                    if (times == 7) {
+                                        CName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 6){
+                                        SName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 5){
+                                        HAddress = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 4){
+                                        Age = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 3){
+                                        Gender = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 2){
+                                        SurName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                }    
+//Create Instance Of Patient                                
+                                Patients Pat;
+                                Pat = new Patients(FirstName, SurName, Gender, Age, HAddress, SName, CName, PC, User, Pass);
+//Print Patient Details                                
+                                System.out.println("P, " + Pat.getPatient_Firstname() + " " + Pat.getPatient_Surname() + " " + Pat.getPatient_Gender() + " " + Pat.getPatient_Age() + " " + Pat.getPatient_StreetNumber() + " " + Pat.getPatient_StreetName() + " " + Pat.getPatient_CityName() + " " + Pat.getPatient_PostCode() + " " + Pat.getPatient_Username() + " " + Pat.getPatient_Password());
+                            }
+                        }
+                        //Admin
+                        if(a == 'A'){
+                            if(b ==','){
+//Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    if(times == 6){
+                                        PC = x;
+                                        times = 0;
+                                    }
+                                    if(times == 5){
+                                        CName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 4){
+                                        SName = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 3){
+                                        HAddress = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 2){
+                                        SurName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+//Create Instance Of Admin                                
+                                Admin Adm;
+                                Adm = new Admin(FirstName, SurName, HAddress, SName, CName, PC);
+//Print Admin Details                                         
+                                System.out.println("A, " + Adm.getAdmin_FirstName() + " " + Adm.getAdmin_SurName() + " " + Adm.getAdmin_StreetNumber() + " " + Adm.getAdmin_StreetName() + " " + Adm.getAdmin_City() + " " + Adm.getAdmin_PostCode());                 
+                            }
+                        }
+                        //Secretary
+                        if(a == 'S'){
+                            if(b ==','){
+                                //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    if(times == 6){
+                                        PC = x;
+                                        times = 0;
+                                    }
+                                    if(times == 5){
+                                        CName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 4){
+                                        SName = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 3){
+                                        HAddress = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 2){
+                                        SurName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+//Create Instance Of Admin
+                                Secretary Sec;
+                                Sec = new Secretary(FirstName, SurName, HAddress, SName, CName, PC);
+//Print Admin Details                                         
+                                System.out.println("S, " + Sec.getSecretary_FirstName() + " " + Sec.getSecretary_SurName() + " " + Sec.getSecretary_StreetNumber() + " " + Sec.getSecretary_StreetName() + " " + Sec.getSecretary_City() + " " + Sec.getSecretary_Postcode());                   
+                            }
+                        }
 //                        //Clinic
 //                        if(a == 'C'){
 //                            if(b ==','){
@@ -261,5 +339,4 @@ BufferedReader reader;
     Home.show();               
                         
     }
-}
 }

@@ -8,13 +8,13 @@ public class Secretary
     protected Integer Secretary_IdentificationNumber = 0001;
     protected String Secretary_FirstName = "Unknown";
     protected String Secretary_SurName = "Unknown";
-    protected Integer Secretary_StreetNumber = 00;
+    protected String Secretary_StreetNumber = "00";
     protected String Secretary_StreetName = "Unknown";
     protected String Secretary_City = "Unknown";
     protected String Secretary_Postcode = "Unknown";
     
     //Constructor
-    public Secretary(String Secretary_FirstName, String Secretary_SurName, Integer Secretary_StreetNumber, String Secretary_StreetName, String Secretary_City, String Secretary_Postcode) {
+    public Secretary(String Secretary_FirstName, String Secretary_SurName, String Secretary_StreetNumber, String Secretary_StreetName, String Secretary_City, String Secretary_Postcode) {
         this.Secretary_FirstName = Secretary_FirstName;
         this.Secretary_SurName = Secretary_SurName;
         this.Secretary_StreetNumber = Secretary_StreetNumber;
@@ -36,7 +36,7 @@ public class Secretary
     public String getSecretary_SurName() {
         return Secretary_SurName;
     }
-    public Integer getSecretary_StreetNumber() {
+    public String getSecretary_StreetNumber() {
         return Secretary_StreetNumber;
     }
     public String getSecretary_StreetName() {
@@ -63,7 +63,7 @@ public class Secretary
     public void setSecretary_SurName(String Secretary_SurName) {
         this.Secretary_SurName = Secretary_SurName;
     }
-    public void setSecretary_StreetNumber(Integer Secretary_StreetNumber) {
+    public void setSecretary_StreetNumber(String Secretary_StreetNumber) {
         this.Secretary_StreetNumber = Secretary_StreetNumber;
     }
     public void setSecretary_StreetName(String Secretary_StreetName) {

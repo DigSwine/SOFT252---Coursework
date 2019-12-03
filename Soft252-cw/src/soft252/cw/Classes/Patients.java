@@ -9,8 +9,8 @@ public class Patients
     private String Patient_Firstname = "Unknown";
     private String Patient_Surname = "Unknown";
     private String Patient_Gender = "Unknown";
-    private Integer Patient_Age = 0;
-    private Integer Patient_StreetNumber = 0;
+    private String Patient_Age = "00";
+    private String Patient_StreetNumber = "00";
     private String Patient_StreetName = "Unknown";
     private String Patient_CityName = "Plymouth";
     private String Patient_PostCode = "PL1 1AA";
@@ -18,7 +18,7 @@ public class Patients
     private String Patient_Password = "Unknown";
     
     //Constructor
-    public Patients(String Patient_Firstname, String Patient_Surname, String Patient_Gender, Integer Patient_Age, Integer Patient_StreetNumber, String Patient_StreetName, String Patient_CityName, String Patient_PostCode, String Patient_Username, String Patient_Password) {
+    public Patients(String Patient_Firstname, String Patient_Surname, String Patient_Gender, String Patient_Age, String Patient_StreetNumber, String Patient_StreetName, String Patient_CityName, String Patient_PostCode, String Patient_Username, String Patient_Password) {
         this.Patient_Firstname = Patient_Firstname;
         this.Patient_Surname = Patient_Surname;
         this.Patient_Gender = Patient_Gender;
@@ -47,10 +47,10 @@ public class Patients
     public String getPatient_Gender() {
         return Patient_Gender;
     }
-    public Integer getPatient_Age() {
+    public String getPatient_Age() {
         return Patient_Age;
     }
-    public Integer getPatient_StreetNumber() {
+    public String getPatient_StreetNumber() {
         return Patient_StreetNumber;
     }
     public String getPatient_StreetName() {
@@ -95,10 +95,10 @@ public class Patients
         this.Patient_Gender = Patient_Gender;
         }
     }
-    public void setPatient_Age(Integer Patient_Age) {
+    public void setPatient_Age(String Patient_Age) {
         this.Patient_Age = Patient_Age;
     }
-    public void setPatient_StreetNumber(Integer Patient_StreetNumber) {
+    public void setPatient_StreetNumber(String Patient_StreetNumber) {
         this.Patient_StreetNumber = Patient_StreetNumber;
     }
     public void setPatient_StreetName(String Patient_StreetName) {
