@@ -1,6 +1,8 @@
 // @author mwilson-slider
 
 package soft252.cw.Classes;
+import java.util.ArrayList;
+
 public class Doctors 
 {
     //Variables
@@ -14,6 +16,7 @@ public class Doctors
     protected String Doctor_Postcode = "PL1";
     private String Doctor_User = "Unknown";
     private String Doctor_Password="Unknown";
+    
     
     
     //Constructor

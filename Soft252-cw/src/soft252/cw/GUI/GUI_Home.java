@@ -2,16 +2,30 @@
 
 package soft252.cw.GUI;
 
-import java.awt.event.WindowEvent;
-import static javax.swing.JOptionPane.showMessageDialog;
-
+import soft252.cw.Classes.List_Users;
+import soft252.cw.Classes.Patients;
+import soft252.cw.Classes.Doctors;
+import soft252.cw.Classes.Admin;
+import soft252.cw.Classes.Secretary;
 
 public class GUI_Home extends javax.swing.JFrame {
 
-    // Creates new form GUI_Home     
+    //Functionality
+    List_Users U = new List_Users();  
+    String Username[];
+    String Password[];
+    String Type[];
+    public void GetUser(List_Users Users){
+        U = Users;
+        Username = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size()];
+        Password = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size()];
+        Type = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size()];
+        SetLogins();
+    }
+    
+    // Creates new form GUI_Home 
     public GUI_Home() {
         initComponents();
-        SetLogins();
     }
  
   
@@ -81,21 +95,33 @@ public class GUI_Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //NOPE
-    
-    
-     //Functionality
-    String Username[] = new String[8];
-    String Password[] = new String[8];
-    String Type[] = new String[8];
-    
-    private void SetLogins(){
+
+    public void SetLogins(){
+        int LengthOfUsers = 0;
+        LengthOfUsers = U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size();
         
-        
-        for(Integer x = 0; x < 8; x++){
-            Username[x] = x.toString();
+        System.out.println(LengthOfUsers);
+        int count = 0;
+        for(Integer x = 0; x <= LengthOfUsers; x++){
+            if(x < U.patientList.size()){
+                Username[x] = U.patientList.get(x).getPatient_Username();
+                System.out.println(U.patientList.get(x).getPatient_Username());
+            }
+            if(x > U.patientList.size()){
+                if(x <=U.patientList.size() + U.doctorList.size()){
+                Username[x] = U.doctorList.get(x - x + count).getDoctor_User();
+                System.out.println(U.doctorList.get(x - x + count).getDoctor_User());
+                count++;
+                }
+//            if(x > U.patientList.size() + U.doctorList.size()){
+//                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
+//                Username[x] = U.adminList.get(x - x + count).getAdmin_FirstName();
+//                System.out.println(U.adminList.get(x - x + count).getAdmin_FirstName());
+//                }
+//                
+//            }
+            }
         }
-        
-      
                         
         Type[0] = ("P"); //0
         Type[1] = ("P"); //1
@@ -109,16 +135,15 @@ public class GUI_Home extends javax.swing.JFrame {
         
         Type[7] = ("A"); //7
         
-       for(Integer x = 0; x < 8; x++){
+       for(Integer x = 0; x < LengthOfUsers; x++){
             Password[x] = "1";
         }
     }
        
     private void Btn_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogInActionPerformed
-
         //Get Combobox item
         String SelectedUser = Cmb_UserType.getSelectedItem().toString();
-
+        
         //output
         if("Patient".equals(SelectedUser)){
         //Validation
