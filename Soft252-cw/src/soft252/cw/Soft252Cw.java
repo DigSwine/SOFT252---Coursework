@@ -20,6 +20,7 @@ import soft252.cw.Classes.List_Clinic;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
 import soft252.cw.Classes.Secretary;
+import soft252.cw.GUI.GUI_User;
 
 public class Soft252Cw 
 {
@@ -52,8 +53,9 @@ public class Soft252Cw
             + "CD, Dextroamphetamine, 1.50, Perscription  - Drug, 20 Tablets,  used to treat narcolepsy and ADHD, 100\n"
             + "CD, Baclofene, 3.50, Perscription  - Drug, 24 Tablets, muscle relaxer and an antispasmodic agent, 100\n"
             + "AP, 0003, 0002, This patient is suffering from hayfever\n"
-            + "PP, 0003, 0007, Beclomethasone Nasal, 1, 1\n";
-      
+            + "PP, 0003, 0001, Beclomethasone Nasal, 1, 1\n"
+            + "PP, 0001, 0002, Epipen, 1, 1\n";
+        
       //Create Data File
         File file = new File("Data.txt");
         FileWriter fw = new FileWriter(file.getAbsoluteFile());

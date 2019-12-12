@@ -18,4 +18,5 @@ CD, Opium Tincture, 3.50, Perscription  - Drug, 5 Tablets, used to treat diarrhe
 CD, Dextroamphetamine, 1.50, Perscription  - Drug, 20 Tablets,  used to treat narcolepsy and ADHD, 100
 CD, Baclofene, 3.50, Perscription  - Drug, 24 Tablets, muscle relaxer and an antispasmodic agent, 100
 AP, 0003, 0002, This patient is suffering from hayfever
-PP, 0003, 0007, Beclomethasone Nasal, 1, 1
+PP, 0003, 0001, Beclomethasone Nasal, 1, 1
+PP, 0001, 0002, Epipen, 1, 1

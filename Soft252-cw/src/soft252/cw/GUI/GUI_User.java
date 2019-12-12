@@ -2,23 +2,50 @@
 
 package soft252.cw.GUI;
 
+
+import java.util.Objects;
 import javax.swing.DefaultListModel;
+import soft252.cw.Classes.Appointments;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
+import soft252.cw.Classes.Patients;
+import soft252.cw.Classes.Perscriptions;
 
 
 public class GUI_User extends javax.swing.JFrame {
     
-    public static List_Users U = new List_Users();
+   static Integer ID;
+    
+   public static List_Users U = new List_Users();
    public static Lists_AP AP = new Lists_AP();
+   
+  
+   
 
+   
+   
+   
+   
     public GUI_User() {
-        
-        initComponents();       
+        initComponents();   
+         Perscriptions Pers1;
+         Perscriptions Pers2;
+         Perscriptions Pers3;
+                                Pers1 = new Perscriptions("0001", "0007", "Epipen", "1", "1");
+                                Pers2 = new Perscriptions("2", "0007", "Beclomethasone Nasal", "1", "1");
+                                Pers3 = new Perscriptions("3", "0007", "Beclomethasone Nasal", "1", "1");
+                                
+                                AP.perscriptionList.add(Pers1);
+                                AP.perscriptionList.add(Pers2);
+                                AP.perscriptionList.add(Pers3);
     }
     
     public static void GetUser(List_Users Users){
         U = Users;
+    }
+    
+    public static void GetUId(Integer x){
+        ID = x + 1;
     }
     
     @SuppressWarnings("unchecked")
@@ -63,6 +90,11 @@ public class GUI_User extends javax.swing.JFrame {
         });
 
         Btn_DeleteAccount.setText("Delete Account");
+        Btn_DeleteAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_DeleteAccountActionPerformed(evt);
+            }
+        });
 
         Btn_LogOut.setText("Log Out");
         Btn_LogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -130,9 +162,7 @@ public class GUI_User extends javax.swing.JFrame {
 
     
     private void Btn_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogOutActionPerformed
-        GUI_Home home = new GUI_Home();
-        home.show();
-        this.hide();    
+        OpenHome();
     }//GEN-LAST:event_Btn_LogOutActionPerformed
 
     private void Btn_ViewDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewDRActionPerformed
@@ -154,10 +184,12 @@ public class GUI_User extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ReqAppointActionPerformed
 
     private void Btn_ViewPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewPerActionPerformed
-       String Perscriptions[] = new String[AP.perscriptionList.size()];         
-        for(int x = 0; x < AP.perscriptionList.size(); x++){
-            Perscriptions[x] = AP.perscriptionList.get(x).getPerscription_Name() + " - " + AP.perscriptionList.get(x).getPerscption_Dosage() + " - Perscribed Quantity = " + AP.perscriptionList.get(x).getPerscription_Quantity();
-        }
+       int lengthofperscriptions = 0;
+       lengthofperscriptions = AP.perscriptionList.size();
+        String Perscriptions[] = new String[lengthofperscriptions];
+        for(int x = 0; x < lengthofperscriptions; x++){
+                Perscriptions[x] = AP.perscriptionList.get(x).getPerscription_Name() + " - " + AP.perscriptionList.get(x).getPerscption_Dosage() + " --- Perscribed Quantity = " + AP.perscriptionList.get(x).getPerscription_Quantity();
+            }
             //SetListValues
             DefaultListModel DLM = new DefaultListModel();
             for(int x = 0; x < AP.perscriptionList.size(); x++){
@@ -166,6 +198,24 @@ public class GUI_User extends javax.swing.JFrame {
             Lst_All.setModel(DLM);
     }//GEN-LAST:event_Btn_ViewPerActionPerformed
 
+    private void Btn_DeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DeleteAccountActionPerformed
+        int last = U.patientList.size();
+        if(ID == last){
+            U.patientList.remove(U.patientList.size() - 1);
+            OpenHome();
+        }
+        else {
+         //   U.patientList.remove(U.patientList.get(ID));
+            OpenHome();
+        }
+    }//GEN-LAST:event_Btn_DeleteAccountActionPerformed
+    
+    private void OpenHome(){
+        GUI_Home Home = new GUI_Home();
+            Home.GetUser(U);
+            Home.show();
+            this.dispose();
+    }
    
     
     

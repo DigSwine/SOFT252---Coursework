@@ -206,8 +206,9 @@ public class GUI_Home extends javax.swing.JFrame {
                             //Open New Window
                             GUI_User Next = new GUI_User();
                             GUI_User.GetUser(U);
+                            GUI_User.GetUId(x);
                             Next.show();
-                            this.hide();
+                            this.dispose();
                         }
                     }
                 }
