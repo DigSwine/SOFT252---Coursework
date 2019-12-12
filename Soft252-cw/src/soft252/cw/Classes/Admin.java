@@ -12,15 +12,19 @@ public class Admin
     protected String Admin_StreetName = "Unknown";
     protected String Admin_City = "Plymouth";
     protected String Admin_PostCode = "PL1";
+    protected String Admin_Username = "Unknown";
+    protected String Admin_Password = "unknown";
 
     //Constructor
-    public Admin(String Admin_FirstName, String Admin_SurName, String Admin_StreetNumber, String Admin_StreetName, String Admin_City, String Admin_PostCode) {
+    public Admin(String Admin_FirstName, String Admin_SurName, String Admin_StreetNumber, String Admin_StreetName, String Admin_City, String Admin_PostCode, String Admin_Username, String Admin_Password) {
         this.Admin_FirstName = Admin_FirstName;
         this.Admin_SurName = Admin_SurName;
         this.Admin_StreetNumber = Admin_StreetNumber;
         this.Admin_StreetName = Admin_StreetName;
         this.Admin_City = Admin_City;
         this.Admin_PostCode = Admin_PostCode;
+        this.Admin_Username = Admin_Username;
+        this.Admin_Password = Admin_Password;
     }
     
     
@@ -39,7 +43,6 @@ public class Admin
     }
     public String getAdmin_StreetNumber() {
         return Admin_StreetNumber;
-    
     }
     public String getAdmin_StreetName() {
         return Admin_StreetName;
@@ -49,6 +52,12 @@ public class Admin
     }
     public String getAdmin_PostCode() {
         return Admin_PostCode;
+    }
+    public String getAdmin_Username() {
+        return Admin_Username;
+    }
+    public String getAdmin_Password() {
+        return Admin_Password;
     }
     
     //Setters
@@ -81,6 +90,12 @@ public class Admin
     }
     public void setAdmin_PostCode(String Admin_PostCode) {
         this.Admin_PostCode = Admin_PostCode;
+    }
+    public void setAdmin_Username(String Admin_Username) {
+        this.Admin_Username = Admin_Username;
+    }
+    public void setAdmin_Password(String Admin_Password) {
+        this.Admin_Password = Admin_Password;
     }
     
 }

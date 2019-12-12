@@ -3,10 +3,7 @@
 package soft252.cw.GUI;
 
 import soft252.cw.Classes.List_Users;
-import soft252.cw.Classes.Patients;
-import soft252.cw.Classes.Doctors;
-import soft252.cw.Classes.Admin;
-import soft252.cw.Classes.Secretary;
+
 
 public class GUI_Home extends javax.swing.JFrame {
 
@@ -15,13 +12,15 @@ public class GUI_Home extends javax.swing.JFrame {
     String Username[];
     String Password[];
     String Type[];
+    
     public void GetUser(List_Users Users){
         U = Users;
-        Username = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size()];
-        Password = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size()];
-        Type = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size()];
+        Username = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
+        Password = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
+        Type = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
         SetLogins();
     }
+
     
     // Creates new form GUI_Home 
     public GUI_Home() {
@@ -99,61 +98,114 @@ public class GUI_Home extends javax.swing.JFrame {
     public void SetLogins(){
         int LengthOfUsers = 0;
         LengthOfUsers = U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size();
-        
-        System.out.println(LengthOfUsers);
         int count = 0;
+//Usernames
+    //patients
         for(Integer x = 0; x <= LengthOfUsers; x++){
             if(x < U.patientList.size()){
                 Username[x] = U.patientList.get(x).getPatient_Username();
-                System.out.println(U.patientList.get(x).getPatient_Username());
             }
+    //doctors
             if(x > U.patientList.size()){
                 if(x <=U.patientList.size() + U.doctorList.size()){
                 Username[x] = U.doctorList.get(x - x + count).getDoctor_User();
-                System.out.println(U.doctorList.get(x - x + count).getDoctor_User());
                 count++;
                 }
-//            if(x > U.patientList.size() + U.doctorList.size()){
-//                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
-//                Username[x] = U.adminList.get(x - x + count).getAdmin_FirstName();
-//                System.out.println(U.adminList.get(x - x + count).getAdmin_FirstName());
-//                }
-//                
-//            }
+    //admin
+            if(x > U.patientList.size() + U.doctorList.size()){
+                count = 0;
+                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
+                Username[x] = U.adminList.get(x - x + count).getAdmin_Username();
+                count++;
+                }
+    //Secretary
+            if(x > U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.secreteryList.size()){
+                Username[x] = U.secreteryList.get(x - x).getSecretary_Username();
+                }
+            }
             }
         }
-                        
-        Type[0] = ("P"); //0
-        Type[1] = ("P"); //1
-        Type[2] = ("P"); //2
-        
-        Type[3] = ("D"); //3
-        Type[4] = ("D"); //4
-        Type[5] = ("D"); //5
-        
-        Type[6] = ("S"); //6
-        
-        Type[7] = ("A"); //7
-        
-       for(Integer x = 0; x < LengthOfUsers; x++){
-            Password[x] = "1";
         }
+        count = 0;
+        
+//Type
+    //patients
+        for(Integer x = 0; x <= LengthOfUsers; x++){
+            if(x < U.patientList.size()){
+                Type[x] = "P";
+            }
+    //doctors
+            if(x > U.patientList.size()){
+                if(x <=U.patientList.size() + U.doctorList.size()){
+                Type[x] = "D";
+                count++;
+                }
+    //admin
+            if(x > U.patientList.size() + U.doctorList.size()){
+                count = 0;
+                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
+                Type[x] = "A";
+                count++;
+                }
+    //Secretary
+            if(x > U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.secreteryList.size()){
+                Type[x] = "S";
+                }
+            }
+            }
+        }
+        }
+        count = 0;
+                        
+//Passwords    
+        //patients
+        for(Integer x = 0; x <= LengthOfUsers; x++){
+            if(x < U.patientList.size()){
+                Password[x] = U.patientList.get(x).getPatient_Password();
+            }
+    //doctors
+            if(x > U.patientList.size()){
+                if(x <=U.patientList.size() + U.doctorList.size()){
+                    Password[x] = U.doctorList.get(x - x + count).getDoctor_Password();
+                    count++;
+                }
+    //admin
+            if(x > U.patientList.size() + U.doctorList.size()){
+                count = 0;
+                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
+                Password[x] = U.adminList.get(x - x + count).getAdmin_Password();
+                count++;
+                }
+    //Secretary
+            if(x > U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.secreteryList.size()){
+                Password[x] = U.secreteryList.get(x - x).getSecretary_Password();
+                }
+            }
+            }
+        }
+        }
+        count=0;
     }
        
     private void Btn_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogInActionPerformed
-        //Get Combobox item
+    int LengthOfUsers = 0;
+        LengthOfUsers = U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size();        
+//Get Combobox item
         String SelectedUser = Cmb_UserType.getSelectedItem().toString();
         
         //output
         if("Patient".equals(SelectedUser)){
         //Validation
-            for(int x = 0; x < 8; x++){
+            for(int x = 0; x <= LengthOfUsers; x++){
                 if(Txt_Username.getText().equals(Username[x])){
                     if(Type[x].equals("P")){
                         if(Txt_Password.getText().equals(Password[x])){
-                       
                             //Open New Window
                             GUI_User Next = new GUI_User();
+                            GUI_User.GetUser(U);
                             Next.show();
                             this.hide();
                         }
@@ -163,7 +215,7 @@ public class GUI_Home extends javax.swing.JFrame {
         }
         
         if("Doctor".equals(SelectedUser)) {
-           for(int x = 0; x < 8; x++){
+           for(int x = 0; x <= LengthOfUsers; x++){
                if(Txt_Username.getText().equals(Username[x])){
                     if(Type[x].equals("D")){
                         if(Txt_Password.getText().equals(Password[x])){
@@ -178,42 +230,35 @@ public class GUI_Home extends javax.swing.JFrame {
         
         if("Secetery".equals(SelectedUser)){
            //Validation
-//        for(int x = 0; x < 8; x++){
-//            if(Txt_Username.getText().equals(Username[x])){
-//                if(Type[x].equals("S")){
-//                    if(Txt_Password.getText().equals(Password[x])){
-//                       
+            for(int x = 0; x <= LengthOfUsers; x++){
+                if(Txt_Username.getText().equals(Username[x])){
+                    if(Type[x].equals("S")){
+                        if(Txt_Password.getText().equals(Password[x])){
                         //Open New Window
-//                        GUI_User Next = new GUI_User();
-//                        Next.show();
-                        
-                        //Close Window
-                        //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING)); 
-//                    }
-//                } 
-//            }        
-//        } 
+//                        GUI_User Sec = new GUI_User();
+//                        Sec.show(); 
+                            this.hide();
+                    }
+                } 
+            }        
         }
+        }
+
         if("Admin".equals(SelectedUser)){
          //Validation
-//        for(int x = 0; x < 8; x++){
-//            if(Txt_Username.getText().equals(Username[x])){
-//                if(Type[x].equals("A")){
-//                    if(Txt_Password.getText().equals(Password[x])){
-                       
+            for(int x = 0; x <= LengthOfUsers; x++){
+                if(Txt_Username.getText().equals(Username[x])){
+                    if(Type[x].equals("A")){
+                        if(Txt_Password.getText().equals(Password[x])){
                         //Open New Window
 //                        GUI_User Next = new GUI_User();
 //                        Next.show();
-                        
-                        //Close Window
-                        //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING)); 
-//                    }
-//                } 
-//            }        
-//        }   
-//        }        
-                 
-        }    
+                            this.hide();
+                        }
+                    } 
+                }        
+            }   
+        }              
     }//GEN-LAST:event_Btn_LogInActionPerformed
 
     private void Cmb_UserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cmb_UserTypeActionPerformed

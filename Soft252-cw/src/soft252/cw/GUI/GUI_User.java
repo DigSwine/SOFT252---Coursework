@@ -2,17 +2,24 @@
 
 package soft252.cw.GUI;
 
-import soft252.cw.GUI.GUI_Home;
-import java.awt.event.WindowEvent;
-import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import soft252.cw.Classes.List_Users;
+import soft252.cw.Classes.Lists_AP;
+
 
 public class GUI_User extends javax.swing.JFrame {
     
+    public static List_Users U = new List_Users();
+   public static Lists_AP AP = new Lists_AP();
+
     public GUI_User() {
+        
         initComponents();       
     }
-
+    
+    public static void GetUser(List_Users Users){
+        U = Users;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -49,6 +56,11 @@ public class GUI_User extends javax.swing.JFrame {
         Btn_ViewHis.setText("View History");
 
         Btn_ViewPer.setText("View Perscription");
+        Btn_ViewPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ViewPerActionPerformed(evt);
+            }
+        });
 
         Btn_DeleteAccount.setText("Delete Account");
 
@@ -59,6 +71,7 @@ public class GUI_User extends javax.swing.JFrame {
             }
         });
 
+        Lst_All.setToolTipText("");
         jScrollPane1.setViewportView(Lst_All);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,26 +136,35 @@ public class GUI_User extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_LogOutActionPerformed
 
     private void Btn_ViewDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewDRActionPerformed
-        
-        String Names[] = new String[3];   
-        
-        Names[0] = "Jess";
-        Names[1] = "Drew";
-        Names[2] = "Bob";
-            
+        String Names[] = new String[U.doctorList.size()];         
+        for(int x = 0; x < U.doctorList.size(); x++){
+            Names[x] = U.doctorList.get(x).getDoctor_FirstName() + " " + U.doctorList.get(x).getDoctor_SurName() + "--- Rating = " + U.doctorList.get(x).getDoctor_Rateing();
+        }
             //SetListValues
             DefaultListModel DLM = new DefaultListModel();
-            for(int x = 0; x < 3; x++){
+            for(int x = 0; x < U.doctorList.size(); x++){
             DLM.addElement(Names[x]);
             }
-            
-        Lst_All.setModel(DLM);
+            Lst_All.setModel(DLM);
     }//GEN-LAST:event_Btn_ViewDRActionPerformed
 
     private void Btn_ReqAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ReqAppointActionPerformed
              GUI_UserAppointmentRequest request = new GUI_UserAppointmentRequest();
              request.show();
     }//GEN-LAST:event_Btn_ReqAppointActionPerformed
+
+    private void Btn_ViewPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewPerActionPerformed
+       String Perscriptions[] = new String[AP.perscriptionList.size()];         
+        for(int x = 0; x < AP.perscriptionList.size(); x++){
+            Perscriptions[x] = AP.perscriptionList.get(x).getPerscription_Name() + " - " + AP.perscriptionList.get(x).getPerscption_Dosage() + " - Perscribed Quantity = " + AP.perscriptionList.get(x).getPerscription_Quantity();
+        }
+            //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < AP.perscriptionList.size(); x++){
+            DLM.addElement(Perscriptions[x]);
+            }
+            Lst_All.setModel(DLM);
+    }//GEN-LAST:event_Btn_ViewPerActionPerformed
 
    
     

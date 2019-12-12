@@ -32,14 +32,14 @@ public class Soft252Cw
        
         // Set Defult Data
         String content = 
-            "D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345\n"
-            + "D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345\n"
-            + "D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345\n"
+            "D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345, 3.5\n"
+            + "D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345, 1\n"
+            + "D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345 , 5\n"
             + "P, David, Charger, Male, 54, 99, Long Road, Plymouth, PL5 2RT, DCharger, 123456\n"
             + "P, Kimberly, Little, Female, 23, 12, Foxwood Road, Plymouth, PL2 4DZ, KLittle, 1212\n"
             + "P, Luke, Walker, Male, 17, 23, Berry Road, Plymouth, PL1 2BR, LWalker, 123123\n"
-            + "A, Karran, Southbank, 29, Hallow Way, Plymouth, PL8 9KL\n"
-            + "S, Shallisa, Beonce, 100, Deo Lane, Plymouth, PL3 2DO\n"
+            + "A, Karran, Southbank, 29, Hallow Way, Plymouth, PL8 9KL, KSouthbank, 0909\n"
+            + "S, Shallisa, Beonce, 100, Deo Lane, Plymouth, PL3 2DO, SBeonce, 9090\n"
             + "C, MadeUp Pharmacy, 50, Long Road, Plymouth, PL5 2RT\n"
             + "CD, Paracetomol, 1.50, Over The Counter - Drug, 12 Tablets, Releaves Pain, 100\n"
             + "CD, Ibuprofen, 1.25, Over The Counter - Drug, 12 Tablets, Releaves Pain, 100\n"
@@ -89,9 +89,13 @@ BufferedReader reader;
                                 int times = 0;
 //Get Each Block Of The String "line"                                
                                 for (String x : arrOfStr){
+                                    if(times == 9){
+                                        Age = x;
+                                        times = 0;
+                                    }
                                     if (times == 8){
                                         Pass = x;
-                                        times = 0;
+                                        times = times + 1;
                                     }
                                     if (times == 7) {
                                         User = x;
@@ -127,11 +131,8 @@ BufferedReader reader;
                                 } 
 //Create Instance Of Doctor       
                                 Doctors Doc;
-                                Doc = new Doctors(FirstName, SurName, HAddress, SName, CName, PC, User, Pass);
+                                Doc = new Doctors(FirstName, SurName, HAddress, SName, CName, PC, User, Pass, Age);
                                 U.doctorList.add(Doc);
-                                
-//Print Doctor Details
-                                System.out.println("D, " + Doc.getDoctor_FirstName() + " " + Doc.getDoctor_SurName() + " " + Doc.getDoctor_StreetNumber() + " " + Doc.getDoctor_StreetName() + " " + Doc.getDoctor_City() + " " + Doc.getDoctor_Postcode() + " " + Doc.getDoctor_User() + " " + Doc.getDoctor_Password());
                             }
                         }
                         //Patients
@@ -189,8 +190,6 @@ BufferedReader reader;
                                 Patients Pat;
                                 Pat = new Patients(FirstName, SurName, Gender, Age, HAddress, SName, CName, PC, User, Pass);
                                 U.patientList.add(Pat);
-//Print Patient Details                                
-                                System.out.println("P, " + Pat.getPatient_Firstname() + " " + Pat.getPatient_Surname() + " " + Pat.getPatient_Gender() + " " + Pat.getPatient_Age() + " " + Pat.getPatient_StreetNumber() + " " + Pat.getPatient_StreetName() + " " + Pat.getPatient_CityName() + " " + Pat.getPatient_PostCode() + " " + Pat.getPatient_Username() + " " + Pat.getPatient_Password());
                             }
                         }
                         //Admin
@@ -201,9 +200,17 @@ BufferedReader reader;
                                 int times = 0;
 //Get Each Block Of The String "line"                                
                                 for (String x : arrOfStr){
+                                    if(times == 8){
+                                        Pass = x;
+                                        times = 0;
+                                    }
+                                    if(times == 7){
+                                        User = x;
+                                        times = times + 1;
+                                    }
                                     if(times == 6){
                                         PC = x;
-                                        times = 0;
+                                        times = times + 1;
                                     }
                                     if(times == 5){
                                         CName = x;
@@ -231,10 +238,8 @@ BufferedReader reader;
                                 } 
 //Create Instance Of Admin                                
                                 Admin Adm;
-                                Adm = new Admin(FirstName, SurName, HAddress, SName, CName, PC);
+                                Adm = new Admin(FirstName, SurName, HAddress, SName, CName, PC, User, Pass);
                                 U.adminList.add(Adm);
-//Print Admin Details                                         
-                                System.out.println("A, " + Adm.getAdmin_FirstName() + " " + Adm.getAdmin_SurName() + " " + Adm.getAdmin_StreetNumber() + " " + Adm.getAdmin_StreetName() + " " + Adm.getAdmin_City() + " " + Adm.getAdmin_PostCode());                 
                             }
                         }
                         //Secretary
@@ -245,9 +250,17 @@ BufferedReader reader;
                                 int times = 0;
 //Get Each Block Of The String "line"                                
                                 for (String x : arrOfStr){
+                                    if(times == 8){
+                                        Pass = x;
+                                        times = 0;
+                                    }
+                                    if(times == 7){
+                                        User = x;
+                                        times = times + 1;
+                                    }
                                     if(times == 6){
                                         PC = x;
-                                        times = 0;
+                                        times = times + 1;
                                     }
                                     if(times == 5){
                                         CName = x;
@@ -273,12 +286,10 @@ BufferedReader reader;
                                         times = times + 1;
                                     }
                                 } 
-//Create Instance Of Admin
+//Create Instance Of Secretary
                                 Secretary Sec;
-                                Sec = new Secretary(FirstName, SurName, HAddress, SName, CName, PC);
+                                Sec = new Secretary(FirstName, SurName, HAddress, SName, CName, PC, User, Pass);
                                 U.secreteryList.add(Sec);
-//Print Admin Details                                         
-                                System.out.println("S, " + Sec.getSecretary_FirstName() + " " + Sec.getSecretary_SurName() + " " + Sec.getSecretary_StreetNumber() + " " + Sec.getSecretary_StreetName() + " " + Sec.getSecretary_City() + " " + Sec.getSecretary_Postcode());                   
                             }
                         }
                         //Clinic
@@ -317,8 +328,6 @@ BufferedReader reader;
                                 Clinic Cli;
                                 Cli = new Clinic(FirstName, HAddress, SName, CName, PC);
                                 C.clinicList.add(Cli);
-//Print Clinic Details
-                                System.out.println("C, " + Cli.getClinic_Name() + " " + Cli.getClinic_StreetNumber() + " " + Cli.getClinic_StreetName() + " " + Cli.getClinic_City() + " " + Cli.getClinic_PostCode());  
                             }
                         }
                         //Clinic Drugs
@@ -361,8 +370,6 @@ BufferedReader reader;
                                 Clinic CliDru;
                                 CliDru = new Clinic(FirstName, HAddress, SName, CName, PC, User);
                                 C.drugList.add(CliDru);
-//Print Clinic Details
-                                System.out.println("CD, " + FirstName + " " + HAddress + " " + SName + " " + CName + " " + PC + " " + User);
                                 }
                             }
                         }
@@ -407,8 +414,6 @@ BufferedReader reader;
                                 Appointments Appt;
                                 Appt = new Appointments(FirstName, User, PC);
                                 AP.appointmentList.add(Appt);
-//Print Clinic Details
-                                System.out.println("AP, " + FirstName + " " + User + " " + PC);
                                 }
                             }
                         }
@@ -446,12 +451,10 @@ BufferedReader reader;
                                         times = times + 1;
                                     }
                                 } 
-//Create Instance Of Clinic
+//Create Instance Of Perscriptions
                                 Perscriptions Pers;
                                 Pers = new Perscriptions(FirstName, User, SurName, SName, CName);
                                 AP.perscriptionList.add(Pers);
-//Print Clinic Details
-                                System.out.println("PP, " + FirstName + " " + User + " " + SurName + " " + SName + " " + CName);
                                 }
                             }
                         }
@@ -462,7 +465,6 @@ BufferedReader reader;
     //Open GUI
     GUI_Home Home = new GUI_Home();
     Home.GetUser(U);
-    Home.show();               
-                        
+    Home.show();                                  
     }
 }

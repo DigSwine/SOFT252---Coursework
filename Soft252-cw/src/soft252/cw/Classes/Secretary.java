@@ -12,15 +12,19 @@ public class Secretary
     protected String Secretary_StreetName = "Unknown";
     protected String Secretary_City = "Unknown";
     protected String Secretary_Postcode = "Unknown";
+    protected String Secretary_Username = "Unknown";
+    protected String Secretary_Password = "Unknown";
     
     //Constructor
-    public Secretary(String Secretary_FirstName, String Secretary_SurName, String Secretary_StreetNumber, String Secretary_StreetName, String Secretary_City, String Secretary_Postcode) {
+    public Secretary(String Secretary_FirstName, String Secretary_SurName, String Secretary_StreetNumber, String Secretary_StreetName, String Secretary_City, String Secretary_Postcode, String Secretary_Username, String Secretary_Password) {
         this.Secretary_FirstName = Secretary_FirstName;
         this.Secretary_SurName = Secretary_SurName;
         this.Secretary_StreetNumber = Secretary_StreetNumber;
         this.Secretary_StreetName = Secretary_StreetName;
         this.Secretary_City = Secretary_City;
         this.Secretary_Postcode = Secretary_Postcode;  
+        this.Secretary_Username = Secretary_Username;
+        this.Secretary_Password = Secretary_Password;
     }  
     
     //Getters
@@ -48,6 +52,12 @@ public class Secretary
     public String getSecretary_Postcode() {
         return Secretary_Postcode;
     }
+    public String getSecretary_Username() {
+        return Secretary_Username;
+    }
+    public String getSecretary_Password() {
+        return Secretary_Password;
+    }
        
        
     //Setters
@@ -74,6 +84,12 @@ public class Secretary
     }
     public void setSecretary_Postcode(String Secretary_Postcode) {
         this.Secretary_Postcode = Secretary_Postcode;
+    }
+    public void setSecretary_Username(String Secretary_Username) {
+        this.Secretary_Username = Secretary_Username;
+    }
+    public void setSecretary_Password(String Secretary_Password) {
+        this.Secretary_Password = Secretary_Password;
     }
 
 }
