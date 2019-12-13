@@ -30,7 +30,10 @@ public class Soft252Cw
        List_Clinic C = new List_Clinic();
        Lists_AP AP = new Lists_AP();
 
+        File file = new File("Data.txt");
+      
        
+       if(!file.exists() && !file.isDirectory()) {    
         // Set Defult Data
         String content = 
             "D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345, 3.5\n"
@@ -56,15 +59,16 @@ public class Soft252Cw
             + "PP, 0003, 0001, Beclomethasone Nasal, 1, 1\n"
             + "PP, 0001, 0002, Epipen, 1, 1\n";
         
+       
       //Create Data File
-        File file = new File("Data.txt");
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(content);
         bw.close();
-
-        //DataReader
-BufferedReader reader;
+       }
+       else{
+       //DataReader
+                        BufferedReader reader;
 			reader = new BufferedReader(new FileReader("Data.txt"));       
                         //Get First Line
                         String line = reader.readLine();                       
@@ -80,9 +84,9 @@ BufferedReader reader;
                         String Pass = "Unknown";
                         
                         while (line != null) {
-                        char a = line.charAt(0);
-                        char b = line.charAt(1);
-                        char c = line.charAt(2);
+                            char a = line.charAt(0);
+                            char b = line.charAt(1);
+                            char c = line.charAt(2);
                         //Doctors
                         if(a == 'D'){
                             if(b == ','){
@@ -462,6 +466,7 @@ BufferedReader reader;
                         }
                         //Set Next Line
                         line = reader.readLine();
+        }
         }
                         
     //Open GUI

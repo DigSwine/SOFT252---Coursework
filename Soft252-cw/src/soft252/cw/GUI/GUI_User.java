@@ -3,7 +3,17 @@
 package soft252.cw.GUI;
 
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import soft252.cw.Classes.Appointments;
 import soft252.cw.Classes.List_Users;
@@ -199,15 +209,12 @@ public class GUI_User extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ViewPerActionPerformed
 
     private void Btn_DeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DeleteAccountActionPerformed
-        int last = U.patientList.size();
-        if(ID == last){
-            U.patientList.remove(U.patientList.size() - 1);
-            OpenHome();
-        }
-        else {
-         //   U.patientList.remove(U.patientList.get(ID));
-            OpenHome();
-        }
+       try {
+           Delete();
+           OpenHome();
+       } catch (IOException ex) {
+           Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }//GEN-LAST:event_Btn_DeleteAccountActionPerformed
     
     private void OpenHome(){
@@ -217,7 +224,89 @@ public class GUI_User extends javax.swing.JFrame {
             this.dispose();
     }
    
-    
+    private void Delete() throws IOException{
+        try {
+                BufferedReader reader;
+                reader = new BufferedReader(new FileReader("Data.txt"));
+                
+                String line = reader.readLine();
+                String LoggedinUser = U.patientList.get(ID - 1).getPatient_Username();
+                String LoggedinPass = U.patientList.get(ID - 1).getPatient_Password();
+                
+                
+                String context[] = new String[1];
+                int x = 0;
+                
+                while (line != null) {
+                    char a = line.charAt(0);
+                    char b = line.charAt(1);
+                    String User = "Unknown";
+                    String Pass = "Unknown";
+                    
+                    if(a != 'P'){
+                        context[x] = line;
+                        x = x + 1;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        line = reader.readLine();
+                        }
+                    else if(a == 'P'){
+                        if(b == ','){
+                            //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String chunk : arrOfStr){
+                                    if(times == 10){
+                                        Pass = chunk;
+                                    }
+                                    if (times == 9){
+                                        User = chunk;
+                                        times = times + 1;
+                                    }
+                                    else 
+                                    {
+                                     times = times + 1;   
+                                    }
+                                }
+                            if(LoggedinUser.equals(User)){
+                                if(LoggedinPass.equals(Pass)){
+                                    U.patientList.remove(ID - 1);
+                                    line = reader.readLine();
+                                }
+                            }
+                            else {
+                            context[x] = line;
+                            line = reader.readLine();
+                        x = x + 1;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        }
+                        }
+                        else if(b != ','){
+                            line = reader.readLine();
+                            context[x] = line;
+                        x = x + 1;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        }
+                    }  
+                }
+                ///////////////////////WRITE FILE HERE //////////////////////////////
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              } catch (FileNotFoundException ex) {
+                Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     
     
     
