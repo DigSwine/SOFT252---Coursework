@@ -2,32 +2,32 @@
 
 package soft252.cw.GUI;
 
+import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Users;
 
-
 public class GUI_Home extends javax.swing.JFrame {
-
     //Functionality
     List_Users U = new List_Users();  
+    DataHandler Data = new DataHandler();
     String Username[];
     String Password[];
     String Type[];
     
-    public void GetUser(List_Users Users){
-        U = Users;
+    public void GetUser(DataHandler data){
+        Data = data;
+        U = Data.getU();
+                
         Username = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
         Password = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
         Type = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
         SetLogins();
     }
-
     
     // Creates new form GUI_Home 
     public GUI_Home() {
         initComponents();
     }
- 
-  
+
     //DONT TOUCH!!
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -205,7 +205,7 @@ public class GUI_Home extends javax.swing.JFrame {
                         if(Txt_Password.getText().equals(Password[x])){
                             //Open New Window
                             GUI_User Next = new GUI_User();
-                            GUI_User.GetUser(U);
+                            Next.GetHandler(Data);
                             GUI_User.GetUId(x);
                             Next.show();
                             this.dispose();

@@ -1,7 +1,5 @@
 // @author mwilson-slider
-
 package soft252.cw.GUI;
-
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,47 +9,27 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import soft252.cw.Classes.Appointments;
+import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
-import soft252.cw.Classes.Patients;
-import soft252.cw.Classes.Perscriptions;
-
 
 public class GUI_User extends javax.swing.JFrame {
-    
    static Integer ID;
-    
+
    public static List_Users U = new List_Users();
    public static Lists_AP AP = new Lists_AP();
-   
-  
-   
-
-   
-   
-   
+   private DataHandler Data = new DataHandler();
    
     public GUI_User() {
-        initComponents();   
-         Perscriptions Pers1;
-         Perscriptions Pers2;
-         Perscriptions Pers3;
-                                Pers1 = new Perscriptions("0001", "0007", "Epipen", "1", "1");
-                                Pers2 = new Perscriptions("2", "0007", "Beclomethasone Nasal", "1", "1");
-                                Pers3 = new Perscriptions("3", "0007", "Beclomethasone Nasal", "1", "1");
-                                
-                                AP.perscriptionList.add(Pers1);
-                                AP.perscriptionList.add(Pers2);
-                                AP.perscriptionList.add(Pers3);
+        initComponents();
     }
-    
-    public static void GetUser(List_Users Users){
-        U = Users;
+    public void GetHandler(DataHandler data){
+        Data = data;
+        U = Data.getU();
+        AP = Data.getAP();
     }
     
     public static void GetUId(Integer x){
@@ -170,7 +148,6 @@ public class GUI_User extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     private void Btn_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogOutActionPerformed
         OpenHome();
     }//GEN-LAST:event_Btn_LogOutActionPerformed
@@ -198,8 +175,10 @@ public class GUI_User extends javax.swing.JFrame {
        lengthofperscriptions = AP.perscriptionList.size();
         String Perscriptions[] = new String[lengthofperscriptions];
         for(int x = 0; x < lengthofperscriptions; x++){
-                Perscriptions[x] = AP.perscriptionList.get(x).getPerscription_Name() + " - " + AP.perscriptionList.get(x).getPerscption_Dosage() + " --- Perscribed Quantity = " + AP.perscriptionList.get(x).getPerscription_Quantity();
+            if(ID.toString().equals(AP.perscriptionList.get(x).getPatient_IDN())){
+            Perscriptions[x] = AP.perscriptionList.get(x).getPerscription_Name() + " - Dosage = " + AP.perscriptionList.get(x).getPerscption_Dosage() + " --- Perscribed Quantity = " + AP.perscriptionList.get(x).getPerscription_Quantity();
             }
+        }
             //SetListValues
             DefaultListModel DLM = new DefaultListModel();
             for(int x = 0; x < AP.perscriptionList.size(); x++){
@@ -219,7 +198,7 @@ public class GUI_User extends javax.swing.JFrame {
     
     private void OpenHome(){
         GUI_Home Home = new GUI_Home();
-            Home.GetUser(U);
+            Home.GetUser(Data);
             Home.show();
             this.dispose();
     }
@@ -228,6 +207,7 @@ public class GUI_User extends javax.swing.JFrame {
         try {
                 BufferedReader reader;
                 reader = new BufferedReader(new FileReader("Data.txt"));
+                File file = new File("Data.txt");
                 
                 String line = reader.readLine();
                 String LoggedinUser = U.patientList.get(ID - 1).getPatient_Username();
@@ -245,8 +225,8 @@ public class GUI_User extends javax.swing.JFrame {
                     
                     if(a != 'P'){
                         context[x] = line;
-                        x = x + 1;
                         context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
                         line = reader.readLine();
                         }
                     else if(a == 'P'){
@@ -276,20 +256,31 @@ public class GUI_User extends javax.swing.JFrame {
                             }
                             else {
                             context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
                             line = reader.readLine();
                         x = x + 1;
+                        }
+                        }
+                        else{
+                        line = reader.readLine();
                         context = Arrays.copyOf(context, context.length + 1);
-                        }
-                        }
-                        else if(b != ','){
-                            line = reader.readLine();
-                            context[x] = line;
+                        context[x] = line;
                         x = x + 1;
-                        context = Arrays.copyOf(context, context.length + 1);
                         }
                     }  
                 }
-                ///////////////////////WRITE FILE HERE //////////////////////////////
+                
+                
+                //Create Data File
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+      
+                for(int y =0; y < x - 1; y++){
+                bw.write(context[y] + "\n");
+                }
+                
+                bw.close();
+
                 
                 
                 
@@ -307,17 +298,6 @@ public class GUI_User extends javax.swing.JFrame {
                 Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
