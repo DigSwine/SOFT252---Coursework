@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class DataHandler {
     private List_Users U = new List_Users();
@@ -56,9 +57,11 @@ public class DataHandler {
             + "CD, Opium Tincture, 3.50, Perscription  - Drug, 5 Tablets, used to treat diarrhea, 100\n"
             + "CD, Dextroamphetamine, 1.50, Perscription  - Drug, 20 Tablets,  used to treat narcolepsy and ADHD, 100\n"
             + "CD, Baclofene, 3.50, Perscription  - Drug, 24 Tablets, muscle relaxer and an antispasmodic agent, 100\n"
-            + "AP, 3, 2, This patient is suffering from hayfever\n"
-            + "PP, 3, 1, Beclomethasone Nasal, 1, 1\n"
-            + "PP, 1, 2, Epipen, 1, 1\n";     
+            + "AP, 3, 2, 10:30, 17/12/19, This patient is suffering from hayfever\n"
+            + "AP, 2, 1, 10:00, 21/1/20, Check up\n"
+            + "AP, 1, 3, 9:00, 18/12/2019, Swelling to the face after eating peanuts\n"
+            + "PP, 3, 2, Beclomethasone Nasal, 1, 1\n"
+            + "PP, 1, 3, Epipen, 1, 1\n";     
       //Create Data File
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
         BufferedWriter bw = new BufferedWriter(fw);
@@ -371,7 +374,7 @@ public class DataHandler {
                                         times = times + 1;
                                     }
                                 } 
-//Create Instance Of Clinic
+//Create Instance Of ClinicDrug
                                 Clinic CliDru;
                                 CliDru = new Clinic(FirstName, HAddress, SName, CName, PC, User);
                                 C.drugList.add(CliDru);
@@ -388,23 +391,19 @@ public class DataHandler {
                                 int times = 0;
 //Get Each Block Of The String "line"                                   
                                 for (String x : arrOfStr){
-                                    if(times==6){
-                                        User = x;
-                                    }
                                     if(times == 5){
+                                        User= x;
+                                    }
+                                    if(times == 4){
                                         PC = x;
                                         times = times + 1;
                                     }
-                                    if(times == 4){
-                                        CName = x;
-                                        times = times + 1;
-                                    }
                                     if(times == 3){
-                                        SName = x;
+                                        CName = x;
                                         times = times +1;
                                     }
                                     if(times == 2){
-                                        HAddress = x;
+                                        SName = x;
                                         times = times + 1;
                                     }
                                     if(times == 1){
@@ -415,9 +414,9 @@ public class DataHandler {
                                         times = times + 1;
                                     }
                                 } 
-//Create Instance Of Clinic
+//Create Instance Of Appointment
                                 Appointments Appt;
-                                Appt = new Appointments(FirstName, User, PC);
+                                Appt = new Appointments(FirstName, SName, CName, PC, User);
                                 AP.appointmentList.add(Appt);
                                 }
                             }
@@ -468,7 +467,147 @@ public class DataHandler {
         }
     }
 
-    
+    public void editDeletePerson(String type, int IDN) throws IOException{     
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader("Data.txt"));
+        File txtDoc = new File("Data.txt");               
+        String line = reader.readLine();
+        String context[] = new String[1];
+        String LoggedinUser = "Unknown";
+        String LoggedinPass = "Unknown";
+        int x = 0;
+
+        if("P".equals(type)){
+        LoggedinUser = U.patientList.get(IDN - 1).getPatient_Username();
+        LoggedinPass = U.patientList.get(IDN - 1).getPatient_Password();
+        }
+        else if("D".equals(type)){
+        LoggedinUser = U.doctorList.get(IDN - 1).getDoctor_User();
+        LoggedinPass = U.doctorList.get(IDN - 1).getDoctor_Password();
+        }else if("A".equals(type)){
+            
+        }else if("S".equals(type)){
+            
+        }
+   
+        while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+            String User = "Unknown";
+            String Pass = "Unknown";            
+//Patient              
+                if("P".equals(type)){
+                    if(a != 'P'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+                        }
+                    else if(a == 'P'){
+                        if(b == ','){
+                            //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String chunk : arrOfStr){
+                                    if(times == 10){
+                                        Pass = chunk;
+                                    }
+                                    if (times == 9){
+                                        User = chunk;
+                                        times = times + 1;
+                                    }
+                                    else 
+                                    {
+                                     times = times + 1;   
+                                    }
+                                } 
+                            if(LoggedinUser.equals(User)){
+                                if(LoggedinPass.equals(Pass)){
+                                    U.patientList.remove(IDN - 1);
+                                    line = reader.readLine();
+                                }
+                            }
+                            else {
+                            context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
+                            line = reader.readLine();
+                        x = x + 1;
+                        }
+                        }
+                        else{
+                        line = reader.readLine();
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        x = x + 1;
+                        }
+                    }
+                }
+//Doctor
+                if("D".equals(type)){
+                    if(a != 'D'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+                        }
+                    else if(a == 'D'){
+                        if(b == ','){
+                            //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                               for (String chunk : arrOfStr){
+                                    if(times == 8){
+                                        Pass = chunk;
+                                        System.out.println(Pass);
+                                    }
+                                    if (times == 7){
+                                        User = chunk;
+                                        times = times + 1;
+                                    }
+                                    else 
+                                    {
+                                     times = times + 1;   
+                                    }
+                                } 
+                            if(LoggedinUser.equals(User)){
+                                if(LoggedinPass.equals(Pass)){
+                                    U.doctorList.remove(IDN - 1);
+                                    line = reader.readLine();
+                                }
+                            }
+                            else {
+                            context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
+                            line = reader.readLine();
+                        x = x + 1;
+                        }
+                        }
+                        else{
+                        line = reader.readLine();
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        x = x + 1;
+                        }
+                    }
+                }
+//
+////Admin
+//
+////Secretary
+//                
+//End of while loop                
+        }
+    //Create Data File
+    FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+    for(int y =0; y < x - 1; y++){
+        bw.write(context[y] + "\n");
+    }
+    bw.close();
+    }
     
 //End of Class
 }
+    

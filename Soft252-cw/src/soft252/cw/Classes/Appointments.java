@@ -10,13 +10,17 @@ public class Appointments
     protected String Doctor_IDL = "D";
     protected String Doctor_IDN =  "0000";
     protected String Patient_Notes = " ";
+    private String AP_Time = "unknown";
+    private String AP_Date = "unknown";
 
     //Constructors
-    public Appointments(String Patient_IDN, String Doctor_IDN, String Patient_Notes){
-    this.Patient_IDL = "p";
+    public Appointments(String Patient_IDN, String Doctor_IDN, String AP_Time, String AP_Date, String Patient_Notes){
+    this.Patient_IDL = "P";
     this.Patient_IDN = Patient_IDN;
     this.Doctor_IDL = "D";
     this.Doctor_IDN =  Doctor_IDN;
+    this.AP_Time = AP_Time;
+    this.AP_Date = AP_Date;
     this.Patient_Notes = Patient_Notes; 
     }
     
@@ -39,7 +43,15 @@ public class Appointments
     public String getPatient_Notes() {
         return Patient_Notes;
     }
+    public String getAP_Time() {
+        return AP_Time;
+    }
+    public String getAP_Date() {
+        return AP_Date;
+    }
+    
 
+    
     //Setters
     public void setAppointment_Number(Integer Appointment_Number) {
         this.Appointment_Number = Appointment_Number;
@@ -58,6 +70,12 @@ public class Appointments
     }
     public void setPatient_Notes(String Patient_Notes) {
         this.Patient_Notes = Patient_Notes;
+    }
+    public void setAP_Time(String AP_Time) {
+        this.AP_Time = AP_Time;
+    }
+    public void setAP_Date(String AP_Date) {
+        this.AP_Date = AP_Date;
     }
     
 }

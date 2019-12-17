@@ -1,12 +1,6 @@
 // @author mwilson-slider
 package soft252.cw.GUI;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -69,6 +63,11 @@ public class GUI_User extends javax.swing.JFrame {
         });
 
         Btn_ViewHis.setText("View History");
+        Btn_ViewHis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ViewHisActionPerformed(evt);
+            }
+        });
 
         Btn_ViewPer.setText("View Perscription");
         Btn_ViewPer.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +154,7 @@ public class GUI_User extends javax.swing.JFrame {
     private void Btn_ViewDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewDRActionPerformed
         String Names[] = new String[U.doctorList.size()];         
         for(int x = 0; x < U.doctorList.size(); x++){
-            Names[x] = U.doctorList.get(x).getDoctor_FirstName() + " " + U.doctorList.get(x).getDoctor_SurName() + "--- Rating = " + U.doctorList.get(x).getDoctor_Rateing();
+            Names[x] = U.doctorList.get(x).getDoctor_FirstName() + " " + U.doctorList.get(x).getDoctor_SurName() + "--- Rating = " + U.doctorList.get(x).getDoctor_Rateing() + " /5";
         }
             //SetListValues
             DefaultListModel DLM = new DefaultListModel();
@@ -167,6 +166,7 @@ public class GUI_User extends javax.swing.JFrame {
 
     private void Btn_ReqAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ReqAppointActionPerformed
              GUI_UserAppointmentRequest request = new GUI_UserAppointmentRequest();
+             request.Onload(Data);
              request.show();
     }//GEN-LAST:event_Btn_ReqAppointActionPerformed
 
@@ -195,6 +195,25 @@ public class GUI_User extends javax.swing.JFrame {
            Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
        }
     }//GEN-LAST:event_Btn_DeleteAccountActionPerformed
+
+    private void Btn_ViewHisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewHisActionPerformed
+        int APSize = AP.appointmentList.size();
+        String Appointments[] = new String[APSize + 1];
+        int Doc = 0;
+        for(int x = 0; x < APSize; x++){
+            if(ID.toString().equals(AP.appointmentList.get(x).getPatient_IDN())){
+              Doc = Integer.valueOf(AP.appointmentList.get(x).getDoctor_IDN());
+              Appointments[0 + x] = U.doctorList.get(Doc - 1).getDoctor_FirstName() + " " + U.doctorList.get(Doc - 1).getDoctor_SurName()+ " - " + AP.appointmentList.get(x).getAP_Time() + " " + AP.appointmentList.get(x).getAP_Date();
+              Appointments = Arrays.copyOf(Appointments, Appointments.length + 1);
+            }
+        }
+         //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < Appointments.length; x++){
+            DLM.addElement(Appointments[x]);
+            }
+            Lst_All.setModel(DLM); 
+    }//GEN-LAST:event_Btn_ViewHisActionPerformed
     
     private void OpenHome(){
         GUI_Home Home = new GUI_Home();
@@ -204,99 +223,7 @@ public class GUI_User extends javax.swing.JFrame {
     }
    
     private void Delete() throws IOException{
-        try {
-                BufferedReader reader;
-                reader = new BufferedReader(new FileReader("Data.txt"));
-                File file = new File("Data.txt");
-                
-                String line = reader.readLine();
-                String LoggedinUser = U.patientList.get(ID - 1).getPatient_Username();
-                String LoggedinPass = U.patientList.get(ID - 1).getPatient_Password();
-                
-                
-                String context[] = new String[1];
-                int x = 0;
-                
-                while (line != null) {
-                    char a = line.charAt(0);
-                    char b = line.charAt(1);
-                    String User = "Unknown";
-                    String Pass = "Unknown";
-                    
-                    if(a != 'P'){
-                        context[x] = line;
-                        context = Arrays.copyOf(context, context.length + 1);
-                        x = x + 1;
-                        line = reader.readLine();
-                        }
-                    else if(a == 'P'){
-                        if(b == ','){
-                            //Set Each Block Of line                                                              
-                                String[] arrOfStr = line.split(", "); 
-                                int times = 0;
-//Get Each Block Of The String "line"                                
-                                for (String chunk : arrOfStr){
-                                    if(times == 10){
-                                        Pass = chunk;
-                                    }
-                                    if (times == 9){
-                                        User = chunk;
-                                        times = times + 1;
-                                    }
-                                    else 
-                                    {
-                                     times = times + 1;   
-                                    }
-                                }
-                            if(LoggedinUser.equals(User)){
-                                if(LoggedinPass.equals(Pass)){
-                                    U.patientList.remove(ID - 1);
-                                    line = reader.readLine();
-                                }
-                            }
-                            else {
-                            context[x] = line;
-                            context = Arrays.copyOf(context, context.length + 1);
-                            line = reader.readLine();
-                        x = x + 1;
-                        }
-                        }
-                        else{
-                        line = reader.readLine();
-                        context = Arrays.copyOf(context, context.length + 1);
-                        context[x] = line;
-                        x = x + 1;
-                        }
-                    }  
-                }
-                
-                
-                //Create Data File
-        FileWriter fw = new FileWriter(file.getAbsoluteFile());
-        BufferedWriter bw = new BufferedWriter(fw);
-      
-                for(int y =0; y < x - 1; y++){
-                bw.write(context[y] + "\n");
-                }
-                
-                bw.close();
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-              } catch (FileNotFoundException ex) {
-                Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        Data.editDeletePerson("P", ID);
         }
 
     public static void main(String args[]) {
