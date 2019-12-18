@@ -25,17 +25,6 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="467" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="Btn_RequestMeds" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="427" max="32767" attributes="0"/>
-                              <Component id="Btn_Save" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="Btn_CreatePerscription" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -45,8 +34,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Btn_ViewAppt" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="Btn_InspectPatient" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -56,8 +44,70 @@
                               </Group>
                               <Component id="jScrollPane1" min="-2" pref="450" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_Day" max="32767" attributes="0"/>
+                                  <Component id="Btn_MoveLeft" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Cmb_MoveBy" pref="198" max="32767" attributes="0"/>
+                                  <Component id="Txt_Month" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Btn_MoveRight" max="32767" attributes="0"/>
+                                  <Component id="Txt_Year" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="Btn_ViewAppt" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="Btn_RequestMeds" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Txt_PerscriptionQuantity" min="-2" pref="370" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Btn_Save" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="Txt_PName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Txt_PAge" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Txt_PGender" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Txt_PHNumber" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Txt_PSName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Txt_CityName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="Txt_PPC" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_Notes" min="-2" pref="614" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jScrollPane2" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane3" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Btn_CreatePerscription" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Txt_PerscriptionDosage" max="32767" attributes="0"/>
+                                          <Component id="Txt_PerscriptionName" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -73,23 +123,56 @@
                   <Component id="Btn_Logout" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Btn_ViewAppt" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Btn_ViewAppt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PHNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PSName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_CityName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PPC" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Btn_InspectPatient" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Btn_CreateAppt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Btn_Notes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Notes" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="253" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" min="-2" pref="253" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Btn_CreatePerscription" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Btn_CreatePerscription" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PerscriptionName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Day" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Month" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_Year" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Txt_PerscriptionDosage" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Cmb_MoveBy" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Btn_MoveLeft" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Btn_MoveRight" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Btn_RequestMeds" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_PerscriptionQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Btn_Save" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,6 +219,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Inspect Patient"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_InspectPatientActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_CreatePerscription">
       <Properties>
@@ -164,6 +250,138 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_LogoutActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Notes">
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PerscriptionName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Perscription Name-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PerscriptionDosage">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Dosage-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PerscriptionQuantity">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Perscribed Quantity-"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="Lst_PAppointments">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="- Previous Appointments -"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="Lst_PMedications">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="- Perscribed Medication -"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JComboBox" name="Cmb_MoveBy">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Day"/>
+            <StringItem index="1" value="Month"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_MoveLeft">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_MoveRight">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Day">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Day"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Month">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Month"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Year">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Year"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Patient Name-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PAge">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Patient Age-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PGender">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Patient Gender-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PHNumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-House Number-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PSName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Street Name-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_CityName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-City Name-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PPC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Post Code-"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

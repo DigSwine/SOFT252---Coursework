@@ -222,7 +222,8 @@ public class GUI_Home extends javax.swing.JFrame {
                         if(Txt_Password.getText().equals(Password[x])){
                            GUI_Doctor Doc = new GUI_Doctor();
                            Doc.GetData(Data);
-                           Doc.GetDId(x);
+                            System.out.println(x - U.patientList.size());
+                           Doc.GetDId(x - U.patientList.size());
                            Doc.show();
                            this.hide();
                         }           
