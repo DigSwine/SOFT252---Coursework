@@ -4,6 +4,7 @@ package soft252.cw.Classes;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -60,6 +61,7 @@ public class DataHandler {
             + "AP, 3, 2, 10:30, 17/12/19, This patient is suffering from hayfever\n"
             + "AP, 2, 1, 10:00, 21/1/20, Check up\n"
             + "AP, 1, 3, 9:00, 18/12/2019, Swelling to the face after eating peanuts\n"
+            + "AP, 1, 2, 9:30, 18/12/2019, Null\n"
             + "PP, 3, 2, Beclomethasone Nasal, 1, 1\n"
             + "PP, 1, 3, Epipen, 1, 1\n";     
       //Create Data File
@@ -608,6 +610,134 @@ public class DataHandler {
     bw.close();
     }
     
+    
+    public void NewNote(String type, String pid, String did, String time, String date, String note) throws FileNotFoundException, IOException{
+       BufferedReader reader;
+       reader = new BufferedReader(new FileReader("Data.txt"));
+       File txtDoc = new File("Data.txt");
+       String line = reader.readLine();
+       String context[] = new String[1];
+       int k = 0;
+        String FirstName = "Unknown";
+        String SurName = "Unknown";
+        String Gender = "Unknown";
+        String Age = "Unknown";
+        String HAddress = "Unknown";
+        String SName = "Unknown";
+        String CName = "Unknown";
+        String PC = "Unknown";
+        String User = "Unknown";
+        String Pass = "Unknown";
+        String EditedLine = "";
+                        
+        while (line != null) {
+        char a = line.charAt(0);
+        char b = line.charAt(1);
+        char c = line.charAt(2);
+        if(a == 'A'){
+            if(b =='P'){
+                if(c == ','){
+            //Set Each Block Of line                                                              
+                    String[] arrOfStr = line.split(", "); 
+                    int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String x : arrOfStr){
+                                    if(times == 5){
+                                        User= x;
+                                    }
+                                    if(times == 4){
+                                        PC = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        CName = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 2){
+                                        SName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+                            if(FirstName.equals(pid)){
+                                 if(SName.equals(did)){
+                                     if(CName.equals(time)){
+                                      if(PC.equals(date)){
+                                          Appointments Appt;
+                                          Appt = new Appointments(pid, did, time, date, note);
+                                          context = Arrays.copyOf(context, context.length + 1);
+                                          EditedLine = "AP, " + pid + ", " + did + ", " + time + ", " +  date + ", " + note;
+                                          line = reader.readLine();
+                                          
+                                        } else {
+                                            context = Arrays.copyOf(context, context.length + 1);
+                                            context[k] = line;
+                                            line = reader.readLine();
+                                            k = k + 1;   
+                                        }
+                                    } else {
+                                        context = Arrays.copyOf(context, context.length + 1);
+                                        context[k] = line;
+                                        line = reader.readLine();
+                                        k = k + 1; 
+                                    }
+                                } else {
+                                    context = Arrays.copyOf(context, context.length + 1);
+                                    context[k] = line;
+                                    line = reader.readLine();
+                                    k = k + 1;    
+                                }
+                            } else {
+                            context = Arrays.copyOf(context, context.length + 1);
+                            context[k] = line;
+                            line = reader.readLine();
+                            k = k + 1;      
+                            }
+                        }
+                    } else {
+                        context = Arrays.copyOf(context, context.length + 1);
+                            context[k] = line;
+                            line = reader.readLine();
+                            k = k + 1;  
+                    }
+                } else {
+                    context = Arrays.copyOf(context, context.length + 1);
+                    context[k] = line;
+                    line = reader.readLine();
+                    k = k + 1;  
+                }
+        }
+        //Create Data File
+    FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+        for(int y =0; y < k - 1; y++){
+            bw.write(context[y] + "\n");
+        }
+        bw.write(EditedLine + "\n");
+    bw.close();
+    resetAll();
+    }
+    
+    private void resetAll() throws IOException{
+        //clear all data
+        U.adminList.clear();
+        U.doctorList.clear();
+        U.patientList.clear();
+        U.secreteryList.clear();
+        AP.appointmentList.clear();
+        AP.perscriptionList.clear();
+        C.clinicList.clear();
+        C.drugList.clear();
+        
+        //reload all data
+        getData();
+    }
 //End of Class
 }
     
