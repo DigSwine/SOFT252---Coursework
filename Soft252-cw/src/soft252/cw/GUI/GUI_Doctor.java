@@ -3,6 +3,8 @@
 package soft252.cw.GUI;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Arrays;
@@ -61,6 +63,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Cmb_PerName = new javax.swing.JComboBox<>();
         Txt_PDosage = new javax.swing.JTextField();
         Txt_PerQuan = new javax.swing.JTextField();
+        Btn_Repeat = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -177,6 +180,11 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_PName.setText("-Patient Name-");
 
         Txt_PAge.setText("-Patient Age-");
+        Txt_PAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt_PAgeActionPerformed(evt);
+            }
+        });
 
         Txt_PGender.setText("-Patient Gender-");
 
@@ -200,6 +208,13 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_PDosage.setText("-Perscription Dosage-");
 
         Txt_PerQuan.setText("-Perscription Quantity-");
+
+        Btn_Repeat.setText("Request Again");
+        Btn_Repeat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RepeatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -262,15 +277,12 @@ public class GUI_Doctor extends javax.swing.JFrame {
                                             .addComponent(Btn_CreatePerscription))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane4)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Cmb_PerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Txt_PDosage, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Txt_PerQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addComponent(jScrollPane3)
-                                            .addComponent(jScrollPane4))))
+                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(Btn_Repeat)
+                                                .addGap(0, 0, Short.MAX_VALUE)))))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -282,7 +294,14 @@ public class GUI_Doctor extends javax.swing.JFrame {
                                         .addComponent(Txt_PerscriptionQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(Btn_Save))
-                                    .addComponent(Txt_PerscriptionName, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(Txt_PerscriptionName, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Txt_PerQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(13, 13, 13)
+                                            .addComponent(Cmb_PerName, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Txt_PDosage, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -308,11 +327,29 @@ public class GUI_Doctor extends javax.swing.JFrame {
                     .addComponent(Btn_CreateAppt)
                     .addComponent(Btn_Notes)
                     .addComponent(Txt_Notes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Btn_Repeat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Btn_CreatePerscription)
+                            .addComponent(Cmb_PerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Txt_PDosage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Txt_PerQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Txt_Day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Txt_Month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,21 +364,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Txt_PerscriptionDosage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Btn_RequestMeds))
-                        .addGap(8, 8, 8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Btn_CreatePerscription)
-                            .addComponent(Cmb_PerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Txt_PDosage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Txt_PerQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(100, 100, 100)))
+                        .addGap(8, 8, 8)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Txt_PerscriptionQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Btn_Save))
@@ -359,30 +382,17 @@ public class GUI_Doctor extends javax.swing.JFrame {
     int maxdays = 0;
     int month = 0;
     int year = 0;
+    String CurrentDate = "Unknown";
     private static Integer ID = 0;
     
     public void GetData(DataHandler data){
         Data = data;
         U = Data.getU();
         AP = Data.getAP();
+        C = Data.getC();
         
-        Txt_PName.disable();
-        Txt_PAge.disable();
-        Txt_PGender.disable();
-        Txt_PHNumber.disable();
-        Txt_PSName.disable();
-        Txt_CityName.disable();
-        Txt_PPC.disable();
-        Txt_Notes.disable();
-        Lst_PAppointments.disable();
-        Lst_PMedications.disable();
-        Lst_PNotes.disable();
-        Txt_PerscriptionName.disable();
-        Txt_PerscriptionDosage.disable();
-        Txt_PerscriptionQuantity.disable();
-        Cmb_PerName.disable();
-        Txt_PDosage.disable();
-        Txt_PerQuan.disable();
+        DefultAll();
+        DisableAll();
     
     //SetDate
         Date date = new Date();
@@ -391,6 +401,8 @@ public class GUI_Doctor extends javax.swing.JFrame {
         maxdays = localDate.lengthOfMonth();
         month = localDate.getMonthValue();
         year = localDate.getYear();
+        CurrentDate = day + "/" + month + "/" + year;
+        
         Txt_Day.setText(String.valueOf(day));
         Txt_Year.setText(String.valueOf(year));
         
@@ -416,22 +428,11 @@ public class GUI_Doctor extends javax.swing.JFrame {
     
     
     private void Btn_ViewApptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewApptActionPerformed
-        int APSize = AP.appointmentList.size();
-        String Appointments[] = new String[APSize + 1];
-        int Pat = 0;
-        for(int x = 0; x < APSize; x++){
-            if(AP.appointmentList.get(x).getDoctor_IDN().equals(ID.toString())){
-              Pat = Integer.valueOf(AP.appointmentList.get(x).getPatient_IDN());  
-              Appointments[0 + x] = U.patientList.get(Pat - 1).getPatient_Firstname() + " " + U.patientList.get(Pat - 1).getPatient_Surname()+ " - " + AP.appointmentList.get(x).getAP_Time() + " " + AP.appointmentList.get(x).getAP_Date();
-              Appointments = Arrays.copyOf(Appointments, Appointments.length + 1);
-            }
+        try {
+            GetAppointmnets(day, month, year);
+        } catch (ParseException ex) {
+            Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
-         //SetListValues
-            DefaultListModel DLM = new DefaultListModel();
-            for(int x = 0; x < Appointments.length; x++){
-            DLM.addElement(Appointments[x]);
-            }
-            Lst_Appts.setModel(DLM); 
     }//GEN-LAST:event_Btn_ViewApptActionPerformed
 
     private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
@@ -439,11 +440,12 @@ public class GUI_Doctor extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_LogoutActionPerformed
 
     private void Btn_InspectPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_InspectPatientActionPerformed
-    int selectedPat = Lst_Appts.getSelectedIndex();
+       
+        int selectedPat = Lst_Appts.getSelectedIndex();
     int Pat = 0;
     Pat = Integer.valueOf(AP.appointmentList.get(selectedPat).getPatient_IDN());
     
-    Txt_PName.setText(U.patientList.get(Pat - 1).getPatient_Firstname() + U.patientList.get(Pat - 1).getPatient_Surname());
+    Txt_PName.setText(U.patientList.get(Pat - 1).getPatient_Firstname() + " " + U.patientList.get(Pat - 1).getPatient_Surname());
     Txt_PAge.setText(U.patientList.get(Pat - 1).getPatient_Age());
     Txt_PGender.setText(U.patientList.get(Pat - 1).getPatient_Gender());
     Txt_PHNumber.setText(U.patientList.get(Pat - 1).getPatient_StreetNumber());
@@ -452,7 +454,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
     Txt_PPC.setText(U.patientList.get(Pat - 1).getPatient_PostCode());
     Txt_Notes.setText(AP.appointmentList.get(selectedPat).getPatient_Notes());
 
-        Lst_Appts.disable();
         Lst_PAppointments.enable();
         int APSize = AP.appointmentList.size();
         String PAppointments[] = new String[APSize];
@@ -477,8 +478,9 @@ public class GUI_Doctor extends javax.swing.JFrame {
         String PMeds[] = new String[MSize + 1];
         for(int x = 0; x < MSize; x++){
             if(AP.perscriptionList.get(x).getPatient_IDN().equals(String.valueOf(Pat))){
+                
             PMeds = Arrays.copyOf(PMeds, PMeds.length + 1);     
-            PMeds[0 + x] = AP.perscriptionList.get(Pat).getPerscription_Name();         
+            PMeds[0 + x] = AP.perscriptionList.get(x).getPerscription_Name() + ": Quantity: " + AP.perscriptionList.get(x).getPerscription_Quantity() + " - Take: " + AP.perscriptionList.get(x).getPerscption_Dosage(); 
             }      
         }
         //SetListValues
@@ -514,23 +516,34 @@ public class GUI_Doctor extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_NotesActionPerformed
 
     private void Btn_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SaveActionPerformed
-        try {
+        //try {
             int selectedPat = Lst_Appts.getSelectedIndex();
             String Pat = AP.appointmentList.get(selectedPat).getPatient_IDN();
             String Time = AP.appointmentList.get(selectedPat).getAP_Time();
             String Date = AP.appointmentList.get(selectedPat).getAP_Date();
             String Note = Txt_Notes.getText();
-            Data.NewNote("AP", Pat, String.valueOf(ID), Time, Date, Note);
             
-            
+            int ji = Cmb_PerName.getSelectedIndex();
+            String PName = Cmb_PerName.getItemAt(ji);
+            String PQ = Txt_PerQuan.getText();
+            String PD = Txt_PDosage.getText();
+
+        try {
+            //            Data.NewNote("AP", Pat, String.valueOf(ID), Time, Date, Note);
+            Data.NewPerscription("PP", Pat, PName, PQ, PD);
+//            
+//            int done = 0;
+//            
             GUI_Doctor New = new GUI_Doctor();
             New.GetData(Data);
             New.GetDId(ID);
             New.show();
             this.dispose();
-                
-                
-                
+//
+//                
+//        } catch (IOException ex) {
+//            Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
+//    }
         } catch (IOException ex) {
             Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -538,7 +551,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
 
     private void Btn_MoveLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MoveLeftActionPerformed
          String SelectedMove = Cmb_MoveBy.getSelectedItem().toString();
-        
         if("Day".equals(SelectedMove)){
             if(day == 1){                
             } else {
@@ -566,6 +578,11 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_Month.setText(monthstg[month - 1]);
             }
         }
+             try {    
+                 GetAppointmnets(day, month, year);
+             } catch (ParseException ex) {
+                 Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
+             }    
     }//GEN-LAST:event_Btn_MoveLeftActionPerformed
 
     private void Btn_MoveRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MoveRightActionPerformed
@@ -599,12 +616,28 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_Month.setText(monthstg[month - 1]);
             }
         }
+              try {    
+                 GetAppointmnets(day, month, year);
+             } catch (ParseException ex) {
+                 Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }//GEN-LAST:event_Btn_MoveRightActionPerformed
 
     private void Btn_CreatePerscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CreatePerscriptionActionPerformed
         Cmb_PerName.enable();
         Txt_PDosage.enable();
         Txt_PerQuan.enable(); 
+        Txt_PDosage.setText("");
+        Txt_PerQuan.setText("");
+
+        int DSize = C.drugList.size();
+        String[] Drugs = new String[1];
+        for(int x = 0; x < DSize; x++){
+            Drugs[x] = C.drugList.get(x).getItem_Name();
+            Drugs = Arrays.copyOf(Drugs, Drugs.length + 1);
+            Cmb_PerName.addItem(Drugs[x]);
+        }
+        
     }//GEN-LAST:event_Btn_CreatePerscriptionActionPerformed
 
     private void Btn_RequestMedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RequestMedsActionPerformed
@@ -613,26 +646,111 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_PerscriptionQuantity.enable();
     }//GEN-LAST:event_Btn_RequestMedsActionPerformed
 
+    private void Txt_PAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_PAgeActionPerformed
+        // Mistake That Cant Be Undone.
+    }//GEN-LAST:event_Txt_PAgeActionPerformed
+
+    private void Btn_RepeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RepeatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_RepeatActionPerformed
+
+    private void GetAppointmnets(int d, int m, int y) throws ParseException{
+        int APSize = AP.appointmentList.size();
+        String Appointments[] = new String[APSize + 1];
+        int Pat = 0;
+        
+        DefultAll();
+        DisableAll();
+        
+        String CheckDate; 
+        String SentDate = d + "/" + m + "/" + y;
+   
+        for(int x = 0; x < APSize; x++){
+            CheckDate = AP.appointmentList.get(x).getAP_Date();  
+
+            if(SentDate.equals(CheckDate)){
+                if(AP.appointmentList.get(x).getDoctor_IDN().equals(ID.toString())){
+                    Pat = Integer.valueOf(AP.appointmentList.get(x).getPatient_IDN());  
+                    Appointments[0 + x] = U.patientList.get(Pat - 1).getPatient_Firstname() + " " + U.patientList.get(Pat - 1).getPatient_Surname()+ " - " + AP.appointmentList.get(x).getAP_Time() + " " + AP.appointmentList.get(x).getAP_Date();
+                    Appointments = Arrays.copyOf(Appointments, Appointments.length + 1);
+                }
+            }
+        }
+         //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < Appointments.length; x++){
+            DLM.addElement(Appointments[x]);
+            }
+            Lst_Appts.setModel(DLM);
+    }
+    
+    private void DefultAll(){
+        Txt_PName.setText("-Patient Name-");
+        Txt_PAge.setText("-Patient Age-"); 
+        Txt_PGender.setText("-Patient Gender-"); 
+        Txt_PHNumber.setText("-House Number-"); 
+        Txt_PSName.setText("-Street Name-"); 
+        Txt_CityName.setText("-City Name-"); 
+        Txt_PPC.setText("-Post Code-"); 
+        Txt_Notes.setText("- New Note -");
+
+        
+
+        //Lists
+            DefaultListModel PAppointList = new DefaultListModel();
+            PAppointList.addElement("- Previous Appointments -");
+            Lst_PAppointments.setModel(PAppointList); 
+            
+            DefaultListModel PMedsList = new DefaultListModel();
+            PMedsList.addElement("- Perscribed Medication -");
+            Lst_PMedications.setModel(PMedsList); 
+            
+            DefaultListModel PNoteList = new DefaultListModel();
+            PNoteList.addElement("- Patient Notes -");
+            Lst_PNotes.setModel(PNoteList); 
+
+        Txt_PerscriptionName.setText("-Perscription Name-");
+        Txt_PerscriptionDosage.setText("-Perscription Dosage-");
+        Txt_PerscriptionQuantity.setText("-Perscribed Quantity-");
+        Cmb_PerName.disable();
+        Txt_PDosage.setText("-Perscription Dosage-");
+        Txt_PerQuan.setText("-Perscription Quantity-");
+    }
+
+    private void DisableAll(){
+        Txt_PName.disable();
+        Txt_PAge.disable();
+        Txt_PGender.disable();
+        Txt_PHNumber.disable();
+        Txt_PSName.disable();
+        Txt_CityName.disable();
+        Txt_PPC.disable();
+        Txt_Notes.disable();
+        Lst_PAppointments.disable();
+        Lst_PMedications.disable();
+        Lst_PNotes.disable();
+        Txt_PerscriptionName.disable();
+        Txt_PerscriptionDosage.disable();
+        Txt_PerscriptionQuantity.disable();
+        Cmb_PerName.disable();
+        Txt_PDosage.disable();
+        Txt_PerQuan.disable();
+        Lst_PNotes.disable();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
- 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -689,6 +807,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
     private javax.swing.JButton Btn_MoveLeft;
     private javax.swing.JButton Btn_MoveRight;
     private javax.swing.JButton Btn_Notes;
+    private javax.swing.JButton Btn_Repeat;
     private javax.swing.JButton Btn_RequestMeds;
     private javax.swing.JButton Btn_Save;
     private javax.swing.JButton Btn_ViewAppt;

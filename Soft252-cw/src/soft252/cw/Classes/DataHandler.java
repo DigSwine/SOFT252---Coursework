@@ -58,12 +58,12 @@ public class DataHandler {
             + "CD, Opium Tincture, 3.50, Perscription  - Drug, 5 Tablets, used to treat diarrhea, 100\n"
             + "CD, Dextroamphetamine, 1.50, Perscription  - Drug, 20 Tablets,  used to treat narcolepsy and ADHD, 100\n"
             + "CD, Baclofene, 3.50, Perscription  - Drug, 24 Tablets, muscle relaxer and an antispasmodic agent, 100\n"
-            + "AP, 3, 2, 10:30, 17/12/19, This patient is suffering from hayfever\n"
-            + "AP, 2, 1, 10:00, 21/1/20, Check up\n"
+            + "AP, 3, 2, 10:30, 17/12/2019, This patient is suffering from hayfever\n"
+            + "AP, 2, 1, 10:00, 21/1/2020, Check up\n"
             + "AP, 1, 3, 9:00, 18/12/2019, Swelling to the face after eating peanuts\n"
-            + "AP, 1, 2, 9:30, 18/12/2019, Null\n"
-            + "PP, 3, 2, Beclomethasone Nasal, 1, 1\n"
-            + "PP, 1, 3, Epipen, 1, 1\n";     
+            + "AP, 1, 3, 9:30, 5/1/2020, Full recovery - must get an Epipen if another event occurs\n"
+            + "PP, 3, Beclomethasone Nasal, 1, 1\n"
+            + "PP, 1, Epipen, 1, 1\n";     
       //Create Data File
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
         BufferedWriter bw = new BufferedWriter(fw);
@@ -433,10 +433,6 @@ public class DataHandler {
                                 int times = 0;
 //Get Each Block Of The String "line"                                   
                                 for (String x : arrOfStr){
-                                    if(times == 5){
-                                        CName = x;
-                                        times = times + 1;
-                                    }
                                     if(times == 4){
                                         SName = x;
                                         times = times + 1;
@@ -459,7 +455,7 @@ public class DataHandler {
                                 } 
 //Create Instance Of Perscriptions
                                 Perscriptions Pers;
-                                Pers = new Perscriptions(FirstName, User, SurName, SName, CName);
+                                Pers = new Perscriptions(FirstName, User, SurName, SName);
                                 AP.perscriptionList.add(Pers);
                                 }
                             }
@@ -723,6 +719,30 @@ public class DataHandler {
     bw.close();
     resetAll();
     }
+    public void NewPerscription(String type, String pid, String perName, String perQua, String perDos) throws FileNotFoundException, IOException{
+        BufferedReader reader;
+	reader = new BufferedReader(new FileReader("Data.txt"));       
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String content[] = new String[1];
+        int x = 0;
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+                while (line != null) {
+                        content[x] = line;
+                        content = Arrays.copyOf(content, content.length + 1);
+                        line = reader.readLine();
+                        bw.write(content[x] + "\n");
+                        x = x++;
+                }
+                String newPer = type + ", " + pid + ", " + perName + ", " + perQua + ", " + perDos;
+                bw.write(newPer);
+        bw.close();
+    }
+    
+    
     
     private void resetAll() throws IOException{
         //clear all data
