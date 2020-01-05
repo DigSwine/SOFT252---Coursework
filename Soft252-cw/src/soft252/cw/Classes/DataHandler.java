@@ -63,7 +63,10 @@ public class DataHandler {
             + "AP, 1, 3, 9:00, 18/12/2019, Swelling to the face after eating peanuts\n"
             + "AP, 1, 3, 9:30, 5/1/2020, Full recovery - must get an Epipen if another event occurs\n"
             + "PP, 3, Beclomethasone Nasal, 1, 1\n"
-            + "PP, 1, Epipen, 1, 1\n";     
+            + "PP, 1, Epipen, 1, 1\n"
+            + "RP, 1, Epipen, 1, 1\n"
+            + "RP, 1, Calcium Carbonate, 1, 1\n"
+            + "RA, 1, 3, 12:00, 10/1/2020, Check up\n";     
       //Create Data File
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
         BufferedWriter bw = new BufferedWriter(fw);
@@ -460,9 +463,90 @@ public class DataHandler {
                                 }
                             }
                         }
+                        
+                        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                     
+                        //Appointment 
+                        if(a == 'R'){
+                            if(b =='P'){
+                                if(c == ','){
+                                 //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String x : arrOfStr){
+                                    if(times == 5){
+                                        User= x;
+                                    }
+                                    if(times == 4){
+                                        PC = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        CName = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 2){
+                                        SName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+//Create Instance Of Appointment
+                                Appointments Appt;
+                                Appt = new Appointments(FirstName, SName, CName, PC, User);
+                                AP.requestAppointmentList.add(Appt);
+                                }
+                            }
+                        }
+
+                        //Perscriptions
+                        if(a == 'R'){
+                            if(b =='P'){
+                                if(c == ','){
+                                        //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String x : arrOfStr){
+                                    if(times == 4){
+                                        SName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        SurName = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 2){
+                                        User = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+//Create Instance Of Perscriptions
+                                Perscriptions Pers;
+                                Pers = new Perscriptions(FirstName, User, SurName, SName);
+                                AP.requestPerscriptionList.add(Pers);
+                                }
+                            }
+                        }
+//end                        
                         //Set Next Line
                         line = reader.readLine();
         }
+                        
     }
 
     public void editDeletePerson(String type, int IDN) throws IOException{     
@@ -605,8 +689,6 @@ public class DataHandler {
     }
     bw.close();
     }
-    
-    
     public void NewNote(String type, String pid, String did, String time, String date, String note) throws FileNotFoundException, IOException{
        BufferedReader reader;
        reader = new BufferedReader(new FileReader("Data.txt"));
@@ -665,8 +747,6 @@ public class DataHandler {
                                  if(SName.equals(did)){
                                      if(CName.equals(time)){
                                       if(PC.equals(date)){
-                                          Appointments Appt;
-                                          Appt = new Appointments(pid, did, time, date, note);
                                           context = Arrays.copyOf(context, context.length + 1);
                                           EditedLine = "AP, " + pid + ", " + did + ", " + time + ", " +  date + ", " + note;
                                           line = reader.readLine();
@@ -712,7 +792,7 @@ public class DataHandler {
         //Create Data File
     FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
     BufferedWriter bw = new BufferedWriter(fw);
-        for(int y =0; y < k - 1; y++){
+        for(int y =0; y <= k - 1; y++){
             bw.write(context[y] + "\n");
         }
         bw.write(EditedLine + "\n");
@@ -740,10 +820,9 @@ public class DataHandler {
                 String newPer = type + ", " + pid + ", " + perName + ", " + perQua + ", " + perDos;
                 bw.write(newPer);
         bw.close();
+        resetAll();
     }
-    
-    
-    
+
     private void resetAll() throws IOException{
         //clear all data
         U.adminList.clear();

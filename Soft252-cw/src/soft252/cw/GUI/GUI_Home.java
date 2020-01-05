@@ -2,6 +2,9 @@
 
 package soft252.cw.GUI;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Users;
 
@@ -223,6 +226,11 @@ public class GUI_Home extends javax.swing.JFrame {
                            GUI_Doctor Doc = new GUI_Doctor();
                            Doc.GetData(Data);
                            Doc.GetDId(x - U.patientList.size());
+                            try {
+                                Doc.setappts();
+                            } catch (ParseException ex) {
+                                Logger.getLogger(GUI_Home.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                            Doc.show();
                            this.hide();
                         }           
@@ -238,9 +246,10 @@ public class GUI_Home extends javax.swing.JFrame {
                     if(Type[x].equals("S")){
                         if(Txt_Password.getText().equals(Password[x])){
                         //Open New Window
-//                        GUI_User Sec = new GUI_User();
-//                        Sec.show(); 
-                            this.hide();
+                        GUI_Secretary sec = new GUI_Secretary();
+                        sec.GetData(Data);
+                        sec.show();
+                        this.hide();
                     }
                 } 
             }        

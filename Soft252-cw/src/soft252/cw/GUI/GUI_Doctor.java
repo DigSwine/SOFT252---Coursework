@@ -1,10 +1,8 @@
 //@author mwilson-slider
-
 package soft252.cw.GUI;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Arrays;
@@ -383,6 +381,9 @@ public class GUI_Doctor extends javax.swing.JFrame {
     int month = 0;
     int year = 0;
     String CurrentDate = "Unknown";
+    int[] whatsdone = new int[5];
+    
+    
     private static Integer ID = 0;
     
     public void GetData(DataHandler data){
@@ -420,6 +421,10 @@ public class GUI_Doctor extends javax.swing.JFrame {
             monthstg[10] = "November";
             monthstg[11] = "December";
         Txt_Month.setText(monthstg[month - 1]);
+    }
+    
+    public void setappts() throws ParseException{
+        GetAppointmnets(day, month, year);
     }
     
     public void GetDId(Integer x) {
@@ -489,7 +494,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
             MedList.addElement(PMeds[x]);
             }
              Lst_PMedications.setModel(MedList); 
-         Lst_PMedications.disable();
          
          Lst_PNotes.enable();
          int NSize = AP.appointmentList.size();
@@ -513,6 +517,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
 
     private void Btn_NotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NotesActionPerformed
         Txt_Notes.enable();
+        whatsdone[0] = 1;
     }//GEN-LAST:event_Btn_NotesActionPerformed
 
     private void Btn_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SaveActionPerformed
@@ -523,28 +528,35 @@ public class GUI_Doctor extends javax.swing.JFrame {
             String Date = AP.appointmentList.get(selectedPat).getAP_Date();
             String Note = Txt_Notes.getText();
             
+            
+
+        try {
+            if(whatsdone[0] == 1){
+            Data.NewNote("AP", Pat, String.valueOf(ID), Time, Date, Note);
+            }
+            if(whatsdone[1]==1){
             int ji = Cmb_PerName.getSelectedIndex();
             String PName = Cmb_PerName.getItemAt(ji);
             String PQ = Txt_PerQuan.getText();
             String PD = Txt_PDosage.getText();
-
-        try {
-            //            Data.NewNote("AP", Pat, String.valueOf(ID), Time, Date, Note);
             Data.NewPerscription("PP", Pat, PName, PQ, PD);
-//            
-//            int done = 0;
-//            
+            }
+            if(whatsdone[2] == 1){
+            String PName = Txt_PerscriptionName.getText();
+            String PQ = Txt_PerscriptionQuantity.getText();
+            String PD = Txt_PerscriptionDosage.getText();
+            Data.NewPerscription("RP", Pat, PName, PQ, PD);
+            }
+            
             GUI_Doctor New = new GUI_Doctor();
             New.GetData(Data);
             New.GetDId(ID);
+            New.GetAppointmnets(day, month, year);
             New.show();
             this.dispose();
-//
-//                
-//        } catch (IOException ex) {
-//            Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
-//    }
         } catch (IOException ex) {
+            Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
             Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_SaveActionPerformed
@@ -587,8 +599,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
 
     private void Btn_MoveRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MoveRightActionPerformed
         String SelectedMove = Cmb_MoveBy.getSelectedItem().toString();
-       
-        
+
         if("Day".equals(SelectedMove)){
             if(day == maxdays){                
             } else {
@@ -629,6 +640,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_PerQuan.enable(); 
         Txt_PDosage.setText("");
         Txt_PerQuan.setText("");
+        whatsdone[1] = 1;
 
         int DSize = C.drugList.size();
         String[] Drugs = new String[1];
@@ -644,6 +656,9 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_PerscriptionName.enable();
         Txt_PerscriptionDosage.enable();
         Txt_PerscriptionQuantity.enable();
+        
+        whatsdone[2] = 1;
+        
     }//GEN-LAST:event_Btn_RequestMedsActionPerformed
 
     private void Txt_PAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_PAgeActionPerformed
@@ -651,7 +666,28 @@ public class GUI_Doctor extends javax.swing.JFrame {
     }//GEN-LAST:event_Txt_PAgeActionPerformed
 
     private void Btn_RepeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RepeatActionPerformed
-        // TODO add your handling code here:
+        int selectedPat = Lst_Appts.getSelectedIndex();
+        String Pat = AP.appointmentList.get(selectedPat).getPatient_IDN();
+        int selectedMed = Lst_PMedications.getSelectedIndex();
+        String PName = AP.perscriptionList.get(selectedMed).getPerscription_Name();
+        String PQ = AP.perscriptionList.get(selectedMed).getPerscription_Quantity();
+        String PD = AP.perscriptionList.get(selectedMed).getPerscption_Dosage();
+        try {
+            Data.NewPerscription("PP", Pat, PName, PQ, PD);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        GUI_Doctor New = new GUI_Doctor();
+            New.GetData(Data);
+            New.GetDId(ID);
+        try {
+            New.GetAppointmnets(day, month, year);
+        } catch (ParseException ex) {
+            Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            New.show();
+            this.dispose();
     }//GEN-LAST:event_Btn_RepeatActionPerformed
 
     private void GetAppointmnets(int d, int m, int y) throws ParseException{
