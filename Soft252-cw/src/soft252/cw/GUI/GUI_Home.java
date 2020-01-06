@@ -240,20 +240,21 @@ public class GUI_Home extends javax.swing.JFrame {
         }
         
         if("Secetery".equals(SelectedUser)){
-           //Validation
+            //Validation
             for(int x = 0; x <= LengthOfUsers; x++){
                 if(Txt_Username.getText().equals(Username[x])){
                     if(Type[x].equals("S")){
                         if(Txt_Password.getText().equals(Password[x])){
-                        //Open New Window
-                        GUI_Secretary sec = new GUI_Secretary();
-                        sec.GetData(Data);
-                        sec.show();
-                        this.hide();
-                    }
-                } 
-            }        
-        }
+                            //Open New Window
+                            GUI_Secretary Sec = new GUI_Secretary();
+                            Sec.GetData(Data);
+                            Sec.GetId(x - U.patientList.size() - U.doctorList.size() - 1);
+                            Sec.show();
+                            //this.hide();
+                        }
+                    } 
+                }        
+            }
         }
 
         if("Admin".equals(SelectedUser)){

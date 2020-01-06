@@ -223,7 +223,7 @@ public class GUI_User extends javax.swing.JFrame {
     }
    
     private void Delete() throws IOException{
-        Data.editDeletePerson("P", ID);
+        Data.RequestDeletion("P", ID);
         }
 
     public static void main(String args[]) {

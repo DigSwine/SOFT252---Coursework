@@ -14,6 +14,7 @@ public class DataHandler {
     private List_Users U = new List_Users();
     private List_Clinic C = new List_Clinic();
     private Lists_AP AP = new Lists_AP();
+    private List_Requests R = new List_Requests();
     File file = new File("Data.txt");
 
     public void setU(List_Users U) {
@@ -64,9 +65,10 @@ public class DataHandler {
             + "AP, 1, 3, 9:30, 5/1/2020, Full recovery - must get an Epipen if another event occurs\n"
             + "PP, 3, Beclomethasone Nasal, 1, 1\n"
             + "PP, 1, Epipen, 1, 1\n"
-            + "RP, 1, Epipen, 1, 1\n"
-            + "RP, 1, Calcium Carbonate, 1, 1\n"
-            + "RA, 1, 3, 12:00, 10/1/2020, Check up\n";     
+            + "PP, 1, Epipen, 1, 1\n"
+            + "PP, 1, Calcium Carbonate, 1, 1\n"
+            + "RA, 1, 3, 12:00, 10/1/2020, Check up\n"
+            + "R, Jeffory, Dick, Male, 41, 6, Jones Street, Plymouth, PL7 8BD, JDick, 123";     
       //Create Data File
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
         BufferedWriter bw = new BufferedWriter(fw);
@@ -462,13 +464,10 @@ public class DataHandler {
                                 AP.perscriptionList.add(Pers);
                                 }
                             }
-                        }
-                        
-                        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                     
+                        }                     
                         //Appointment 
                         if(a == 'R'){
-                            if(b =='P'){
+                            if(b =='A'){
                                 if(c == ','){
                                  //Set Each Block Of line                                                              
                                 String[] arrOfStr = line.split(", "); 
@@ -501,7 +500,7 @@ public class DataHandler {
 //Create Instance Of Appointment
                                 Appointments Appt;
                                 Appt = new Appointments(FirstName, SName, CName, PC, User);
-                                AP.requestAppointmentList.add(Appt);
+                                R.requestAppointmentList.add(Appt);
                                 }
                             }
                         }
@@ -538,10 +537,128 @@ public class DataHandler {
 //Create Instance Of Perscriptions
                                 Perscriptions Pers;
                                 Pers = new Perscriptions(FirstName, User, SurName, SName);
-                                AP.requestPerscriptionList.add(Pers);
+                                R.requestPerscriptionList.add(Pers);
                                 }
                             }
                         }
+                        
+                        //Patients
+                        if(a == 'R'){
+                            if(b ==','){
+//Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    if(times == 10){
+                                        Pass = x;
+                                    }
+                                    if (times == 9){
+                                        User = x;
+                                        times = times + 1;
+                                    }
+                                    if (times == 8){
+                                        PC = x;
+                                        times = times + 1;
+                                    }
+                                    if (times == 7) {
+                                        CName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 6){
+                                        SName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 5){
+                                        HAddress = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 4){
+                                        Age = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 3){
+                                        Gender = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 2){
+                                        SurName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                }    
+//Create Instance Of Patient                                
+                                Patients Pat;
+                                Pat = new Patients(FirstName, SurName, Gender, Age, HAddress, SName, CName, PC, User, Pass);
+                                R.requestPatientList.add(Pat);
+                            }
+                        }
+                         //Patients
+                        if(a == 'R'){
+                            if(b == 'D'){
+                                if(c == ','){
+//Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    if(times == 10){
+                                        Pass = x;
+                                    }
+                                    if (times == 9){
+                                        User = x;
+                                        times = times + 1;
+                                    }
+                                    if (times == 8){
+                                        PC = x;
+                                        times = times + 1;
+                                    }
+                                    if (times == 7) {
+                                        CName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 6){
+                                        SName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 5){
+                                        HAddress = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 4){
+                                        Age = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 3){
+                                        Gender = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 2){
+                                        SurName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                }    
+//Create Instance Of Patient                                
+                                Patients Pat;
+                                Pat = new Patients(FirstName, SurName, Gender, Age, HAddress, SName, CName, PC, User, Pass);
+                                R.deletePatientList.add(Pat);
+                            }
+                        }
+                        }
+       
 //end                        
                         //Set Next Line
                         line = reader.readLine();
@@ -563,15 +680,7 @@ public class DataHandler {
         LoggedinUser = U.patientList.get(IDN - 1).getPatient_Username();
         LoggedinPass = U.patientList.get(IDN - 1).getPatient_Password();
         }
-        else if("D".equals(type)){
-        LoggedinUser = U.doctorList.get(IDN - 1).getDoctor_User();
-        LoggedinPass = U.doctorList.get(IDN - 1).getDoctor_Password();
-        }else if("A".equals(type)){
-            
-        }else if("S".equals(type)){
-            
-        }
-   
+        
         while (line != null) {
             char a = line.charAt(0);
             char b = line.charAt(1);
@@ -624,61 +733,7 @@ public class DataHandler {
                         x = x + 1;
                         }
                     }
-                }
-//Doctor
-                if("D".equals(type)){
-                    if(a != 'D'){
-                        context[x] = line;
-                        context = Arrays.copyOf(context, context.length + 1);
-                        x = x + 1;
-                        line = reader.readLine();
-                        }
-                    else if(a == 'D'){
-                        if(b == ','){
-                            //Set Each Block Of line                                                              
-                                String[] arrOfStr = line.split(", "); 
-                                int times = 0;
-//Get Each Block Of The String "line"                                
-                               for (String chunk : arrOfStr){
-                                    if(times == 8){
-                                        Pass = chunk;
-                                        System.out.println(Pass);
-                                    }
-                                    if (times == 7){
-                                        User = chunk;
-                                        times = times + 1;
-                                    }
-                                    else 
-                                    {
-                                     times = times + 1;   
-                                    }
-                                } 
-                            if(LoggedinUser.equals(User)){
-                                if(LoggedinPass.equals(Pass)){
-                                    U.doctorList.remove(IDN - 1);
-                                    line = reader.readLine();
-                                }
-                            }
-                            else {
-                            context[x] = line;
-                            context = Arrays.copyOf(context, context.length + 1);
-                            line = reader.readLine();
-                        x = x + 1;
-                        }
-                        }
-                        else{
-                        line = reader.readLine();
-                        context = Arrays.copyOf(context, context.length + 1);
-                        context[x] = line;
-                        x = x + 1;
-                        }
-                    }
-                }
-//
-////Admin
-//
-////Secretary
-//                
+                }       
 //End of while loop                
         }
     //Create Data File
@@ -688,6 +743,94 @@ public class DataHandler {
         bw.write(context[y] + "\n");
     }
     bw.close();
+    }
+    
+    public void RequestDeletion(String type, int ind) throws FileNotFoundException, IOException{
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader("Data.txt"));
+        File txtDoc = new File("Data.txt");               
+        String line = reader.readLine();
+        String context[] = new String[1];
+        String requestedUser = U.patientList.get(ind - 1).getPatient_Username();
+        String requestedPass = U.patientList.get(ind - 1).getPatient_Password();
+                     String Del = "Unknown";
+                        String FirstName = "Unknown";
+                        String SurName = "Unknown";
+                        String Gender = "Unknown";
+                        String Age = "Unknown";
+                        String HAddress = "Unknown";
+                        String SName = "Unknown";
+                        String CName = "Unknown";
+                        String PC = "Unknown";
+                        String User = "Unknown";
+                        String Pass = "Unknown";
+        int x = 0;
+         while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+
+            if(a == 'P'){
+                if(b == ','){
+                    //Set Each Block Of line                                                              
+                    String[] arrOfStr = line.split(", "); 
+                    int times = 0;
+//Get Each Block Of The String "line"                                
+                    for (String chunk : arrOfStr){
+                        if(times == 10){
+                                        Pass = chunk;
+                                    }
+                                    if (times == 9){
+                                        User = chunk;
+                                        times = times + 1;
+                                    }
+                                    if (times == 8){
+                                        PC = chunk;
+                                        times = times + 1;
+                                    }
+                                    if (times == 7) {
+                                        CName = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 6){
+                                        SName = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 5){
+                                        HAddress = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 4){
+                                        Age = chunk;
+                                        times = times +1;
+                                    }
+                                    if(times == 3){
+                                        Gender = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 2){
+                                        SurName = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                    }
+                if(requestedUser.equals(User)){
+                    if(requestedPass.equals(Pass)){
+                        
+                        editDeletePerson("P", ind);
+                        Del = "RD, " + FirstName + ", " + SurName + ", " + Gender + ", " + Age + ", " + HAddress + ", " + SName + ", " + CName + ", " + PC + ", " + User + ", " + Pass;
+                    }
+                }
+            }
+        }
+            System.out.println(line);
+            line = reader.readLine();
+    }
     }
     public void NewNote(String type, String pid, String did, String time, String date, String note) throws FileNotFoundException, IOException{
        BufferedReader reader;

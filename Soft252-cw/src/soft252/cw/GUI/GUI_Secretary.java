@@ -1,7 +1,10 @@
 //@author mwilson-slider
 package soft252.cw.GUI;
 
+import javax.swing.DefaultListModel;
 import soft252.cw.Classes.DataHandler;
+import soft252.cw.Classes.List_Clinic;
+import soft252.cw.Classes.List_Requests;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
 
@@ -21,17 +24,8 @@ public class GUI_Secretary extends javax.swing.JPanel {
         Lst_Stock = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         Lst_AccountRemoval = new javax.swing.JList<>();
-        Txt_Firstname = new javax.swing.JTextField();
-        Txt_SurName = new javax.swing.JTextField();
-        Txt_AddressLine1 = new javax.swing.JTextField();
-        Btn_FindandDestroy = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         Lst_MedsReady = new javax.swing.JList<>();
-        Txt_ApptFirst = new javax.swing.JTextField();
-        Txt_ApptSur = new javax.swing.JTextField();
-        Txt_ApptLine = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        Btn_MakeAppt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Btn_NewPatApp = new javax.swing.JButton();
         Btn_NewPatDeny = new javax.swing.JButton();
@@ -58,7 +52,7 @@ public class GUI_Secretary extends javax.swing.JPanel {
         jScrollPane2.setViewportView(Lst_ApptsRequests);
 
         Lst_Stock.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "-Stock Needs Replacing-" };
+            String[] strings = { "-Stock Needs Replacing And New Medication Requests-" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -71,31 +65,12 @@ public class GUI_Secretary extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(Lst_AccountRemoval);
 
-        Txt_Firstname.setText("-FirstName-");
-
-        Txt_SurName.setText("-SurName-");
-
-        Txt_AddressLine1.setText("-House Number-");
-
-        Btn_FindandDestroy.setText("Find and Remove");
-
         Lst_MedsReady.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "-Meds To Handout-" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane5.setViewportView(Lst_MedsReady);
-
-        Txt_ApptFirst.setText("-FirstName-");
-
-        Txt_ApptSur.setText("-SurName-");
-
-        Txt_ApptLine.setText("-House Number-");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Avaliable Doctors-" }));
-
-        Btn_MakeAppt.setText("Make Appointment");
-        Btn_MakeAppt.setActionCommand("");
 
         jLabel1.setText("Secratary");
 
@@ -130,55 +105,34 @@ public class GUI_Secretary extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Btn_MakeAppt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(Txt_ApptFirst, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Txt_ApptLine, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Txt_ApptSur)
-                                        .addComponent(jComboBox1, 0, 211, Short.MAX_VALUE)))))
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Btn_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(Btn_NewPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(Btn_NewPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(Btn_NewApptApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(Btn_NewApptDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Btn_Restock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Txt_Firstname, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Txt_SurName, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane4)
-                                    .addComponent(jScrollPane3)
-                                    .addComponent(jScrollPane2)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Txt_AddressLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Btn_FindandDestroy, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(Btn_NewPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(Btn_NewPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(Btn_NewApptApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(Btn_NewApptDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(Btn_Restock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Btn_DelPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Btn_Handedout, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 58, Short.MAX_VALUE)))
+                                .addComponent(Btn_DelPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Btn_Handedout, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 4, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -188,7 +142,7 @@ public class GUI_Secretary extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(Btn_Logout))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Btn_NewPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,36 +168,33 @@ public class GUI_Secretary extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Btn_Handedout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_Firstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Txt_SurName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Txt_AddressLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Btn_FindandDestroy))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_ApptFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Txt_ApptSur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Txt_ApptLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Btn_MakeAppt)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     DataHandler Data = new DataHandler();
     Lists_AP AP = new Lists_AP();
     List_Users U = new List_Users();
+    List_Clinic C = new List_Clinic();
+    List_Requests R = new List_Requests();
+    int ID = 0;
     
     public void GetData(DataHandler data){
         Data = data;
+        AP = Data.getAP();
+        U = Data.getU();
+        
+        setAll();
     }
     
+    public void GetId(int id){
+        ID = id;
+    }
+    
+    private void setAll(){
+        GetAppointmentRequests();
+        GetPerscriptionRequests();
+    }
     
     private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
          GUI_Home Home = new GUI_Home();
@@ -252,16 +203,61 @@ public class GUI_Secretary extends javax.swing.JPanel {
             this.hide();
     }//GEN-LAST:event_Btn_LogoutActionPerformed
 
-    
-    
+    private void GetAppointmentRequests(){
+        // Lst_ApptsRequests
+        int NewSize = R.requestAppointmentList.size();
+        String[] Appointment = new String[1];
+        Integer Docid = 0;
+        
+        for(int x = 0; x < NewSize; x++){
+            Docid = Integer.valueOf(R.requestAppointmentList.get(x).getDoctor_IDN());
+            Appointment[x] = R.requestAppointmentList.get(x).getAP_Time() + " " + R.requestAppointmentList.get(x).getAP_Date() + " " + U.doctorList.get(Docid - 1).getDoctor_FirstName() + " " + U.doctorList.get(Docid - 1).getDoctor_SurName();
+        }
+        //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < Appointment.length; x++){
+            DLM.addElement(Appointment[x]);
+            }
+            Lst_ApptsRequests.setModel(DLM);
+    }
+    private void GetPerscriptionRequests(){
+        // Lst_Stock - Requests
+        int ReqSize = R.requestAppointmentList.size();
+        String[] PerscriptionRequests = new String[1];
+        int Ammonthneded = 100;
+        for(int x = 0; x < ReqSize; x++){
+            PerscriptionRequests[x] = R.requestPerscriptionList.get(x).getPerscription_Name()+ ": Dosage - " + R.requestPerscriptionList.get(x).getPerscption_Dosage() + ": Quantity - " + Ammonthneded;
+        }
+        
+        // Lst_Stock - Restock
+        int LowSize = C.lowsotckList.size();
+        String[] Needed = new String[1];
+        Integer Have = 0;
+        int Required = 0;
+        for(int x = 0; x < LowSize; x++){
+            Have = Integer.valueOf(C.lowsotckList.get(x).getItem_Stock());
+            Required = 100 - Have;
+            Needed[x] = C.lowsotckList.get(x).getItem_Name()+ ": Required - " + Required; 
+        }
 
+        //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < PerscriptionRequests.length; x++){
+                DLM.addElement(PerscriptionRequests[x]);
+            }
+            for(int x = 0; x < Needed.length; x++){
+                DLM.addElement(Needed[x]);
+            }
+            Lst_Stock.setModel(DLM);
+    }
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_DelPatApp;
     private javax.swing.JButton Btn_DelPatDeny;
-    private javax.swing.JButton Btn_FindandDestroy;
     private javax.swing.JButton Btn_Handedout;
     private javax.swing.JButton Btn_Logout;
-    private javax.swing.JButton Btn_MakeAppt;
     private javax.swing.JButton Btn_NewApptApp;
     private javax.swing.JButton Btn_NewApptDeny;
     private javax.swing.JButton Btn_NewPatApp;
@@ -272,13 +268,6 @@ public class GUI_Secretary extends javax.swing.JPanel {
     private javax.swing.JList<String> Lst_MedsReady;
     private javax.swing.JList<String> Lst_NewAccounts;
     private javax.swing.JList<String> Lst_Stock;
-    private javax.swing.JTextField Txt_AddressLine1;
-    private javax.swing.JTextField Txt_ApptFirst;
-    private javax.swing.JTextField Txt_ApptLine;
-    private javax.swing.JTextField Txt_ApptSur;
-    private javax.swing.JTextField Txt_Firstname;
-    private javax.swing.JTextField Txt_SurName;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
