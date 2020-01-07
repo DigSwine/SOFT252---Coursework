@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -24,7 +31,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="Btn_Logout" min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
                           <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
@@ -34,27 +41,27 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="Btn_NewPatApp" min="-2" pref="146" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="Btn_NewPatDeny" min="-2" pref="146" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="Btn_NewApptApp" min="-2" pref="146" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="Btn_NewApptDeny" min="-2" pref="146" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="Btn_Restock" max="32767" attributes="0"/>
+                              <Component id="Btn_Restock" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="Btn_DelPatApp" min="-2" pref="146" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Btn_DelPatDeny" min="-2" pref="146" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="Btn_Handedout" min="-2" pref="298" max="-2" attributes="0"/>
+                          <Component id="Btn_Handedout" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -66,8 +73,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="Btn_Logout" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="Btn_Logout" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -75,11 +82,11 @@
                       <Component id="Btn_NewPatApp" alignment="3" min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="Btn_NewPatDeny" alignment="3" min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="86" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="-2" pref="85" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="Btn_NewApptApp" alignment="3" min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="Btn_NewApptDeny" alignment="3" min="-2" pref="86" max="-2" attributes="0"/>
@@ -87,8 +94,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Btn_Restock" max="32767" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="85" max="-2" attributes="0"/>
+                  <Component id="Btn_Restock" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -96,12 +103,12 @@
                       <Component id="Btn_DelPatApp" alignment="3" min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="Btn_DelPatDeny" alignment="3" min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane4" min="-2" pref="86" max="-2" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Btn_Handedout" max="32767" attributes="0"/>
-                  <Component id="jScrollPane5" min="-2" pref="96" max="-2" attributes="0"/>
+                  <Component id="Btn_Handedout" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -109,6 +116,19 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Secratary"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_Logout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Log Out"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_LogoutActionPerformed"/>
+      </Events>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -130,6 +150,16 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="Btn_NewPatApp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Approve"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_NewPatDeny">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deny"/>
+      </Properties>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -151,6 +181,16 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="Btn_NewApptApp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Approve"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_NewApptDeny">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deny"/>
+      </Properties>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -172,6 +212,14 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="Btn_Restock">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Restock"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_RestockActionPerformed"/>
+      </Events>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane4">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -193,6 +241,16 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="Btn_DelPatApp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Approve"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_DelPatDeny">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deny"/>
+      </Properties>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane5">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -214,58 +272,10 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Secratary"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_NewPatApp">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Approve"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_NewPatDeny">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Deny"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_NewApptApp">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Approve"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_NewApptDeny">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Deny"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_Restock">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Restock"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_DelPatApp">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Approve"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_DelPatDeny">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Deny"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="Btn_Handedout">
       <Properties>
         <Property name="text" type="java.lang.String" value="Handedout"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_Logout">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Log Out"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_LogoutActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

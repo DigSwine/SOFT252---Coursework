@@ -13,11 +13,10 @@ public class Clinic
     //Variables for Stock
     protected Integer Item_IdentificationNumber = 0;
     protected String Item_Name = "Unknown";
-    protected String Item_Price = "0.00";
     protected String Item_Type = "Unknown";
     protected String Item_Description = "Unknown";
-    protected String Item_Stock = "0";
-    protected String Item_Selling = "yes";
+    protected Integer Item_Stock = 0;
+    protected String Item_Amm = "Unknown";
     
     //Constructor
     public Clinic(String Clinic_Name, String Clinic_StreetNumber, String Clinic_StreetName, String Clinic_City, String Clinic_PostCode) {
@@ -27,11 +26,11 @@ public class Clinic
         this.Clinic_City = Clinic_City;
         this.Clinic_PostCode = Clinic_PostCode;
     }
-    public Clinic(String Item_Name, String Item_Price, String Item_Type, String Item_Description, String Item_Stock, String Item_Selling){
+    public Clinic(String Item_Name, String Item_Type, String Item_Description, String Item_Amm, Integer Item_Stock){
         this.Item_Name = Item_Name;
-        this.Item_Price = Item_Price;
         this.Item_Type = Item_Type;
         this.Item_Description = Item_Description;
+        this.Item_Amm = Item_Amm;
         this.Item_Stock = Item_Stock;
     }
     
@@ -78,16 +77,13 @@ public class Clinic
     public String getItem_Name() {
         return Item_Name;
     }
-    public String getItem_Price() {
-        return Item_Price;
-    }
     public String getItem_Type() {
         return Item_Type;
     }
     public String getItem_Description() {
         return Item_Description;
     }
-    public String getItem_Stock() {
+    public Integer getItem_Stock() {
         return Item_Stock;
     }
     //Setters
@@ -97,16 +93,13 @@ public class Clinic
     public void setItem_Name(String Item_Name) {
         this.Item_Name = Item_Name;
     }
-    public void setItem_Price(String Item_Price) {
-        this.Item_Price = Item_Price;
-    }
     public void setItem_Type(String Item_Type) {
         this.Item_Type = Item_Type;
     }
     public void setItem_Description(String Item_Description) {
         this.Item_Description = Item_Description;
     }
-    public void setItem_Stock(String Item_Stock) {
+    public void setItem_Stock(Integer Item_Stock) {
         this.Item_Stock = Item_Stock;
     }
       

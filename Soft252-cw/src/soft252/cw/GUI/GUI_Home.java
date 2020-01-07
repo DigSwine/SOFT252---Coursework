@@ -246,7 +246,7 @@ public class GUI_Home extends javax.swing.JFrame {
                     if(Type[x].equals("S")){
                         if(Txt_Password.getText().equals(Password[x])){
                             //Open New Window
-                            GUI_Secretary Sec = new GUI_Secretary();
+                            GUI_Secratery Sec = new GUI_Secratery();
                             Sec.GetData(Data);
                             Sec.GetId(x - U.patientList.size() - U.doctorList.size() - 1);
                             Sec.show();

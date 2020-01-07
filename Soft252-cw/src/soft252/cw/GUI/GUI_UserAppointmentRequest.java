@@ -197,6 +197,7 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
 
     private void getFreeTimes(int doc, int d, int m, int y){
         int Slotsize = 10;
+        int Taken = AP.appointmentList.size();
         String[] TheTIME = new String[Slotsize + 1];
                
         int hour = 9;
@@ -205,19 +206,27 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
         DefaultListModel DLM = new DefaultListModel();
         Lst_Avalibility.enable();
 
-        for(int x = 0; x < Slotsize; x++){                
-                if(minute == 30){
-                    TheTIME[x] = hour + ":" + minute;
-                    DLM.addElement(TheTIME[x]);
-                    minute = 0;
-                    hour = hour + 1;
-                }
-                if(minute == 0){
-                    TheTIME[x] = hour + ":" + minute;
-                    DLM.addElement(TheTIME[x]);
-                    minute = 30;
-                }
-       }
+        String Date = d + "/" + m + "/" + y;
+        String Time = hour + ":" + minute;
+        int a = 0;
+        int x = 0;
+        String[] Dates = new String[1];
+        String[] Times = new String[1];
+        for(int b = 0; b < Slotsize; b++){
+            if(x < Taken){
+                Dates[x] = AP.appointmentList.get(x).getAP_Date();
+                Dates = Arrays.copyOf(Dates, Dates.length + 1);
+                Times[x] = AP.appointmentList.get(x).getAP_Time();
+                Times = Arrays.copyOf(Times, Times.length + 1);
+                x = x + 1;
+            }
+        if(Date.equals(Dates[a])){
+            System.out.println(Dates.length);
+            a = a + 1;
+        }
+        }
+        
+        
     Lst_Avalibility.setModel(DLM);
     }
     

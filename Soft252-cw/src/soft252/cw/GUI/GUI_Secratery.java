@@ -1,6 +1,7 @@
-//@author mwilson-slider
+
 package soft252.cw.GUI;
 
+import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Clinic;
@@ -8,87 +9,38 @@ import soft252.cw.Classes.List_Requests;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
 
-public class GUI_Secretary extends javax.swing.JPanel {
-    public GUI_Secretary() {
+public class GUI_Secratery extends javax.swing.JFrame {
+    public GUI_Secratery() {
         initComponents();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        Btn_Logout = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Lst_NewAccounts = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Lst_ApptsRequests = new javax.swing.JList<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        Lst_Stock = new javax.swing.JList<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        Lst_AccountRemoval = new javax.swing.JList<>();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        Lst_MedsReady = new javax.swing.JList<>();
-        jLabel1 = new javax.swing.JLabel();
         Btn_NewPatApp = new javax.swing.JButton();
         Btn_NewPatDeny = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Lst_ApptsRequests = new javax.swing.JList<>();
         Btn_NewApptApp = new javax.swing.JButton();
         Btn_NewApptDeny = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Lst_Stock = new javax.swing.JList<>();
         Btn_Restock = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Lst_AccountRemoval = new javax.swing.JList<>();
         Btn_DelPatApp = new javax.swing.JButton();
         Btn_DelPatDeny = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Lst_MedsReady = new javax.swing.JList<>();
         Btn_Handedout = new javax.swing.JButton();
-        Btn_Logout = new javax.swing.JButton();
 
-        Lst_NewAccounts.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "-New Patient Accounts-" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(Lst_NewAccounts);
-
-        Lst_ApptsRequests.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "-Appointment Requests-" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(Lst_ApptsRequests);
-
-        Lst_Stock.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "-Stock Needs Replacing And New Medication Requests-" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(Lst_Stock);
-
-        Lst_AccountRemoval.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "-Account Removal-" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(Lst_AccountRemoval);
-
-        Lst_MedsReady.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "-Meds To Handout-" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane5.setViewportView(Lst_MedsReady);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Secratary");
-
-        Btn_NewPatApp.setText("Approve");
-
-        Btn_NewPatDeny.setText("Deny");
-
-        Btn_NewApptApp.setText("Approve");
-
-        Btn_NewApptDeny.setText("Deny");
-
-        Btn_Restock.setText("Restock");
-
-        Btn_DelPatApp.setText("Approve");
-
-        Btn_DelPatDeny.setText("Deny");
-
-        Btn_Handedout.setText("Handedout");
 
         Btn_Logout.setText("Log Out");
         Btn_Logout.addActionListener(new java.awt.event.ActionListener() {
@@ -97,8 +49,64 @@ public class GUI_Secretary extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        Lst_NewAccounts.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "-New Patient Accounts-" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(Lst_NewAccounts);
+
+        Btn_NewPatApp.setText("Approve");
+
+        Btn_NewPatDeny.setText("Deny");
+
+        Lst_ApptsRequests.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "-Appointment Requests-" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(Lst_ApptsRequests);
+
+        Btn_NewApptApp.setText("Approve");
+
+        Btn_NewApptDeny.setText("Deny");
+
+        Lst_Stock.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "-Stock Needs Replacing And New Medication Requests-" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(Lst_Stock);
+
+        Btn_Restock.setText("Restock");
+        Btn_Restock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RestockActionPerformed(evt);
+            }
+        });
+
+        Lst_AccountRemoval.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "-Account Removal-" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(Lst_AccountRemoval);
+
+        Btn_DelPatApp.setText("Approve");
+
+        Btn_DelPatDeny.setText("Deny");
+
+        Lst_MedsReady.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "-Meds To Handout-" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(Lst_MedsReady);
+
+        Btn_Handedout.setText("Handedout");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -132,7 +140,7 @@ public class GUI_Secretary extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Btn_Handedout, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -170,8 +178,11 @@ public class GUI_Secretary extends javax.swing.JPanel {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     DataHandler Data = new DataHandler();
     Lists_AP AP = new Lists_AP();
     List_Users U = new List_Users();
@@ -183,7 +194,8 @@ public class GUI_Secretary extends javax.swing.JPanel {
         Data = data;
         AP = Data.getAP();
         U = Data.getU();
-        
+        C = Data.getC();
+        R = Data.getR();
         setAll();
     }
     
@@ -194,15 +206,10 @@ public class GUI_Secretary extends javax.swing.JPanel {
     private void setAll(){
         GetAppointmentRequests();
         GetPerscriptionRequests();
-    }
-    
-    private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
-         GUI_Home Home = new GUI_Home();
-            Home.GetUser(Data);
-            Home.show();
-            this.hide();
-    }//GEN-LAST:event_Btn_LogoutActionPerformed
-
+        GetNewPatients();
+        GetDelPatients();
+        GetHandout();
+    }                                      
     private void GetAppointmentRequests(){
         // Lst_ApptsRequests
         int NewSize = R.requestAppointmentList.size();
@@ -212,6 +219,7 @@ public class GUI_Secretary extends javax.swing.JPanel {
         for(int x = 0; x < NewSize; x++){
             Docid = Integer.valueOf(R.requestAppointmentList.get(x).getDoctor_IDN());
             Appointment[x] = R.requestAppointmentList.get(x).getAP_Time() + " " + R.requestAppointmentList.get(x).getAP_Date() + " " + U.doctorList.get(Docid - 1).getDoctor_FirstName() + " " + U.doctorList.get(Docid - 1).getDoctor_SurName();
+            Appointment = Arrays.copyOf(Appointment, Appointment.length + 1);
         }
         //SetListValues
             DefaultListModel DLM = new DefaultListModel();
@@ -225,8 +233,14 @@ public class GUI_Secretary extends javax.swing.JPanel {
         int ReqSize = R.requestAppointmentList.size();
         String[] PerscriptionRequests = new String[1];
         int Ammonthneded = 100;
-        for(int x = 0; x < ReqSize; x++){
-            PerscriptionRequests[x] = R.requestPerscriptionList.get(x).getPerscription_Name()+ ": Dosage - " + R.requestPerscriptionList.get(x).getPerscption_Dosage() + ": Quantity - " + Ammonthneded;
+        String TheReq = String.valueOf(Ammonthneded);
+        String TheName = "";
+        String TheDos = "";
+        for(int x = 0; x <= ReqSize; x++){
+            TheName = R.requestPerscriptionList.get(x).getPerscription_Name();
+            TheDos = R.requestPerscriptionList.get(x).getPerscption_Dosage();
+            PerscriptionRequests[x] = TheName + ": Dosage - " + TheDos + ": Quantity - " + TheReq;
+            PerscriptionRequests = Arrays.copyOf(PerscriptionRequests, PerscriptionRequests.length + 1);
         }
         
         // Lst_Stock - Restock
@@ -235,9 +249,11 @@ public class GUI_Secretary extends javax.swing.JPanel {
         Integer Have = 0;
         int Required = 0;
         for(int x = 0; x < LowSize; x++){
-            Have = Integer.valueOf(C.lowsotckList.get(x).getItem_Stock());
+            Have = C.lowsotckList.get(x).getItem_Stock();
             Required = 100 - Have;
-            Needed[x] = C.lowsotckList.get(x).getItem_Name()+ ": Required - " + Required; 
+            TheName = C.lowsotckList.get(x).getItem_Name();
+            Needed[x] = TheName + ": Required - " + String.valueOf(Required); 
+            Needed = Arrays.copyOf(Needed, Needed.length + 1);
         }
 
         //SetListValues
@@ -250,9 +266,108 @@ public class GUI_Secretary extends javax.swing.JPanel {
             }
             Lst_Stock.setModel(DLM);
     }
+    private void GetNewPatients(){
+        // Lst_NewAccounts
+        int NewPatSize = R.requestPatientList.size();
+        String[] Pat = new String[1];
+        for(int x = 0; x < NewPatSize; x++){
+            String TheName = R.requestPatientList.get(x).getPatient_Firstname() + " " + R.requestPatientList.get(x).getPatient_Surname();
+            String TheGender = R.requestPatientList.get(x).getPatient_Gender();
+            String TheAge = R.requestPatientList.get(x).getPatient_Age();
+            Pat[x] = TheName + ", " + TheGender + ", Age - " + TheAge; 
+            Pat = Arrays.copyOf(Pat, Pat.length + 1);
+        }
 
+        //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < Pat.length; x++){
+                DLM.addElement(Pat[x]);
+            }
+            Lst_NewAccounts.setModel(DLM);
+    }
+    private void GetDelPatients(){
+        // Lst_AccountRemoval
+        int NewPatSize = R.deletePatientList.size();
+        String[] Pat = new String[1];
+        for(int x = 0; x < NewPatSize; x++){
+            String TheName = R.deletePatientList.get(x).getPatient_Firstname() + " " + R.deletePatientList.get(x).getPatient_Surname();
+            String TheGender = R.deletePatientList.get(x).getPatient_Gender();
+            String TheAge = R.deletePatientList.get(x).getPatient_Age();
+            Pat[x] = TheName + ", " + TheGender + ", Age - " + TheAge; 
+            Pat = Arrays.copyOf(Pat, Pat.length + 1);
+        }
 
-   public static void main(String args[]) {
+        //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < Pat.length; x++){
+                DLM.addElement(Pat[x]);
+            }
+            Lst_AccountRemoval.setModel(DLM);
+    }
+    private void GetHandout(){
+        //Lst_MedsReady
+         int NewPatSize = R.deletePatientList.size();
+        String[] Ready = new String[1];
+        int who = 0;
+        for(int x = 0; x < NewPatSize; x++){
+            who = Integer.valueOf(R.readyHandoutList.get(x).getPatient_IDN());
+            String TheName = U.patientList.get(who).getPatient_Firstname() + " " + U.patientList.get(who).getPatient_Surname();
+            String TheMed = R.readyHandoutList.get(x).getPerscription_Name();
+            String TheDos = R.readyHandoutList.get(x).getPerscption_Dosage();
+            String TheQuantity = R.readyHandoutList.get(x).getPerscription_Quantity();
+            Ready[x] = TheMed + ", Dosage - " + TheDos + ", Quantity - " + TheQuantity + ", For - " + TheName; 
+            Ready = Arrays.copyOf(Ready, Ready.length + 1);
+        }
+
+        //SetListValues
+            DefaultListModel DLM = new DefaultListModel();
+            for(int x = 0; x < Ready.length; x++){
+                DLM.addElement(Ready[x]);
+            }
+            Lst_MedsReady.setModel(DLM);
+    }
+    
+    
+    private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
+        GUI_Home Home = new GUI_Home();
+        Home.GetUser(Data);
+        Home.show();
+        this.hide();
+    }//GEN-LAST:event_Btn_LogoutActionPerformed
+
+    private void Btn_RestockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RestockActionPerformed
+        
+    }//GEN-LAST:event_Btn_RestockActionPerformed
+
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -266,25 +381,24 @@ public class GUI_Secretary extends javax.swing.JPanel {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI_Secretary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Secratery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI_Secretary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Secratery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI_Secretary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Secratery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI_Secretary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Secratery.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Secretary().setVisible(true);
+                new GUI_Secratery().setVisible(true);
             }
-        }); 
-   }
-   
-    
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_DelPatApp;
     private javax.swing.JButton Btn_DelPatDeny;

@@ -36,6 +36,23 @@ public class DataHandler {
     public Lists_AP getAP() {
         return AP;
     }
+
+    public List_Requests getR() {
+        return R;
+    }
+
+    public void setR(List_Requests R) {
+        this.R = R;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+    
     
     public void setData() throws IOException{
 // Set Defult Data
@@ -49,26 +66,28 @@ public class DataHandler {
             + "A, Karran, Southbank, 29, Hallow Way, Plymouth, PL8 9KL, KSouthbank, 0909\n"
             + "S, Shallisa, Beonce, 100, Deo Lane, Plymouth, PL3 2DO, SBeonce, 9090\n"
             + "C, MadeUp Pharmacy, 50, Long Road, Plymouth, PL5 2RT\n"
-            + "CD, Paracetomol, 1.50, Over The Counter - Drug, 12 Tablets, Releaves Pain, 100\n"
-            + "CD, Ibuprofen, 1.25, Over The Counter - Drug, 12 Tablets, Releaves Pain, 100\n"
-            + "CD, Epipen, 5.00, Over The Counter  - Drug, 1 use, Emergancy Useage, 100\n"
-            + "CD, Norflex, 10.00, Perscription  - Drug, 26 Tablets, Muscle Relaxer, 100\n"
-            + "CD, Calcium Carbonate, 3.50, Over The Counter  - Drug, 20 Tablets, prevent or to treat a calcium deficiency, 100\n"
-            + "CD, Morphine, 12.00, Perscription  - Drug, 10 Patches,  Treats moderate to severe pain, 100\n"
+            + "CD, Paracetomol, Over The Counter - Drug, 12 Tablets, Releaves Pain, 10\n"
+            + "CD, Ibuprofen, Over The Counter - Drug, 12 Tablets, Releaves Pain, 100\n"
+            + "CD, Epipen, Over The Counter  - Drug, 1 use, Emergancy Useage, 40\n"
+            + "CD, Norflex, Perscription  - Drug, 26 Tablets, Muscle Relaxer, 100\n"
+            + "CD, Calcium Carbonate, Over The Counter  - Drug, 20 Tablets, prevent or to treat a calcium deficiency, 100\n"
+            + "CD, Morphine, Perscription  - Drug, 10 Patches,  Treats moderate to severe pain, 100\n"
             + "CD, Beclomethasone Nasal, 5.50, Over The Counter  - Drug, Nasle Spray - 24 Sprays, prevent hayfeaver allergies, 100\n"
-            + "CD, Opium Tincture, 3.50, Perscription  - Drug, 5 Tablets, used to treat diarrhea, 100\n"
-            + "CD, Dextroamphetamine, 1.50, Perscription  - Drug, 20 Tablets,  used to treat narcolepsy and ADHD, 100\n"
-            + "CD, Baclofene, 3.50, Perscription  - Drug, 24 Tablets, muscle relaxer and an antispasmodic agent, 100\n"
+            + "CD, Opium Tincture, Perscription  - Drug, 5 Tablets, used to treat diarrhea, 100\n"
+            + "CD, Dextroamphetamine, Perscription  - Drug, 20 Tablets,  used to treat narcolepsy and ADHD, 100\n"
+            + "CD, Baclofene, Perscription  - Drug, 24 Tablets, muscle relaxer and an antispasmodic agent, 100\n"
             + "AP, 3, 2, 10:30, 17/12/2019, This patient is suffering from hayfever\n"
             + "AP, 2, 1, 10:00, 21/1/2020, Check up\n"
             + "AP, 1, 3, 9:00, 18/12/2019, Swelling to the face after eating peanuts\n"
             + "AP, 1, 3, 9:30, 5/1/2020, Full recovery - must get an Epipen if another event occurs\n"
             + "PP, 3, Beclomethasone Nasal, 1, 1\n"
             + "PP, 1, Epipen, 1, 1\n"
-            + "PP, 1, Epipen, 1, 1\n"
-            + "PP, 1, Calcium Carbonate, 1, 1\n"
+            + "RP, 1, Epipen, 1, 1\n"
+            + "RP, 1, Calcium Carbonate, 1, 1\n"
             + "RA, 1, 3, 12:00, 10/1/2020, Check up\n"
-            + "R, Jeffory, Dick, Male, 41, 6, Jones Street, Plymouth, PL7 8BD, JDick, 123";     
+            + "R, Jeffory, Dick, Male, 41, 6, Jones Street, Plymouth, PL7 8BD, JDick, 123\n"
+            + "RD, Anton, Deago, Male, 29, 18, Derriford Road, Plymouth, Pl2 2IR, ADeago, 123423\n"
+            + "H, 2, Paracetomol, 10, 10\n";     
       //Create Data File
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
         BufferedWriter bw = new BufferedWriter(fw);
@@ -354,12 +373,8 @@ public class DataHandler {
                                 int times = 0;
 //Get Each Block Of The String "line"                                   
                                 for (String x : arrOfStr){
-                                    if(times==6){
-                                        User = x;
-                                    }
                                     if(times == 5){
                                         PC = x;
-                                        times = times + 1;
                                     }
                                     if(times == 4){
                                         CName = x;
@@ -382,9 +397,20 @@ public class DataHandler {
                                     }
                                 } 
 //Create Instance Of ClinicDrug
+                            
                                 Clinic CliDru;
-                                CliDru = new Clinic(FirstName, HAddress, SName, CName, PC, User);
+                                Integer ipc = Integer.valueOf(PC);
+                                
+                                CliDru = new Clinic(FirstName, HAddress, SName, CName, ipc);
                                 C.drugList.add(CliDru);
+                                
+                                int minallowed = 50;
+                                Integer Have = Integer.valueOf(PC);
+                                if(Have <= minallowed){
+                                Clinic ReqD;
+                                ReqD = new Clinic(FirstName, HAddress, SName, CName, ipc);
+                                C.lowsotckList.add(ReqD);
+                                }
                                 }
                             }
                         }
@@ -658,8 +684,43 @@ public class DataHandler {
                             }
                         }
                         }
+                        //Perscriptions
+                        if(a == 'H'){
+                            if(b ==','){
+                                        //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String x : arrOfStr){
+                                    if(times == 4){
+                                        SName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        SurName = x;
+                                        times = times +1;
+                                    }
+                                    if(times == 2){
+                                        User = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+//Create Instance Of Perscriptions
+                                Perscriptions Pers;
+                                Pers = new Perscriptions(FirstName, User, SurName, SName);
+                                R.readyHandoutList.add(Pers);
+                                }
+                            }
+                        
        
-//end                        
+//end
                         //Set Next Line
                         line = reader.readLine();
         }
