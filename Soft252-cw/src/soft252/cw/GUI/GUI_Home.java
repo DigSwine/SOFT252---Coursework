@@ -250,7 +250,7 @@ public class GUI_Home extends javax.swing.JFrame {
                             Sec.GetData(Data);
                             Sec.GetId(x - U.patientList.size() - U.doctorList.size() - 1);
                             Sec.show();
-                            //this.hide();
+                            this.dispose();
                         }
                     } 
                 }        
