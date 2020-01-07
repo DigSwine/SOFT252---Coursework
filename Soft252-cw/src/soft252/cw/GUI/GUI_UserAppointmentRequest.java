@@ -1,13 +1,23 @@
 // @author mwilson-slider
 package soft252.cw.GUI;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import soft252.cw.Classes.Appointments;
 import soft252.cw.Classes.DataHandler;
+import soft252.cw.Classes.List_Requests;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
 
@@ -42,6 +52,11 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
         });
 
         Btn_BookAppt.setText("Book Appointment");
+        Btn_BookAppt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_BookApptActionPerformed(evt);
+            }
+        });
 
         Cmb_Doctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Doctor-" }));
         Cmb_Doctor.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +130,7 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
     
     private List_Users U = new List_Users();
     private Lists_AP AP = new Lists_AP();
+    private List_Requests R = new List_Requests();
     private DataHandler Data = new DataHandler();
     
     Date date = new Date();
@@ -122,11 +138,13 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
     int day = 0;
     int month = 0;   
     int year = 0;
+    int ID = 0;
     
-    public void Onload(DataHandler data){
+    public void Onload(DataHandler data, int id){
         Data = data;
         U = Data.getU();
         AP = Data.getAP();
+        ID = id;
     //Doc Cmb    
         int DocLength = U.doctorList.size();
         String FName = " ";
@@ -175,6 +193,9 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
     }  
     
     private void Btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CancelActionPerformed
+        GUI_User made = new GUI_User();
+        made.GetHandler(Data, ID);
+        made.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_CancelActionPerformed
 
@@ -195,38 +216,97 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
         getFreeTimes(thedoc, theday, themonth, theyear);  
     }//GEN-LAST:event_Cmb_DayActionPerformed
 
+    private void Btn_BookApptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BookApptActionPerformed
+            String Who = String.valueOf(Cmb_Doctor.getSelectedIndex());
+            String Time = Lst_Avalibility.getSelectedValue();
+            String Date = Cmb_Day.getSelectedItem() + "/" + Cmb_Month.getSelectedIndex()+ "/" + year;
+           
+        try {
+            Data.NewAppt(ID, Who, Time, Date);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_UserAppointmentRequest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        GUI_User made = new GUI_User();
+        made.GetHandler(Data, ID);
+        made.setVisible(true);
+        this.dispose();
+
+        
+    }//GEN-LAST:event_Btn_BookApptActionPerformed
+
     private void getFreeTimes(int doc, int d, int m, int y){
-        int Slotsize = 10;
-        int Taken = AP.appointmentList.size();
-        String[] TheTIME = new String[Slotsize + 1];
-               
+        int Slotsize = 19;
+        int Taken = AP.appointmentList.size();              
         int hour = 9;
         int minute = 00;
-
-        DefaultListModel DLM = new DefaultListModel();
-        Lst_Avalibility.enable();
-
         String Date = d + "/" + m + "/" + y;
-        String Time = hour + ":" + minute;
-        int a = 0;
-        int x = 0;
+        String[] SlotTimes = new String[1];
         String[] Dates = new String[1];
         String[] Times = new String[1];
-        for(int b = 0; b < Slotsize; b++){
-            if(x < Taken){
-                Dates[x] = AP.appointmentList.get(x).getAP_Date();
-                Dates = Arrays.copyOf(Dates, Dates.length + 1);
-                Times[x] = AP.appointmentList.get(x).getAP_Time();
-                Times = Arrays.copyOf(Times, Times.length + 1);
-                x = x + 1;
+        String[] DocId = new String[1];
+        String[] NotFound = new String[1];
+        String[] Found = new String[1];
+        DefaultListModel DLM = new DefaultListModel();
+        Lst_Avalibility.enable();
+        for(int x = 0; x < Taken; x++){
+            Dates[x] = AP.appointmentList.get(x).getAP_Date();
+            Dates = Arrays.copyOf(Dates, Dates.length + 1);
+            Times[x] = AP.appointmentList.get(x).getAP_Time();
+            Times = Arrays.copyOf(Times, Times.length + 1);
+            DocId[x] = AP.appointmentList.get(x).getDoctor_IDN();
+            DocId = Arrays.copyOf(DocId, DocId.length + 1);
+        }
+        int changed = 0;
+        for(int z = 0; z < Slotsize; z++){
+            SlotTimes[z] = hour + ":" + minute;
+            SlotTimes = Arrays.copyOf(SlotTimes, SlotTimes.length + 1);
+            changed = 0;
+            if(minute == 30){
+                minute = 0;
+                hour = hour + 1;
+                changed = 1;
             }
-        if(Date.equals(Dates[a])){
-            System.out.println(Dates.length);
-            a = a + 1;
+            if(changed == 0){
+                if(minute == 0){
+                    minute = 30;
+                }
+            }
         }
+        int found = 0;
+        for(int c = 0; c < Dates.length - 1; c++){
+            if(Dates[c].equals(Date)){
+                found = 1;
+                    for(int v = 0; v < SlotTimes.length; v++){
+                        if(doc == Integer.valueOf(DocId[c])){
+                            if(Times[c].equals(SlotTimes[v])){
+                                Found = Arrays.copyOf(Found, Found.length + 1);
+                            } else {
+                            Found[v] = SlotTimes[v];
+                            Found = Arrays.copyOf(Found, Found.length + 1);
+                           } 
+                        } else {
+                           Found[v] = SlotTimes[v];
+                           Found = Arrays.copyOf(Found, Found.length + 1);
+                        }
+                    }
+                } else {
+                for(int v = 0; v < SlotTimes.length; v++){
+                        NotFound[v] = SlotTimes[v];
+                        NotFound = Arrays.copyOf(NotFound, NotFound.length + 1);
+                   }
+                }
+            } 
+        if(found == 1){
+            for(int b = 0; b < Found.length - 1; b++){
+                DLM.addElement(Found[b]);
+            }
         }
-        
-        
+        if(found == 0){
+            for(int b = 0; b < NotFound.length - 1; b++){
+                DLM.addElement(NotFound[b]);
+            } 
+        }
     Lst_Avalibility.setModel(DLM);
     }
     

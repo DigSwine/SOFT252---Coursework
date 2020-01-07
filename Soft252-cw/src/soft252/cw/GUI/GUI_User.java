@@ -20,15 +20,13 @@ public class GUI_User extends javax.swing.JFrame {
     public GUI_User() {
         initComponents();
     }
-    public void GetHandler(DataHandler data){
+    public void GetHandler(DataHandler data, int x){
         Data = data;
         U = Data.getU();
         AP = Data.getAP();
+        ID = x;
     }
-    
-    public static void GetUId(Integer x){
-        ID = x + 1;
-    }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -166,8 +164,9 @@ public class GUI_User extends javax.swing.JFrame {
 
     private void Btn_ReqAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ReqAppointActionPerformed
              GUI_UserAppointmentRequest request = new GUI_UserAppointmentRequest();
-             request.Onload(Data);
+             request.Onload(Data, ID);
              request.show();
+             this.dispose();
     }//GEN-LAST:event_Btn_ReqAppointActionPerformed
 
     private void Btn_ViewPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewPerActionPerformed

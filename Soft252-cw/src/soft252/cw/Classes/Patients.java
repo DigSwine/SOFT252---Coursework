@@ -19,6 +19,7 @@ public class Patients
     
     //Constructor
     public Patients(String Patient_Firstname, String Patient_Surname, String Patient_Gender, String Patient_Age, String Patient_StreetNumber, String Patient_StreetName, String Patient_CityName, String Patient_PostCode, String Patient_Username, String Patient_Password) {
+
         this.Patient_Firstname = Patient_Firstname;
         this.Patient_Surname = Patient_Surname;
         this.Patient_Gender = Patient_Gender;

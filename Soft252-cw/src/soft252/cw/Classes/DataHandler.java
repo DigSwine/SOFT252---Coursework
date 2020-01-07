@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DataHandler {
     private List_Users U = new List_Users();
@@ -72,7 +74,7 @@ public class DataHandler {
             + "CD, Norflex, Perscription  - Drug, 26 Tablets, Muscle Relaxer, 100\n"
             + "CD, Calcium Carbonate, Over The Counter  - Drug, 20 Tablets, prevent or to treat a calcium deficiency, 100\n"
             + "CD, Morphine, Perscription  - Drug, 10 Patches,  Treats moderate to severe pain, 100\n"
-            + "CD, Beclomethasone Nasal, 5.50, Over The Counter  - Drug, Nasle Spray - 24 Sprays, prevent hayfeaver allergies, 100\n"
+            + "CD, Beclomethasone Nasal, Over The Counter  - Drug, Nasle Spray - 24 Sprays, prevent hayfeaver allergies, 100\n"
             + "CD, Opium Tincture, Perscription  - Drug, 5 Tablets, used to treat diarrhea, 100\n"
             + "CD, Dextroamphetamine, Perscription  - Drug, 20 Tablets,  used to treat narcolepsy and ADHD, 100\n"
             + "CD, Baclofene, Perscription  - Drug, 24 Tablets, muscle relaxer and an antispasmodic agent, 100\n"
@@ -740,16 +742,14 @@ public class DataHandler {
         if("P".equals(type)){
         LoggedinUser = U.patientList.get(IDN - 1).getPatient_Username();
         LoggedinPass = U.patientList.get(IDN - 1).getPatient_Password();
-        }
         
         while (line != null) {
             char a = line.charAt(0);
             char b = line.charAt(1);
             String User = "Unknown";
-            String Pass = "Unknown";            
-//Patient              
-                if("P".equals(type)){
-                    if(a != 'P'){
+            String Pass = "Unknown";   
+        
+            if(a != 'P'){
                         context[x] = line;
                         context = Arrays.copyOf(context, context.length + 1);
                         x = x + 1;
@@ -794,17 +794,267 @@ public class DataHandler {
                         x = x + 1;
                         }
                     }
-                }       
-//End of while loop                
+                      
+//End of while loop  
+            }
         }
+        
+        
+        
+        
+//////R
+ if("RD".equals(type)){
+        LoggedinUser = R.deletePatientList.get(IDN).getPatient_Username();
+        LoggedinPass = R.deletePatientList.get(IDN).getPatient_Password();
+        
+        while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+            String User = "Unknown";
+            String Pass = "Unknown";   
+        
+            if(a != 'R'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+                        }
+                    else if(a == 'R'){
+                        if(b == 'D'){
+                            //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String chunk : arrOfStr){
+                                    if(times == 10){
+                                        Pass = chunk;
+                                    }
+                                    if (times == 9){
+                                        User = chunk;
+                                        times = times + 1;
+                                    }
+                                    else 
+                                    {
+                                     times = times + 1;   
+                                    }
+                                }
+                            if(LoggedinUser.equals(User)){
+                                if(LoggedinPass.equals(Pass)){
+                                    R.deletePatientList.remove(IDN);
+                                    line = reader.readLine();
+                                }
+                            }
+                            else {
+                            context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
+                            line = reader.readLine();
+                        x = x + 1;
+                        }
+                        } else {                  
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        line = reader.readLine();
+                        x = x + 1;
+                        }
+                    }
+                      
+//End of while loop  
+            }
+        }
+        
     //Create Data File
     FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
     BufferedWriter bw = new BufferedWriter(fw);
-    for(int y =0; y < x - 1; y++){
+    for(int y =0; y < x; y++){
         bw.write(context[y] + "\n");
     }
     bw.close();
+    resetAll();
     }
+    public void editAddPerson (String type, int IDN) throws FileNotFoundException, IOException{
+       BufferedReader reader;
+        reader = new BufferedReader(new FileReader("Data.txt"));
+        File txtDoc = new File("Data.txt");               
+        String line = reader.readLine();
+        String context[] = new String[1];
+        String LoggedinUser = "Unknown";
+        String LoggedinPass = "Unknown";
+        int x = 0;
+
+        if("R".equals(type)){
+        LoggedinUser = R.requestPatientList.get(IDN).getPatient_Username();
+        LoggedinPass = R.requestPatientList.get(IDN).getPatient_Password();
+        }
+        
+        while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+            String User = "Unknown";
+            String Pass = "Unknown";            
+//Patient              
+                if("R".equals(type)){
+                    if(a != 'R'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+                        }
+                    else if(a == 'R'){
+                        if(b == ','){
+                            //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String chunk : arrOfStr){
+                                    if(times == 10){
+                                        Pass = chunk;
+                                    }
+                                    if (times == 9){
+                                        User = chunk;
+                                        times = times + 1;
+                                    }
+                                    else 
+                                    {
+                                     times = times + 1;   
+                                    }
+                                } 
+                            if(LoggedinUser.equals(User)){
+                                if(LoggedinPass.equals(Pass)){
+                                    String to = 'P' + line.substring(1);
+                                    context[x] = to; 
+                                    context = Arrays.copyOf(context, context.length + 1);
+                                    line = reader.readLine();
+                                    x = x + 1;
+                                }
+                            }
+                            else {
+                            context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
+                            line = reader.readLine();
+                        x = x + 1;
+                        }
+                        }
+                        else{
+                        
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        line = reader.readLine();
+                        x = x + 1;
+                        }
+                    }
+                }       
+//End of while loop                
+        }
+    
+    //Create Data File
+    FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+    for(int y =0; y < x; y++){
+        bw.write(context[y] + "\n");
+    }
+    bw.close(); 
+    resetAll();
+    }
+    public void editAddAppt(String type, int IDN) throws IOException{
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader("Data.txt"));
+                    //Get First Line
+                        String line = reader.readLine();                       
+                        String FirstName = "Unknown";
+                        String SurName = "Unknown";
+                        String Gender = "Unknown";
+                        String Age = "Unknown";
+                        String HAddress = "Unknown";
+                        String SName = "Unknown";
+                        String CName = "Unknown";
+                        String PC = "Unknown";
+                        String User = "Unknown";
+                        String Pass = "Unknown";
+
+        File txtDoc = new File("Data.txt");               
+        String context[] = new String[1];
+        int x =0 ;
+        
+        while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);       
+            //Patient              
+                if("RA".equals(type)){
+                    if(a != 'R'){
+                        if(b != 'A'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+                        }
+                    }
+                    else if(a == 'R'){
+                        if(b == 'A'){
+                            //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String chunk : arrOfStr){
+                                     if(times == 5){
+                                        User= chunk;
+                                    }
+                                    if(times == 4){
+                                        PC = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        CName = chunk;
+                                        times = times +1;
+                                    }
+                                    if(times == 2){
+                                        SName = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = chunk;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                }
+                                if(SName.equals(R.requestAppointmentList.get(IDN).getDoctor_IDN())){
+                                    if(CName.equals(R.requestAppointmentList.get(IDN).getAP_Time())){
+                                        if(PC.equals(R.requestAppointmentList.get(IDN).getAP_Date())){
+                                            String Currently = line;
+                                            Currently = Currently.substring(2);
+                                            String New = "AP" + Currently;
+                                            context[x] = New;
+                                            context = Arrays.copyOf(context, context.length + 1);
+                                            System.out.println(context[x]);
+                                            line = reader.readLine();
+                                            x = x + 1;
+                                        }
+                                    }
+                                }
+                        } else {
+                            context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        line = reader.readLine();
+                        x = x + 1;
+                        }
+                    } else {
+                            context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        line = reader.readLine();
+                        x = x + 1;
+                }
+            }
+        }
+        FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+        for(int y =0; y <= x - 1; y++){
+            bw.write(context[y] + "\n");
+        }
+        bw.close();
+        resetAll();
+    }
+    
     
     public void RequestDeletion(String type, int ind) throws FileNotFoundException, IOException{
         BufferedReader reader;
@@ -889,7 +1139,6 @@ public class DataHandler {
                 }
             }
         }
-            System.out.println(line);
             line = reader.readLine();
     }
     }
@@ -1026,7 +1275,38 @@ public class DataHandler {
         bw.close();
         resetAll();
     }
-
+    public void NewAppt(int id, String who, String time, String date) throws FileNotFoundException, IOException{
+        int ID = id;
+        String Who = who;
+        String Time = time;
+        String Date = date;
+        String content = "RA, " + String.valueOf(ID)+", " + Who+ ", " + Time + ", " + Date + ", " + "Check up";
+        
+              BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));       
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String context[] = new String[1];
+        int x = 0;
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+                while (line != null) {
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        line = reader.readLine();
+                        bw.write(context[x] + "\n");
+                        x = x++;
+                }
+                bw.write(content);
+        bw.close();
+        resetAll();
+    }
+    public void AddPat(String type, int pid) throws IOException{
+       
+        }
+    
+    
     private void resetAll() throws IOException{
         //clear all data
         U.adminList.clear();
@@ -1037,6 +1317,12 @@ public class DataHandler {
         AP.perscriptionList.clear();
         C.clinicList.clear();
         C.drugList.clear();
+        C.lowsotckList.clear();;
+        R.deletePatientList.clear();
+        R.readyHandoutList.clear();
+        R.requestAppointmentList.clear();
+        R.requestPatientList.clear();
+        R.requestPerscriptionList.clear();
         
         //reload all data
         getData();

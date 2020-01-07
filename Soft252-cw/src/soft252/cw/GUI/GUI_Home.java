@@ -208,8 +208,7 @@ public class GUI_Home extends javax.swing.JFrame {
                         if(Txt_Password.getText().equals(Password[x])){
                             //Open New Window
                             GUI_User Next = new GUI_User();
-                            Next.GetHandler(Data);
-                            GUI_User.GetUId(x);
+                            Next.GetHandler(Data, x + 1);
                             Next.show();
                             this.dispose();
                         }

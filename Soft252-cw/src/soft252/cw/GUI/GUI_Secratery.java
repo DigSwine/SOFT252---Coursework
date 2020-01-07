@@ -1,7 +1,10 @@
 
 package soft252.cw.GUI;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Clinic;
@@ -57,6 +60,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Lst_NewAccounts);
 
         Btn_NewPatApp.setText("Approve");
+        Btn_NewPatApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_NewPatAppActionPerformed(evt);
+            }
+        });
 
         Btn_NewPatDeny.setText("Deny");
 
@@ -68,6 +76,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         jScrollPane2.setViewportView(Lst_ApptsRequests);
 
         Btn_NewApptApp.setText("Approve");
+        Btn_NewApptApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_NewApptAppActionPerformed(evt);
+            }
+        });
 
         Btn_NewApptDeny.setText("Deny");
 
@@ -93,6 +106,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         jScrollPane4.setViewportView(Lst_AccountRemoval);
 
         Btn_DelPatApp.setText("Approve");
+        Btn_DelPatApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_DelPatAppActionPerformed(evt);
+            }
+        });
 
         Btn_DelPatDeny.setText("Deny");
 
@@ -230,13 +248,13 @@ public class GUI_Secratery extends javax.swing.JFrame {
     }
     private void GetPerscriptionRequests(){
         // Lst_Stock - Requests
-        int ReqSize = R.requestAppointmentList.size();
+        int ReqSize = R.requestPerscriptionList.size();
         String[] PerscriptionRequests = new String[1];
         int Ammonthneded = 100;
         String TheReq = String.valueOf(Ammonthneded);
         String TheName = "";
         String TheDos = "";
-        for(int x = 0; x <= ReqSize; x++){
+        for(int x = 0; x < ReqSize; x++){
             TheName = R.requestPerscriptionList.get(x).getPerscription_Name();
             TheDos = R.requestPerscriptionList.get(x).getPerscption_Dosage();
             PerscriptionRequests[x] = TheName + ": Dosage - " + TheDos + ": Quantity - " + TheReq;
@@ -327,6 +345,12 @@ public class GUI_Secratery extends javax.swing.JFrame {
             Lst_MedsReady.setModel(DLM);
     }
     
+    private void reset(){
+        GUI_Secratery Sec = new GUI_Secratery();
+        Sec.GetData(Data);
+        Sec.setVisible(true);
+        this.dispose();
+    }
     
     private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
         GUI_Home Home = new GUI_Home();
@@ -338,6 +362,40 @@ public class GUI_Secratery extends javax.swing.JFrame {
     private void Btn_RestockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RestockActionPerformed
         
     }//GEN-LAST:event_Btn_RestockActionPerformed
+
+    private void Btn_NewPatAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewPatAppActionPerformed
+    String type = "R";
+    int pid = Lst_NewAccounts.getSelectedIndex();
+
+        System.out.println(pid);
+        try {
+            Data.editAddPerson(type, pid);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
+    }//GEN-LAST:event_Btn_NewPatAppActionPerformed
+
+    private void Btn_NewApptAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewApptAppActionPerformed
+        int pid = Lst_ApptsRequests.getSelectedIndex();
+        
+        try {
+            Data.editAddAppt("RA", pid);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
+    }//GEN-LAST:event_Btn_NewApptAppActionPerformed
+
+    private void Btn_DelPatAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DelPatAppActionPerformed
+        int pid = Lst_AccountRemoval.getSelectedIndex();
+        try {
+            Data.editDeletePerson("RD", pid);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
+    }//GEN-LAST:event_Btn_DelPatAppActionPerformed
 
    
     
