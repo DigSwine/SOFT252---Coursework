@@ -40,6 +40,9 @@ public class GUI_Secratery extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         Lst_MedsReady = new javax.swing.JList<>();
         Btn_Handedout = new javax.swing.JButton();
+        Cmb_RmovePatSelect = new javax.swing.JComboBox<>();
+        Btn_RemovePat = new javax.swing.JButton();
+        Txt_Confirm = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +131,18 @@ public class GUI_Secratery extends javax.swing.JFrame {
             }
         });
 
+        Cmb_RmovePatSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select Patient to Remove -" }));
+
+        Btn_RemovePat.setText("Remove Patient");
+        Btn_RemovePat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RemovePatActionPerformed(evt);
+            }
+        });
+
+        Txt_Confirm.setText("-Type CONFIRM to confirm -");
+        Txt_Confirm.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,22 +163,29 @@ public class GUI_Secratery extends javax.swing.JFrame {
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Btn_NewPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(Btn_NewPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Btn_NewApptApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(Btn_NewApptDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(Btn_Restock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Btn_DelPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Btn_Handedout, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(Btn_NewPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(Btn_NewPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(Btn_NewApptApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(Btn_NewApptDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Btn_Restock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(Btn_Handedout, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Cmb_RmovePatSelect, 0, 345, Short.MAX_VALUE)
+                                    .addComponent(Txt_Confirm)
+                                    .addComponent(Btn_RemovePat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -190,7 +212,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
                     .addComponent(Btn_Restock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Btn_DelPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,7 +220,13 @@ public class GUI_Secratery extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Btn_Handedout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Cmb_RmovePatSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Txt_Confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Btn_RemovePat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -232,6 +260,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
         GetNewPatients();
         GetDelPatients();
         GetHandout();
+        GetCurrentPats();
     }                                      
     private void GetAppointmentRequests(){
         // Lst_ApptsRequests
@@ -372,7 +401,17 @@ public class GUI_Secratery extends javax.swing.JFrame {
             Lst_MedsReady.setModel(DLM);
     }
     }
-    
+    private void GetCurrentPats(){
+        //Cmb_RmovePatSelect    
+        int PatLength = U.patientList.size();
+        String FName = " ";
+        String SName = " ";
+        for(int x = 0; x < PatLength; x++){
+        FName = U.patientList.get(x).getPatient_Firstname();
+        SName = U.patientList.get(x).getPatient_Surname();
+        Cmb_RmovePatSelect.addItem(FName + " " + SName);
+        }
+    }
     private void reset(){
         GUI_Secratery Sec = new GUI_Secratery();
         Sec.GetData(Data);
@@ -451,6 +490,29 @@ public class GUI_Secratery extends javax.swing.JFrame {
         reset();
     }//GEN-LAST:event_Btn_HandedoutActionPerformed
 
+    private void Btn_RemovePatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RemovePatActionPerformed
+        int confirmed = 0;
+        
+        int ID = Cmb_RmovePatSelect.getSelectedIndex();
+        
+        
+        String input = Txt_Confirm.getText();
+        if(input.equals("CONFIRM")){
+            confirmed = 1;
+        }
+        if(confirmed == 0){
+            
+        } else {
+            System.out.println(ID);
+            try {
+                Data.RequestDeletion("P", ID);
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            reset();
+        }
+    }//GEN-LAST:event_Btn_RemovePatActionPerformed
+
    
     
     
@@ -520,12 +582,15 @@ public class GUI_Secratery extends javax.swing.JFrame {
     private javax.swing.JButton Btn_NewApptDeny;
     private javax.swing.JButton Btn_NewPatApp;
     private javax.swing.JButton Btn_NewPatDeny;
+    private javax.swing.JButton Btn_RemovePat;
     private javax.swing.JButton Btn_Restock;
+    private javax.swing.JComboBox<String> Cmb_RmovePatSelect;
     private javax.swing.JList<String> Lst_AccountRemoval;
     private javax.swing.JList<String> Lst_ApptsRequests;
     private javax.swing.JList<String> Lst_MedsReady;
     private javax.swing.JList<String> Lst_NewAccounts;
     private javax.swing.JList<String> Lst_Stock;
+    private javax.swing.JTextField Txt_Confirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

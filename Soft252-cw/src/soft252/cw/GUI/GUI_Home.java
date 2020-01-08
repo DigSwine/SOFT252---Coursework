@@ -209,7 +209,7 @@ public class GUI_Home extends javax.swing.JFrame {
                             //Open New Window
                             GUI_User Next = new GUI_User();
                             Next.GetHandler(Data, x + 1);
-                            Next.show();
+                            Next.setVisible(true);
                             this.dispose();
                         }
                     }
@@ -230,8 +230,8 @@ public class GUI_Home extends javax.swing.JFrame {
                             } catch (ParseException ex) {
                                 Logger.getLogger(GUI_Home.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                           Doc.show();
-                           this.hide();
+                           Doc.setVisible(true);
+                           this.dispose();
                         }           
                     }
                }
@@ -248,7 +248,7 @@ public class GUI_Home extends javax.swing.JFrame {
                             GUI_Secratery Sec = new GUI_Secratery();
                             Sec.GetData(Data);
                             Sec.GetId(x - U.patientList.size() - U.doctorList.size() - 1);
-                            Sec.show();
+                            Sec.setVisible(true);
                             this.dispose();
                         }
                     } 
@@ -265,7 +265,7 @@ public class GUI_Home extends javax.swing.JFrame {
                         //Open New Window
 //                        GUI_User Next = new GUI_User();
 //                        Next.show();
-                            this.hide();
+                            this.dispose();
                         }
                     } 
                 }        

@@ -1115,7 +1115,6 @@ public class DataHandler {
                         context[x] = line;
                         context = Arrays.copyOf(context, context.length + 1);
                         x = x + 1;
-                        line = reader.readLine();
                         }
                     }
                     else if(a == 'R'){
@@ -1261,97 +1260,50 @@ public class DataHandler {
                                     if(times == 0){
                                         times = times + 1;
                                     }
-                    }
-                if(requestedUser.equals(User)){
-                    if(requestedPass.equals(Pass)){
-                        
-                        editDeletePerson("P", ind);
-                        Del = "RD, " + FirstName + ", " + SurName + ", " + Gender + ", " + Age + ", " + HAddress + ", " + SName + ", " + CName + ", " + PC + ", " + User + ", " + Pass;
-                    }
-                }
-            }          
-        }
-            }
-        if(type.equals("H")){
-            if(a == 'H'){
-                    if(b == ','){
-                    requestedUser = R.readyHandoutList.get(ind).getPatient_IDN();
-                    requestedPass = R.readyHandoutList.get(ind).getPerscription_Name();
-                        String[] arrOfStr = line.split(", "); 
-                                int times = 0;
-//Get Each Block Of The String "line"                                   
-                                for (String y : arrOfStr){
-                                    if(times == 4){
-                                        SName = y;
-                                        times = times + 1;
-                                    }
-                                    if(times == 3){
-                                        SurName = y;
-                                        times = times +1;
-                                    }
-                                    if(times == 2){
-                                        User = y;
-                                        times = times + 1;
-                                    }
-                                    if(times == 1){
-                                        FirstName = y;
-                                        times = times + 1;
-                                    }
-                                    if(times == 0){
-                                        times = times + 1;
-                                    }
-                                }
-                            if(FirstName.equals(requestedUser)){
-                                if(User.equals(requestedPass)){
-                                    editDeletePerson("H", ind);
-                                }
-                            }
-                    }                    
-                }
-            }
-            if(type.equals("RP")){    
-                if(a == 'R'){
-                    if(b == 'P'){
-                        int times = 0;
-                        requestedUser = R.requestPerscriptionList.get(ind).getPatient_IDN();
-                        requestedPass = R.requestPerscriptionList.get(ind).getPerscription_Name();
-                        String requestName = R.requestPerscriptionList.get(ind).getPerscription_Name();
-                        String[] arrOfStr = line.split(", ");
-                        for (String k : arrOfStr){
-                                    if(times == 4){
-                                        SName = k;
-                                        times = times + 1;
-                                    }
-                                    if(times == 3){
-                                        SurName = k;
-                                        times = times +1;
-                                    }
-                                    if(times == 2){
-                                        User = k;
-                                        times = times + 1;
-                                    }
-                                    if(times == 1){
-                                        FirstName = k;
-                                        times = times + 1;
-                                    }
-                                    if(times == 0){
-                                        times = times + 1;
-                                    }
-                                } 
-                        
-                        
-                        if(FirstName.equals(requestedUser)){
-                            if(User.equals(requestedPass)){
-                                    editDeletePerson(type, ind);
-                                
-                            }
                         }
-                    }    
+                        if(requestedUser.equals(User)){
+                            if(requestedPass.equals(Pass)){
+                                Del = "RD, " + FirstName + ", " + SurName + ", " + Gender + ", " + Age + ", " + HAddress + ", " + SName + ", " + CName + ", " + PC + ", " + User + ", " + Pass;
+                                
+                                context = Arrays.copyOf(context, context.length + 1);
+                                context[x] = Del;
+                                x = x + 1;
+                                
+                                
+                            } else {
+                                context = Arrays.copyOf(context, context.length + 1);
+                                context[x] = line;
+                                x = x + 1;
+                            }
+                        } else {
+                            context = Arrays.copyOf(context, context.length + 1);
+                            context[x] = line;
+                            x = x + 1;
+                        }
+                    } else {
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        x = x + 1;
+                    }
+                } else {
+                    context = Arrays.copyOf(context, context.length + 1);
+                    context[x] = line;
+                    x = x + 1;
                 }
             }
-   line = reader.readLine();
+            line = reader.readLine();
         }
+        //Create Data File
+    FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+    for(int y =0; y < x; y++){
+        bw.write(context[y] + "\n");
     }
+    bw.close();
+    resetAll();
+    }
+           
+    
     public void NewNote(String type, String pid, String did, String time, String date, String note) throws FileNotFoundException, IOException{
        BufferedReader reader;
        reader = new BufferedReader(new FileReader("Data.txt"));
@@ -1485,6 +1437,54 @@ public class DataHandler {
         bw.close();
         resetAll();
     }
+    public void requestNewPer(String type, String pid, String perName, String perQua, String perDos) throws IOException{
+          BufferedReader reader;
+	reader = new BufferedReader(new FileReader("Data.txt"));       
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String content[] = new String[1];
+        int x = 0;
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+        if(type.equals("CD")){
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+            while (line != null) {
+                if(a != 'C'){
+                        content[x] = line;
+                        content = Arrays.copyOf(content, content.length + 1);
+                        x = x++;
+                } else {
+                    if(a == 'C'){
+                        if(b == 'D'){
+                        content[x] = line;
+                        content = Arrays.copyOf(content, content.length + 1);
+                        x = x++;
+                        }
+                    }
+                }
+                line = reader.readLine();
+                }
+                String newPer = type + ", " + pid + ", " + perName + ", " + perQua + ", " + perDos;
+                
+                bw.write(newPer);
+        }         
+        if(type.equals("RP")){
+        while (line != null) {
+                        content[x] = line;
+                        content = Arrays.copyOf(content, content.length + 1);
+                        line = reader.readLine();
+                        bw.write(content[x] + "\n");
+                        x = x++;
+                }
+                String newPer = type + ", " + pid + ", " + perName + ", " + perQua + ", " + perDos;
+       bw.write(newPer);
+        bw.close();
+        resetAll();
+    }
+    }
     public void NewAppt(int id, String who, String time, String date) throws FileNotFoundException, IOException{
         int ID = id;
         String Who = who;
@@ -1542,7 +1542,7 @@ public class DataHandler {
                 }
                 bw.write(content);                
         bw.close();
-        RequestDeletion("H", ID);
+        editDeletePerson("H", ID);
         
         FindAndRemnoveQuan(ID, TheQuan);
         resetAll();

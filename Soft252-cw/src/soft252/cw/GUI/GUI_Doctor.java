@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Clinic;
+import soft252.cw.Classes.List_Requests;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
 
@@ -278,9 +279,9 @@ public class GUI_Doctor extends javax.swing.JFrame {
                                             .addComponent(jScrollPane4)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(Btn_Repeat)
-                                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                                .addGap(0, 8, Short.MAX_VALUE)))))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -376,6 +377,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
     List_Users U = new List_Users();
     Lists_AP AP = new Lists_AP();
     List_Clinic C = new List_Clinic();
+    List_Requests R = new List_Requests();
     int day = 0;
     int maxdays = 0;
     int month = 0;
@@ -539,13 +541,13 @@ public class GUI_Doctor extends javax.swing.JFrame {
             String PName = Cmb_PerName.getItemAt(ji);
             String PQ = Txt_PerQuan.getText();
             String PD = Txt_PDosage.getText();
-            Data.NewPerscription("PP", Pat, PName, PQ, PD);
+            Data.requestNewPer("CD", Pat, PName, PQ, PD);
             }
             if(whatsdone[2] == 1){
             String PName = Txt_PerscriptionName.getText();
             String PQ = Txt_PerscriptionQuantity.getText();
             String PD = Txt_PerscriptionDosage.getText();
-            Data.NewPerscription("RP", Pat, PName, PQ, PD);
+            Data.requestNewPer("RP", Pat, PName, PQ, PD);
             }
             
             GUI_Doctor New = new GUI_Doctor();
@@ -673,7 +675,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
         String PQ = AP.perscriptionList.get(selectedMed).getPerscription_Quantity();
         String PD = AP.perscriptionList.get(selectedMed).getPerscption_Dosage();
         try {
-            Data.NewPerscription("PP", Pat, PName, PQ, PD);
+            Data.requestNewPer("CD", Pat, PName, PQ, PD);
         } catch (IOException ex) {
             Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
