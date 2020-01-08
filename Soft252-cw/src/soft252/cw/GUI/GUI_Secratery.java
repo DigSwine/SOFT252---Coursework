@@ -388,20 +388,29 @@ public class GUI_Secratery extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_LogoutActionPerformed
 
     private void Btn_RestockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RestockActionPerformed
-        String type = "RP";
+        String type = "";
         int id = Lst_Stock.getSelectedIndex();
-
-        Data.restock(type, id);
-        
-        
+        int idn = 0;
+        if(id >= C.lowsotckList.size()){
+            type = "CD";
+            int rsize = R.requestPerscriptionList.size();
+            idn = id - rsize - 1;
+        } else {
+            type = "RD";
+            idn = id;
+        }
+        try {
+            Data.restock(type, idn);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
         
     }//GEN-LAST:event_Btn_RestockActionPerformed
 
     private void Btn_NewPatAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewPatAppActionPerformed
     String type = "R";
     int pid = Lst_NewAccounts.getSelectedIndex();
-
-        System.out.println(pid);
         try {
             Data.editAddPerson(type, pid);
         } catch (IOException ex) {

@@ -52,6 +52,7 @@ public class Clinic
         return Clinic_PostCode;
     }
      
+     
     //Setters
     public void setClinic_Name(String Clinic_Name) {
         this.Clinic_Name = Clinic_Name;

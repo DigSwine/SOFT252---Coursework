@@ -55,7 +55,6 @@ public class DataHandler {
         this.file = file;
     }
     
-    
     public void setData() throws IOException{
 // Set Defult Data
         String content = 
@@ -84,8 +83,8 @@ public class DataHandler {
             + "AP, 1, 3, 9:30, 5/1/2020, Full recovery - must get an Epipen if another event occurs\n"
             + "PP, 3, Beclomethasone Nasal, 1, 1\n"
             + "PP, 1, Epipen, 1, 1\n"
-            + "RP, 1, Epipen, 1, 1\n"
-            + "RP, 1, Calcium Carbonate, 1, 1\n"
+            + "RP, 1, Viagra, 1, 1\n"
+            + "RP, 3, Metoprolol, 1, 1\n"
             + "RA, 1, 3, 12:00, 10/1/2020, Check up\n"
             + "R, Jeffory, Dick, Male, 41, 6, Jones Street, Plymouth, PL7 8BD, JDick, 123\n"
             + "RD, Anton, Deago, Male, 29, 18, Derriford Road, Plymouth, Pl2 2IR, ADeago, 123423\n"
@@ -566,6 +565,11 @@ public class DataHandler {
                                 Perscriptions Pers;
                                 Pers = new Perscriptions(FirstName, User, SurName, SName);
                                 R.requestPerscriptionList.add(Pers);
+                                
+                                Clinic Med;
+                                Med = new Clinic(User , "New Medication", "New Medication", "", 0);
+                                R.requestNewMedications.add(Med);
+                                
                                 }
                             }
                         }
@@ -920,6 +924,74 @@ public class DataHandler {
                 
             }
         }
+ if("RP".equals(type)){
+    LoggedinUser = R.requestPerscriptionList.get(IDN).getPerscription_Quantity();
+    LoggedinPass = R.requestPerscriptionList.get(IDN).getPerscption_Dosage();
+    String lookingFor = R.requestPerscriptionList.get(IDN).getPerscription_Name();
+     while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+            String SName = "Unknown";
+            String SurName = "Unknown";   
+            String FirstName = "Unknown";
+      
+             if(a != 'R'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+                } else {
+                 if(a == 'R'){
+                    if(b == 'P'){
+                        String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String y : arrOfStr){
+                                    if(times == 4){
+                                        SName = y;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        SurName = y;
+                                    }
+                                    if(times == 2){
+                                        FirstName = y;
+                                    }
+                                        times = times + 1;
+                                    }
+                                }
+                            if(SurName.equals(LoggedinUser)){
+                                if(SName.equals(LoggedinPass)){
+                                    if(FirstName.equals(lookingFor)){
+                                    R.requestPerscriptionList.remove(IDN);
+                                    line = reader.readLine();
+                                    } else {
+                                        context[x] = line;
+                                        context = Arrays.copyOf(context, context.length + 1);
+                                        line = reader.readLine();
+                                        x = x + 1;
+                                    }
+                                }
+                            } else {
+                            context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
+                            line = reader.readLine();
+                            x = x + 1;
+                        }
+                        } else {                  
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        line = reader.readLine();
+                        x = x + 1;
+                    }
+             }
+            
+            
+                
+     }
+                
+            }
+    
 //Create Data File
     FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
     BufferedWriter bw = new BufferedWriter(fw);
@@ -1084,8 +1156,6 @@ public class DataHandler {
                                             String New = "AP" + Currently;
                                             context[x] = New;
                                             context = Arrays.copyOf(context, context.length + 1);
-                                            System.out.println(context[x]);
-                                            line = reader.readLine();
                                             x = x + 1;
                                         }
                                     }
@@ -1093,16 +1163,15 @@ public class DataHandler {
                         } else {
                             context = Arrays.copyOf(context, context.length + 1);
                         context[x] = line;
-                        line = reader.readLine();
                         x = x + 1;
                         }
                     } else {
                             context = Arrays.copyOf(context, context.length + 1);
                         context[x] = line;
-                        line = reader.readLine();
                         x = x + 1;
                 }
             }
+                line = reader.readLine();
         }
         FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
     BufferedWriter bw = new BufferedWriter(fw);
@@ -1112,8 +1181,7 @@ public class DataHandler {
         bw.close();
         resetAll();
     }
-    
-    
+
     public void RequestDeletion(String type, int ind) throws FileNotFoundException, IOException{
         BufferedReader reader;
         reader = new BufferedReader(new FileReader("Data.txt"));
@@ -1135,18 +1203,17 @@ public class DataHandler {
                         String requestedUser = "null";
                         String requestedPass = "null";
         int x = 0;
-         while (line != null) {
+        while (line != null) {
             char a = line.charAt(0);
             char b = line.charAt(1);
-
-            if(a == 'P'){
-                if(b == ','){
-                    if(ind <= 0){
-                        
-                    } else {
-                    requestedUser = U.patientList.get(ind - 1).getPatient_Username();
-                    requestedPass = U.patientList.get(ind - 1).getPatient_Password();
-                    }
+            if(type.equals("P")){
+                if(a == 'P'){
+                    if(b == ','){
+                        if(ind <= 0){                    
+                        } else {
+                        requestedUser = U.patientList.get(ind - 1).getPatient_Username();
+                        requestedPass = U.patientList.get(ind - 1).getPatient_Password();
+                        }
                     //Set Each Block Of line                                                              
                     String[] arrOfStr = line.split(", "); 
                     int times = 0;
@@ -1203,8 +1270,10 @@ public class DataHandler {
                     }
                 }
             }          
-        } else {
-                if(a == 'H'){
+        }
+            }
+        if(type.equals("H")){
+            if(a == 'H'){
                     if(b == ','){
                     requestedUser = R.readyHandoutList.get(ind).getPatient_IDN();
                     requestedPass = R.readyHandoutList.get(ind).getPerscription_Name();
@@ -1240,8 +1309,48 @@ public class DataHandler {
                     }                    
                 }
             }
-            line = reader.readLine();
-    }
+            if(type.equals("RP")){    
+                if(a == 'R'){
+                    if(b == 'P'){
+                        int times = 0;
+                        requestedUser = R.requestPerscriptionList.get(ind).getPatient_IDN();
+                        requestedPass = R.requestPerscriptionList.get(ind).getPerscription_Name();
+                        String requestName = R.requestPerscriptionList.get(ind).getPerscription_Name();
+                        String[] arrOfStr = line.split(", ");
+                        for (String k : arrOfStr){
+                                    if(times == 4){
+                                        SName = k;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        SurName = k;
+                                        times = times +1;
+                                    }
+                                    if(times == 2){
+                                        User = k;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = k;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                } 
+                        
+                        
+                        if(FirstName.equals(requestedUser)){
+                            if(User.equals(requestedPass)){
+                                    editDeletePerson(type, ind);
+                                
+                            }
+                        }
+                    }    
+                }
+            }
+   line = reader.readLine();
+        }
     }
     public void NewNote(String type, String pid, String did, String time, String date, String note) throws FileNotFoundException, IOException{
        BufferedReader reader;
@@ -1412,6 +1521,7 @@ public class DataHandler {
         String Name = R.readyHandoutList.get(ID).getPerscription_Name();
         String Quantity = R.readyHandoutList.get(ID).getPerscription_Quantity();
         String Dos = R.readyHandoutList.get(ID).getPerscption_Dosage();
+        int TheQuan = Integer.valueOf(R.readyHandoutList.get(ID).getPerscription_Quantity());
         String content = "PP, " + Who + ", " + Name + ", " + Quantity + ", " + Dos;
         
               BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));       
@@ -1433,42 +1543,268 @@ public class DataHandler {
                 bw.write(content);                
         bw.close();
         RequestDeletion("H", ID);
+        
+        FindAndRemnoveQuan(ID, TheQuan);
         resetAll();
     }
     public void restock(String type, int id) throws IOException{
-        String Name = "";
-        Integer Have = 0;
-        Integer Required = 0;
-        String Type = "";
-        int ID = 0;
-        int x = 0;
-        String pid = "";
-        String perName = ""; 
-        String perQua = "0";
-        String perDos = "";
-        if("RP".equals(type)){
-                if(id >= C.lowsotckList.size()){
-                   int rsize = R.requestPerscriptionList.size();
-                   ID = id - rsize - 1;
-                   Have = C.lowsotckList.get(ID).getItem_Stock();
-                   Required = 100 - Have;                 
-                } else {
-                    ID = id;
-                    Type = "PP";
-                    pid = R.requestPerscriptionList.get(ID).getPatient_IDN();
-                    perName = R.requestPerscriptionList.get(ID).getPerscription_Name();
-                    Have = Integer.valueOf(R.requestPerscriptionList.get(ID).getPerscription_Quantity());
-                    Required = 100 - Have;
-                    perQua = String.valueOf(Have + Required);
-                    perDos = R.requestPerscriptionList.get(ID).getPerscption_Dosage();
-                    
-                    NewPerscription(Type, pid, perName, perQua, perDos);
-                }
+        if("CD".equals(type)){
+            FindAndStockUp(id);       
+        } else {
+            CreateNewMed(id);
+            }
         }
-    
+    public void FindAndStockUp(int TheId) throws FileNotFoundException, IOException{
+        BufferedReader reader;
+	reader = new BufferedReader(new FileReader("Data.txt")); 
+        File txtDoc = new File("Data.txt");
+        Integer Required = 0;    
+        Integer Have = C.lowsotckList.get(TheId).getItem_Stock();
+        String Name = C.lowsotckList.get(TheId).getItem_Name();
+        Required = 100 - Have; 
+        
+        
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String content[] = new String[1];
+        String SName = "";
+        String SurName = "";
+        String User = "";
+        String FirstName = "";
+        String HAddress = "";
+        int x = 0;
+                while (line != null) {
+                    char a = line.charAt(0);
+                    char b = line.charAt(1);  
+                    if(a != 'C'){
+                        content = Arrays.copyOf(content, content.length + 1);
+                        content[x] = line;
+                        x = x + 1;
+                    } else {
+                        if(a == 'C'){
+                         if(b =='D'){
+                                        //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String chu : arrOfStr){
+                                    if(times == 5){
+                                        SName = chu;
+                                    }
+                                    if(times == 4){
+                                        HAddress = chu;
+                                    }
+                                    if(times == 3){
+                                        SurName = chu;
+                                    }
+                                    if(times == 2){
+                                        User = chu;
+                                    }
+                                    if(times == 1){
+                                        FirstName = chu;
+                                    }
+                                    times = times + 1;
+                                }
+                                //checkes
+                                if(FirstName.equals(Name)){
+                                    content = Arrays.copyOf(content, content.length + 1);
+                                    content[x] = "CD, " + FirstName + ", " + User + ", " + SurName + ", " + HAddress + ", " + "100";
+                                    x = x + 1;
+                                } else {
+                                    content = Arrays.copyOf(content, content.length + 1);
+                                    content[x] = line;
+                                    x = x + 1;
+                                }  
+                         } else {
+                        content = Arrays.copyOf(content, content.length + 1);
+                        content[x] = line;
+                        x = x + 1;
+                         }
+                    }
+
+                    
+                //end of while    
+                  }
+                    line = reader.readLine();
+                }
+                
+                //Create Data File
+    FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+    for(int y =0; y < x; y++){
+        bw.write(content[y] + "\n");
     }
-    
-    
+    bw.close();
+                resetAll();
+    }
+    public void FindAndRemnoveQuan(int TheId, int TheQuan) throws FileNotFoundException, IOException{
+        BufferedReader reader;
+	reader = new BufferedReader(new FileReader("Data.txt")); 
+        File txtDoc = new File("Data.txt");
+        Integer Have = C.drugList.get(TheId).getItem_Stock();
+        String Name = C.drugList.get(TheId).getItem_Name();
+        int newQuan = Have - TheQuan;
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String content[] = new String[1];
+        String SName = "";
+        String SurName = "";
+        String User = "";
+        String FirstName = "";
+        String HAddress = "";
+        int x = 0;
+                while (line != null) {
+                    char a = line.charAt(0);
+                    char b = line.charAt(1);  
+                    if(a != 'C'){
+                        content = Arrays.copyOf(content, content.length + 1);
+                        content[x] = line;
+                        x = x + 1;
+                    } else {
+                        if(a == 'C'){
+                         if(b =='D'){
+                                        //Set Each Block Of line                                                              
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String chu : arrOfStr){
+                                    if(times == 5){
+                                        SName = chu;
+                                    }
+                                    if(times == 4){
+                                        HAddress = chu;
+                                    }
+                                    if(times == 3){
+                                        SurName = chu;
+                                    }
+                                    if(times == 2){
+                                        User = chu;
+                                    }
+                                    if(times == 1){
+                                        FirstName = chu;
+                                    }
+                                    times = times + 1;
+                                }
+                                //checkes
+                                if(FirstName.equals(Name)){
+                                    content = Arrays.copyOf(content, content.length + 1);
+                                    content[x] = "CD, " + FirstName + ", " + User + ", " + SurName + ", " + HAddress + ", " + newQuan;
+                                    x = x + 1;
+                                } else {
+                                    content = Arrays.copyOf(content, content.length + 1);
+                                    content[x] = line;
+                                    x = x + 1;
+                                }  
+                         } else {
+                        content = Arrays.copyOf(content, content.length + 1);
+                        content[x] = line;
+                        x = x + 1;
+                         }
+                    }
+
+                    
+                //end of while    
+                  }
+                    line = reader.readLine();
+                }
+                
+                //Create Data File
+    FileWriter fw = new FileWriter(txtDoc.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+    for(int y =0; y < x; y++){
+        bw.write(content[y] + "\n");
+    }
+    bw.close();
+    resetAll();
+    }
+    public void CreateNewMed(int TheId) throws FileNotFoundException, IOException{       
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+            String perName = R.requestNewMedications.get(TheId).getItem_Name();
+            String Quantity = R.requestPerscriptionList.get(TheId).getPerscption_Dosage();
+            String content =  "CD, " + perName + ", " + "Perscription - Drug" + ", " + Quantity + ", " + "NULL" + ", " + "0";
+            
+            //Get First Line
+            String line = reader.readLine();
+            
+            //Set Content
+            String context[] = new String[1];
+            int x = 0;
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            String FirstName = "Unknown";
+            String SurName = "Unknown";
+            String Gender = "Unknown";
+            String Age = "Unknown";
+            String HAddress = "Unknown";
+            String SName = "Unknown";
+            String CName = "Unknown";
+            String PC = "Unknown";
+            String User = "Unknown";
+            
+            while (line != null) {
+                char a = line.charAt(0);
+                char b = line.charAt(1);
+                if(a == 'R'){
+                    if(b == 'P'){
+                        String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                   
+                                for (String op : arrOfStr){
+                                    if(times == 4){
+                                        SName = op;
+                                        times = times + 1;
+                                    }
+                                    if(times == 3){
+                                        SurName = op;
+                                        times = times +1;
+                                    }
+                                    if(times == 2){
+                                        User = op;
+                                        times = times + 1;
+                                    }
+                                    if(times == 1){
+                                        FirstName = op;
+                                        times = times + 1;
+                                    }
+                                    if(times == 0){
+                                        times = times + 1;
+                                    }
+                                }
+                                
+                                if(User.equals(perName)){                                  
+                                } else {
+                                    context[x] = line;
+                                    context = Arrays.copyOf(context, context.length + 1);
+                                    bw.write(context[x] + "\n");
+                                    x = x++;
+                                }           
+                    } else {
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        bw.write(context[x] + "\n");
+                        x = x++;
+                    }
+                } else {
+                    context[x] = line;
+                    context = Arrays.copyOf(context, context.length + 1);
+                    bw.write(context[x] + "\n");
+                    x = x++; 
+                } 
+                line = reader.readLine();
+            }
+            bw.write(content);
+            bw.close();
+            resetAll();
+        } catch (IOException ex) {
+            Logger.getLogger(DataHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     private void resetAll() throws IOException{
         //clear all data
         U.adminList.clear();
