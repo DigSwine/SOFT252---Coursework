@@ -122,6 +122,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         jScrollPane5.setViewportView(Lst_MedsReady);
 
         Btn_Handedout.setText("Handedout");
+        Btn_Handedout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_HandedoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,7 +238,9 @@ public class GUI_Secratery extends javax.swing.JFrame {
         int NewSize = R.requestAppointmentList.size();
         String[] Appointment = new String[1];
         Integer Docid = 0;
-        
+         if (NewSize == 0){
+            
+        } else {
         for(int x = 0; x < NewSize; x++){
             Docid = Integer.valueOf(R.requestAppointmentList.get(x).getDoctor_IDN());
             Appointment[x] = R.requestAppointmentList.get(x).getAP_Time() + " " + R.requestAppointmentList.get(x).getAP_Date() + " " + U.doctorList.get(Docid - 1).getDoctor_FirstName() + " " + U.doctorList.get(Docid - 1).getDoctor_SurName();
@@ -246,6 +253,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
             }
             Lst_ApptsRequests.setModel(DLM);
     }
+    }
     private void GetPerscriptionRequests(){
         // Lst_Stock - Requests
         int ReqSize = R.requestPerscriptionList.size();
@@ -254,6 +262,9 @@ public class GUI_Secratery extends javax.swing.JFrame {
         String TheReq = String.valueOf(Ammonthneded);
         String TheName = "";
         String TheDos = "";
+         if (ReqSize == 0){
+            
+        } else {
         for(int x = 0; x < ReqSize; x++){
             TheName = R.requestPerscriptionList.get(x).getPerscription_Name();
             TheDos = R.requestPerscriptionList.get(x).getPerscption_Dosage();
@@ -266,6 +277,9 @@ public class GUI_Secratery extends javax.swing.JFrame {
         String[] Needed = new String[1];
         Integer Have = 0;
         int Required = 0;
+         if (LowSize == 0){
+            
+        } else {
         for(int x = 0; x < LowSize; x++){
             Have = C.lowsotckList.get(x).getItem_Stock();
             Required = 100 - Have;
@@ -284,10 +298,15 @@ public class GUI_Secratery extends javax.swing.JFrame {
             }
             Lst_Stock.setModel(DLM);
     }
+    }
+    }
     private void GetNewPatients(){
         // Lst_NewAccounts
         int NewPatSize = R.requestPatientList.size();
         String[] Pat = new String[1];
+         if (NewPatSize == 0){
+            
+        } else {
         for(int x = 0; x < NewPatSize; x++){
             String TheName = R.requestPatientList.get(x).getPatient_Firstname() + " " + R.requestPatientList.get(x).getPatient_Surname();
             String TheGender = R.requestPatientList.get(x).getPatient_Gender();
@@ -303,10 +322,14 @@ public class GUI_Secratery extends javax.swing.JFrame {
             }
             Lst_NewAccounts.setModel(DLM);
     }
+    }
     private void GetDelPatients(){
         // Lst_AccountRemoval
         int NewPatSize = R.deletePatientList.size();
         String[] Pat = new String[1];
+         if (NewPatSize == 0){
+            
+        } else {
         for(int x = 0; x < NewPatSize; x++){
             String TheName = R.deletePatientList.get(x).getPatient_Firstname() + " " + R.deletePatientList.get(x).getPatient_Surname();
             String TheGender = R.deletePatientList.get(x).getPatient_Gender();
@@ -322,11 +345,15 @@ public class GUI_Secratery extends javax.swing.JFrame {
             }
             Lst_AccountRemoval.setModel(DLM);
     }
+    }
     private void GetHandout(){
         //Lst_MedsReady
-         int NewPatSize = R.deletePatientList.size();
+         int NewPatSize = R.readyHandoutList.size();
         String[] Ready = new String[1];
         int who = 0;
+        if (NewPatSize == 0){
+            
+        } else {
         for(int x = 0; x < NewPatSize; x++){
             who = Integer.valueOf(R.readyHandoutList.get(x).getPatient_IDN());
             String TheName = U.patientList.get(who).getPatient_Firstname() + " " + U.patientList.get(who).getPatient_Surname();
@@ -344,6 +371,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
             }
             Lst_MedsReady.setModel(DLM);
     }
+    }
     
     private void reset(){
         GUI_Secratery Sec = new GUI_Secratery();
@@ -360,6 +388,12 @@ public class GUI_Secratery extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_LogoutActionPerformed
 
     private void Btn_RestockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RestockActionPerformed
+        String type = "RP";
+        int id = Lst_Stock.getSelectedIndex();
+
+        Data.restock(type, id);
+        
+        
         
     }//GEN-LAST:event_Btn_RestockActionPerformed
 
@@ -396,6 +430,17 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_Btn_DelPatAppActionPerformed
+
+    private void Btn_HandedoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HandedoutActionPerformed
+       int did = Lst_MedsReady.getSelectedIndex();
+       
+        try {
+            Data.DelHandout(did);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
+    }//GEN-LAST:event_Btn_HandedoutActionPerformed
 
    
     
