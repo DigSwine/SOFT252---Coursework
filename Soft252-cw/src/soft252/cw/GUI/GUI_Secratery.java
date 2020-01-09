@@ -2,7 +2,12 @@
 package soft252.cw.GUI;
 
 import java.io.IOException;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -43,6 +48,9 @@ public class GUI_Secratery extends javax.swing.JFrame {
         Cmb_RmovePatSelect = new javax.swing.JComboBox<>();
         Btn_RemovePat = new javax.swing.JButton();
         Txt_Confirm = new javax.swing.JTextField();
+        Cmb_PNAppt = new javax.swing.JComboBox<>();
+        Cmb_DNAppt = new javax.swing.JComboBox<>();
+        Btn_CreateAppt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +78,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         });
 
         Btn_NewPatDeny.setText("Deny");
+        Btn_NewPatDeny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_NewPatDenyActionPerformed(evt);
+            }
+        });
 
         Lst_ApptsRequests.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "-Appointment Requests-" };
@@ -86,6 +99,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         });
 
         Btn_NewApptDeny.setText("Deny");
+        Btn_NewApptDeny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_NewApptDenyActionPerformed(evt);
+            }
+        });
 
         Lst_Stock.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "-Stock Needs Replacing And New Medication Requests-" };
@@ -116,6 +134,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         });
 
         Btn_DelPatDeny.setText("Deny");
+        Btn_DelPatDeny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_DelPatDenyActionPerformed(evt);
+            }
+        });
 
         Lst_MedsReady.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "-Meds To Handout-" };
@@ -142,6 +165,17 @@ public class GUI_Secratery extends javax.swing.JFrame {
 
         Txt_Confirm.setText("-Type CONFIRM to confirm -");
         Txt_Confirm.setToolTipText("");
+
+        Cmb_PNAppt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Patient for immediate appointment -" }));
+
+        Cmb_DNAppt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Doctor for immediate appointment -" }));
+
+        Btn_CreateAppt.setText("Create New Appointment");
+        Btn_CreateAppt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_CreateApptActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,7 +219,10 @@ public class GUI_Secratery extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Cmb_RmovePatSelect, 0, 345, Short.MAX_VALUE)
                                     .addComponent(Txt_Confirm)
-                                    .addComponent(Btn_RemovePat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(Btn_RemovePat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Cmb_PNAppt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Cmb_DNAppt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Btn_CreateAppt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -195,7 +232,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(Btn_Logout))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Btn_NewPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,20 +240,28 @@ public class GUI_Secratery extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Cmb_PNAppt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Cmb_DNAppt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Btn_CreateAppt)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Btn_Restock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Btn_DelPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Btn_NewApptApp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Btn_NewApptDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Btn_Restock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Btn_DelPatApp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Btn_DelPatDeny, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Btn_Handedout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -240,6 +285,8 @@ public class GUI_Secratery extends javax.swing.JFrame {
     List_Clinic C = new List_Clinic();
     List_Requests R = new List_Requests();
     int ID = 0;
+    String Date = "";
+    String TheTime = "";
     
     public void GetData(DataHandler data){
         Data = data;
@@ -261,6 +308,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
         GetDelPatients();
         GetHandout();
         GetCurrentPats();
+        GetCurrentDocs();
     }                                      
     private void GetAppointmentRequests(){
         // Lst_ApptsRequests
@@ -410,6 +458,90 @@ public class GUI_Secratery extends javax.swing.JFrame {
         FName = U.patientList.get(x).getPatient_Firstname();
         SName = U.patientList.get(x).getPatient_Surname();
         Cmb_RmovePatSelect.addItem(FName + " " + SName);
+        Cmb_PNAppt.addItem(FName + " " + SName);
+        }
+    }
+    private void GetCurrentDocs(){
+     //Cmb_DNAppt 
+     int DocLength = U.doctorList.size();
+        String FName = " ";
+        String SName = " ";
+        
+        Date date = new Date();
+    LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    int day = 0;
+    int month = 0;   
+    int year = 0;
+    
+    month = localDate.getMonthValue();
+    year = localDate.getYear();
+    day = localDate.getDayOfMonth();
+    
+    String time = String.valueOf(java.time.LocalTime.now());
+    
+    char[] slotted = new char[6];
+    for(int x = 0; x < 6; x++){
+        slotted[x] = time.charAt(x);
+    }
+    String Hour = slotted[0] + "" + slotted[1];
+    String Minute = slotted[3] + "" + slotted[4];
+    
+    int hour = Integer.valueOf(Hour);
+    int minute = Integer.valueOf(Minute);
+    
+    if(30 < minute){
+        minute = 00;
+        hour = hour + 1;
+    } else {
+        minute = 30;
+    }
+    
+    
+    Date = day + "/" + month + "/" + year;
+    TheTime = hour + ":" + minute;
+    int LengthAppts = AP.appointmentList.size();
+    
+    String[] found = new String[LengthAppts];
+    String[] who = new String[LengthAppts];
+    int k = 0;
+    for(int h = 0; h < LengthAppts; h++){
+        if(Date.equals(AP.appointmentList.get(h).getAP_Date())){
+            if(TheTime.equals(AP.appointmentList.get(h).getAP_Time())){
+                found[h] = "y";
+                found = Arrays.copyOf(found, found.length + 1);
+            } else {
+                found[h] = "n";
+                found = Arrays.copyOf(found, found.length + 1);
+            }
+        } else {
+            found[h] = "n";
+            found = Arrays.copyOf(found, found.length + 1); 
+        }
+        if(found[h] == "y"){
+            who[k] = AP.appointmentList.get(h).getDoctor_IDN();
+            k = k + 1;
+            who = Arrays.copyOf(who, who.length + 1);
+        }
+    }
+        if(who.length == 0){
+        for(int x = 0; x < DocLength; x++){
+            FName = U.doctorList.get(x).getDoctor_FirstName();
+            SName = U.doctorList.get(x).getDoctor_SurName();
+            Cmb_DNAppt.addItem(FName + " " + SName);
+        }
+        } else {
+            for(int x = 0; x < DocLength; x++){
+                if(x > who.length){
+                    
+                } else {
+                    if(who[x] != AP.appointmentList.get(x).getDoctor_IDN()){
+                                    FName = U.doctorList.get(x).getDoctor_FirstName();
+                                    SName = U.doctorList.get(x).getDoctor_SurName();
+                                    Cmb_DNAppt.addItem(FName + " " + SName);
+                    }
+                }
+
+        }
         }
     }
     private void reset(){
@@ -513,6 +645,50 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Btn_RemovePatActionPerformed
 
+    private void Btn_NewPatDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewPatDenyActionPerformed
+       String type = "R";
+    int pid = Lst_NewAccounts.getSelectedIndex();
+        try {
+            Data.editDenyPerson(type, pid);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();       
+    }//GEN-LAST:event_Btn_NewPatDenyActionPerformed
+
+    private void Btn_NewApptDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewApptDenyActionPerformed
+       int pid = Lst_ApptsRequests.getSelectedIndex();
+        
+        try {
+            Data.editDenyAppt("RA", pid);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
+    }//GEN-LAST:event_Btn_NewApptDenyActionPerformed
+
+    private void Btn_DelPatDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DelPatDenyActionPerformed
+         int pid = Lst_AccountRemoval.getSelectedIndex();
+        try {
+            Data.editDenyRemoval("RD", pid);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
+    }//GEN-LAST:event_Btn_DelPatDenyActionPerformed
+
+    private void Btn_CreateApptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CreateApptActionPerformed
+        int pat = Cmb_PNAppt.getSelectedIndex();
+        String doc = String.valueOf(Cmb_DNAppt.getSelectedIndex());
+        
+        try {
+            Data.NewAppt(pat, doc, TheTime, Date);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        reset();
+    }//GEN-LAST:event_Btn_CreateApptActionPerformed
+
    
     
     
@@ -574,6 +750,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_CreateAppt;
     private javax.swing.JButton Btn_DelPatApp;
     private javax.swing.JButton Btn_DelPatDeny;
     private javax.swing.JButton Btn_Handedout;
@@ -584,6 +761,8 @@ public class GUI_Secratery extends javax.swing.JFrame {
     private javax.swing.JButton Btn_NewPatDeny;
     private javax.swing.JButton Btn_RemovePat;
     private javax.swing.JButton Btn_Restock;
+    private javax.swing.JComboBox<String> Cmb_DNAppt;
+    private javax.swing.JComboBox<String> Cmb_PNAppt;
     private javax.swing.JComboBox<String> Cmb_RmovePatSelect;
     private javax.swing.JList<String> Lst_AccountRemoval;
     private javax.swing.JList<String> Lst_ApptsRequests;

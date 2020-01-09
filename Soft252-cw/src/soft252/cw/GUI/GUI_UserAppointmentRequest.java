@@ -1,13 +1,7 @@
 // @author mwilson-slider
 package soft252.cw.GUI;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Arrays;
@@ -15,7 +9,6 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import soft252.cw.Classes.Appointments;
 import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Requests;
 import soft252.cw.Classes.List_Users;
