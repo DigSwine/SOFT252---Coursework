@@ -1795,8 +1795,33 @@ public class DataHandler {
         bw.close();
         resetAll();
     }
-    public void AddPat(String type, int pid) throws IOException{
-       
+    public void AddAdmin(String fn, String sn, String house, String road, String city, String pc, String user, String pass) throws IOException{
+        String toAdd = "A, " + fn + ", " + sn  + ", " + house + ", " + road  + ", " + city  + ", " + pc  + ", " + user + ", " + pass;
+        BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));       
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String context[] = new String[1];
+        int x = 0;
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+                while (line != null) {
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        line = reader.readLine();
+                        x = x + 1;
+                }
+                for(int g = 0; g < context.length - 1; g++){
+                    bw.write(context[g] + "\n");
+                }
+                
+                
+                
+                
+                bw.write(toAdd);
+        bw.close();
+        resetAll();
         }
     public void DelHandout(int id) throws FileNotFoundException, IOException{               
         int ID = id;

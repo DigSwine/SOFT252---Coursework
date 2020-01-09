@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Soft252-cw">
+  <ClassDiagramComponents>
+    <Class name="Admin" package="soft252.cw.Classes" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="Admin_IdentificationLetter" type="String" visibility="protected"/>
+        <Field name="Admin_IdentificationNumber" type="Integer" visibility="protected"/>
+        <Field name="Admin_FirstName" type="String" visibility="protected"/>
+        <Field name="Admin_SurName" type="String" visibility="protected"/>
+        <Field name="Admin_StreetNumber" type="String" visibility="protected"/>
+        <Field name="Admin_StreetName" type="String" visibility="protected"/>
+        <Field name="Admin_City" type="String" visibility="protected"/>
+        <Field name="Admin_PostCode" type="String" visibility="protected"/>
+        <Field name="Admin_Username" type="String" visibility="protected"/>
+        <Field name="Admin_Password" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Admin_FirstName"/>
+          <Argument type="String" name="Admin_SurName"/>
+          <Argument type="String" name="Admin_StreetNumber"/>
+          <Argument type="String" name="Admin_StreetName"/>
+          <Argument type="String" name="Admin_City"/>
+          <Argument type="String" name="Admin_PostCode"/>
+          <Argument type="String" name="Admin_Username"/>
+          <Argument type="String" name="Admin_Password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAdmin_IdentificationLetter" returnType="String" visibility="public"/>
+        <Method name="getAdmin_IdentificationNumber" returnType="Integer" visibility="public"/>
+        <Method name="getAdmin_FirstName" returnType="String" visibility="public"/>
+        <Method name="getAdmin_SurName" returnType="String" visibility="public"/>
+        <Method name="getAdmin_StreetNumber" returnType="String" visibility="public"/>
+        <Method name="getAdmin_StreetName" returnType="String" visibility="public"/>
+        <Method name="getAdmin_City" returnType="String" visibility="public"/>
+        <Method name="getAdmin_PostCode" returnType="String" visibility="public"/>
+        <Method name="getAdmin_Username" returnType="String" visibility="public"/>
+        <Method name="getAdmin_Password" returnType="String" visibility="public"/>
+        <Method name="setAdmin_IdentificationLetter" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_IdentificationLetter"/>
+        </Method>
+        <Method name="setAdmin_IdentificationNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="Admin_IdentificationNumber"/>
+        </Method>
+        <Method name="setAdmin_FirstName" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_FirstName"/>
+        </Method>
+        <Method name="setAdmin_SurName" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_SurName"/>
+        </Method>
+        <Method name="setAdmin_StreetNumber" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_StreetNumber"/>
+        </Method>
+        <Method name="setAdmin_StreetName" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_StreetName"/>
+        </Method>
+        <Method name="setAdmin_City" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_City"/>
+        </Method>
+        <Method name="setAdmin_PostCode" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_PostCode"/>
+        </Method>
+        <Method name="setAdmin_Username" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_Username"/>
+        </Method>
+        <Method name="setAdmin_Password" returnType="void" visibility="public">
+          <Argument type="String" name="Admin_Password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Appointments" package="soft252.cw.Classes" visibility="public" xPosition="134.0" yPosition="77.0">
+      <Fields>
+        <Field name="Appointment_Number" type="Integer" visibility="protected"/>
+        <Field name="Patient_IDL" type="String" visibility="protected"/>
+        <Field name="Patient_IDN" type="String" visibility="protected"/>
+        <Field name="Doctor_IDL" type="String" visibility="protected"/>
+        <Field name="Doctor_IDN" type="String" visibility="protected"/>
+        <Field name="Patient_Notes" type="String" visibility="protected"/>
+        <Field name="AP_Time" type="String" visibility="private"/>
+        <Field name="AP_Date" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Patient_IDN"/>
+          <Argument type="String" name="Doctor_IDN"/>
+          <Argument type="String" name="AP_Time"/>
+          <Argument type="String" name="AP_Date"/>
+          <Argument type="String" name="Patient_Notes"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAppointment_Number" returnType="Integer" visibility="public"/>
+        <Method name="getPatient_IDL" returnType="String" visibility="public"/>
+        <Method name="getPatient_IDN" returnType="String" visibility="public"/>
+        <Method name="getDoctor_IDL" returnType="String" visibility="public"/>
+        <Method name="getDoctor_IDN" returnType="String" visibility="public"/>
+        <Method name="getPatient_Notes" returnType="String" visibility="public"/>
+        <Method name="getAP_Time" returnType="String" visibility="public"/>
+        <Method name="getAP_Date" returnType="String" visibility="public"/>
+        <Method name="setAppointment_Number" returnType="void" visibility="public">
+          <Argument type="Integer" name="Appointment_Number"/>
+        </Method>
+        <Method name="setPatient_IDL" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_IDL"/>
+        </Method>
+        <Method name="setPatient_IDN" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_IDN"/>
+        </Method>
+        <Method name="setDoctor_IDL" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_IDL"/>
+        </Method>
+        <Method name="setDoctor_IDN" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_IDN"/>
+        </Method>
+        <Method name="setPatient_Notes" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_Notes"/>
+        </Method>
+        <Method name="setAP_Time" returnType="void" visibility="public">
+          <Argument type="String" name="AP_Time"/>
+        </Method>
+        <Method name="setAP_Date" returnType="void" visibility="public">
+          <Argument type="String" name="AP_Date"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Clinic" package="soft252.cw.Classes" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="Clinic_Name" type="String" visibility="protected"/>
+        <Field name="Clinic_StreetNumber" type="String" visibility="protected"/>
+        <Field name="Clinic_StreetName" type="String" visibility="protected"/>
+        <Field name="Clinic_City" type="String" visibility="protected"/>
+        <Field name="Clinic_PostCode" type="String" visibility="protected"/>
+        <Field name="Item_IdentificationNumber" type="Integer" visibility="protected"/>
+        <Field name="Item_Name" type="String" visibility="protected"/>
+        <Field name="Item_Type" type="String" visibility="protected"/>
+        <Field name="Item_Description" type="String" visibility="protected"/>
+        <Field name="Item_Stock" type="Integer" visibility="protected"/>
+        <Field name="Item_Amm" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Clinic_Name"/>
+          <Argument type="String" name="Clinic_StreetNumber"/>
+          <Argument type="String" name="Clinic_StreetName"/>
+          <Argument type="String" name="Clinic_City"/>
+          <Argument type="String" name="Clinic_PostCode"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="Item_Name"/>
+          <Argument type="String" name="Item_Type"/>
+          <Argument type="String" name="Item_Description"/>
+          <Argument type="String" name="Item_Amm"/>
+          <Argument type="Integer" name="Item_Stock"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getClinic_Name" returnType="String" visibility="public"/>
+        <Method name="getClinic_StreetNumber" returnType="String" visibility="public"/>
+        <Method name="getClinic_StreetName" returnType="String" visibility="public"/>
+        <Method name="getClinic_City" returnType="String" visibility="public"/>
+        <Method name="getClinic_PostCode" returnType="String" visibility="public"/>
+        <Method name="setClinic_Name" returnType="void" visibility="public">
+          <Argument type="String" name="Clinic_Name"/>
+        </Method>
+        <Method name="setClinic_StreetNumber" returnType="void" visibility="public">
+          <Argument type="String" name="Clinic_StreetNumber"/>
+        </Method>
+        <Method name="setClinic_StreetName" returnType="void" visibility="public">
+          <Argument type="String" name="Clinic_StreetName"/>
+        </Method>
+        <Method name="setClinic_City" returnType="void" visibility="public">
+          <Argument type="String" name="Clinic_City"/>
+        </Method>
+        <Method name="setClinic_PostCode" returnType="void" visibility="public">
+          <Argument type="String" name="Clinic_PostCode"/>
+        </Method>
+        <Method name="getItem_IdentificationNumber" returnType="Integer" visibility="public"/>
+        <Method name="getItem_Name" returnType="String" visibility="public"/>
+        <Method name="getItem_Type" returnType="String" visibility="public"/>
+        <Method name="getItem_Description" returnType="String" visibility="public"/>
+        <Method name="getItem_Stock" returnType="Integer" visibility="public"/>
+        <Method name="setItem_IdentificationNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="Item_IdentificationNumber"/>
+        </Method>
+        <Method name="setItem_Name" returnType="void" visibility="public">
+          <Argument type="String" name="Item_Name"/>
+        </Method>
+        <Method name="setItem_Type" returnType="void" visibility="public">
+          <Argument type="String" name="Item_Type"/>
+        </Method>
+        <Method name="setItem_Description" returnType="void" visibility="public">
+          <Argument type="String" name="Item_Description"/>
+        </Method>
+        <Method name="setItem_Stock" returnType="void" visibility="public">
+          <Argument type="Integer" name="Item_Stock"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DataHandler" package="soft252.cw.Classes" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="U" type="List_Users" visibility="private"/>
+        <Field name="C" type="List_Clinic" visibility="private"/>
+        <Field name="AP" type="Lists_AP" visibility="private"/>
+        <Field name="R" type="List_Requests" visibility="private"/>
+        <Field name="file" type="File" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setU" returnType="void" visibility="public">
+          <Argument type="List_Users" name="U"/>
+        </Method>
+        <Method name="setC" returnType="void" visibility="public">
+          <Argument type="List_Clinic" name="C"/>
+        </Method>
+        <Method name="setAP" returnType="void" visibility="public">
+          <Argument type="Lists_AP" name="AP"/>
+        </Method>
+        <Method name="getU" returnType="List_Users" visibility="public"/>
+        <Method name="getC" returnType="List_Clinic" visibility="public"/>
+        <Method name="getAP" returnType="Lists_AP" visibility="public"/>
+        <Method name="getR" returnType="List_Requests" visibility="public"/>
+        <Method name="setR" returnType="void" visibility="public">
+          <Argument type="List_Requests" name="R"/>
+        </Method>
+        <Method name="getFile" returnType="File" visibility="public"/>
+        <Method name="setFile" returnType="void" visibility="public">
+          <Argument type="File" name="file"/>
+        </Method>
+        <Method name="setData" returnType="void" visibility="public"/>
+        <Method name="getData" returnType="void" visibility="public"/>
+        <Method name="editDeletePerson" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="IDN"/>
+        </Method>
+        <Method name="editAddPerson" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="IDN"/>
+        </Method>
+        <Method name="editAddAppt" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="IDN"/>
+        </Method>
+        <Method name="editDenyPerson" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="IDN"/>
+        </Method>
+        <Method name="editDenyAppt" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="IDN"/>
+        </Method>
+        <Method name="editDenyRemoval" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="IDN"/>
+        </Method>
+        <Method name="RequestDeletion" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="ind"/>
+        </Method>
+        <Method name="NewNote" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="pid"/>
+          <Argument type="String" name="did"/>
+          <Argument type="String" name="time"/>
+          <Argument type="String" name="date"/>
+          <Argument type="String" name="note"/>
+        </Method>
+        <Method name="NewPerscription" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="pid"/>
+          <Argument type="String" name="perName"/>
+          <Argument type="String" name="perQua"/>
+          <Argument type="String" name="perDos"/>
+        </Method>
+        <Method name="requestNewPer" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="String" name="pid"/>
+          <Argument type="String" name="perName"/>
+          <Argument type="String" name="perQua"/>
+          <Argument type="String" name="perDos"/>
+        </Method>
+        <Method name="NewAppt" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="who"/>
+          <Argument type="String" name="time"/>
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="AddAdmin" returnType="void" visibility="public">
+          <Argument type="String" name="fn"/>
+          <Argument type="String" name="sn"/>
+          <Argument type="String" name="house"/>
+          <Argument type="String" name="road"/>
+          <Argument type="String" name="city"/>
+          <Argument type="String" name="pc"/>
+          <Argument type="String" name="user"/>
+          <Argument type="String" name="pass"/>
+        </Method>
+        <Method name="DelHandout" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="restock" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="FindAndStockUp" returnType="void" visibility="public">
+          <Argument type="int" name="TheId"/>
+        </Method>
+        <Method name="FindAndRemnoveQuan" returnType="void" visibility="public">
+          <Argument type="int" name="TheId"/>
+          <Argument type="int" name="TheQuan"/>
+        </Method>
+        <Method name="CreateNewMed" returnType="void" visibility="public">
+          <Argument type="int" name="TheId"/>
+        </Method>
+        <Method name="resetAll" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Doctors" package="soft252.cw.Classes" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="Doctor_IdentificationLetter" type="String" visibility="protected"/>
+        <Field name="Doctor_IdentificationNumber" type="Integer" visibility="protected"/>
+        <Field name="Doctor_FirstName" type="String" visibility="protected"/>
+        <Field name="Doctor_SurName" type="String" visibility="protected"/>
+        <Field name="Doctor_StreetNumber" type="String" visibility="protected"/>
+        <Field name="Doctor_StreetName" type="String" visibility="protected"/>
+        <Field name="Doctor_City" type="String" visibility="protected"/>
+        <Field name="Doctor_Postcode" type="String" visibility="protected"/>
+        <Field name="Doctor_User" type="String" visibility="private"/>
+        <Field name="Doctor_Password" type="String" visibility="private"/>
+        <Field name="Doctor_Rateing" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Doctor_FirstName"/>
+          <Argument type="String" name="Doctor_SurName"/>
+          <Argument type="String" name="Doctor_StreetNumber"/>
+          <Argument type="String" name="Doctor_StreetName"/>
+          <Argument type="String" name="Doctor_City"/>
+          <Argument type="String" name="Doctor_Postcode"/>
+          <Argument type="String" name="Doctor_User"/>
+          <Argument type="String" name="Doctor_Password"/>
+          <Argument type="String" name="Doctor_Rateing"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDoctor_IdentificationLetter" returnType="String" visibility="public"/>
+        <Method name="getDoctor_IdentificationNumber" returnType="Integer" visibility="public"/>
+        <Method name="getDoctor_FirstName" returnType="String" visibility="public"/>
+        <Method name="getDoctor_SurName" returnType="String" visibility="public"/>
+        <Method name="getDoctor_StreetNumber" returnType="String" visibility="public"/>
+        <Method name="getDoctor_StreetName" returnType="String" visibility="public"/>
+        <Method name="getDoctor_City" returnType="String" visibility="public"/>
+        <Method name="getDoctor_Postcode" returnType="String" visibility="public"/>
+        <Method name="getDoctor_User" returnType="String" visibility="public"/>
+        <Method name="getDoctor_Password" returnType="String" visibility="public"/>
+        <Method name="getDoctor_Rateing" returnType="String" visibility="public"/>
+        <Method name="setDoctor_IdentificationLetter" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_IdentificationLetter"/>
+        </Method>
+        <Method name="setDoctor_IdentificationNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="Doctor_IdentificationNumber"/>
+        </Method>
+        <Method name="setDoctor_FirstName" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_FirstName"/>
+        </Method>
+        <Method name="setDoctor_SurName" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_SurName"/>
+        </Method>
+        <Method name="setDoctor_StreetNumber" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_StreetNumber"/>
+        </Method>
+        <Method name="setDoctor_StreetName" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_StreetName"/>
+        </Method>
+        <Method name="setDoctor_City" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_City"/>
+        </Method>
+        <Method name="setDoctor_Postcode" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_Postcode"/>
+        </Method>
+        <Method name="setDoctor_User" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_User"/>
+        </Method>
+        <Method name="setDoctor_Password" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_Password"/>
+        </Method>
+        <Method name="setDoctor_Rateing" returnType="void" visibility="public">
+          <Argument type="String" name="Doctor_Rateing"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Lists_AP" package="soft252.cw.Classes" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="perscriptionList" type="ArrayList&lt;Perscriptions&gt;" visibility="public"/>
+        <Field name="appointmentList" type="ArrayList&lt;Appointments&gt;" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getPerscriptionList" returnType="ArrayList&lt;Perscriptions&gt;" visibility="public"/>
+        <Method name="setPerscriptionList" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Perscriptions&gt;" name="perscriptionList"/>
+        </Method>
+        <Method name="getAppointmentList" returnType="ArrayList&lt;Appointments&gt;" visibility="public"/>
+        <Method name="setAppointmentList" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Appointments&gt;" name="appointmentList"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="List_Clinic" package="soft252.cw.Classes" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="clinicList" type="ArrayList&lt;Clinic&gt;" visibility="public"/>
+        <Field name="drugList" type="ArrayList&lt;Clinic&gt;" visibility="public"/>
+        <Field name="lowsotckList" type="ArrayList&lt;Clinic&gt;" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="List_Requests" package="soft252.cw.Classes" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="requestAppointmentList" type="ArrayList&lt;Appointments&gt;" visibility="public"/>
+        <Field name="requestNewMedications" type="ArrayList&lt;Clinic&gt;" visibility="public"/>
+        <Field name="requestPerscriptionList" type="ArrayList&lt;Perscriptions&gt;" visibility="public"/>
+        <Field name="requestPatientList" type="ArrayList&lt;Patients&gt;" visibility="public"/>
+        <Field name="deletePatientList" type="ArrayList&lt;Patients&gt;" visibility="public"/>
+        <Field name="readyHandoutList" type="ArrayList&lt;Perscriptions&gt;" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="List_Users" package="soft252.cw.Classes" visibility="public" xPosition="415.0" yPosition="185.0">
+      <Fields>
+        <Field name="doctorList" type="ArrayList&lt;Doctors&gt;" visibility="public"/>
+        <Field name="patientList" type="ArrayList&lt;Patients&gt;" visibility="public"/>
+        <Field name="adminList" type="ArrayList&lt;Admin&gt;" visibility="public"/>
+        <Field name="secreteryList" type="ArrayList&lt;Secretary&gt;" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Patients" package="soft252.cw.Classes" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="Patient_IdendificationLetter" type="String" visibility="private"/>
+        <Field name="Patient_IdentificationNumber" type="Integer" visibility="private"/>
+        <Field name="Patient_Firstname" type="String" visibility="private"/>
+        <Field name="Patient_Surname" type="String" visibility="private"/>
+        <Field name="Patient_Gender" type="String" visibility="private"/>
+        <Field name="Patient_Age" type="String" visibility="private"/>
+        <Field name="Patient_StreetNumber" type="String" visibility="private"/>
+        <Field name="Patient_StreetName" type="String" visibility="private"/>
+        <Field name="Patient_CityName" type="String" visibility="private"/>
+        <Field name="Patient_PostCode" type="String" visibility="private"/>
+        <Field name="Patient_Username" type="String" visibility="private"/>
+        <Field name="Patient_Password" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Patient_Firstname"/>
+          <Argument type="String" name="Patient_Surname"/>
+          <Argument type="String" name="Patient_Gender"/>
+          <Argument type="String" name="Patient_Age"/>
+          <Argument type="String" name="Patient_StreetNumber"/>
+          <Argument type="String" name="Patient_StreetName"/>
+          <Argument type="String" name="Patient_CityName"/>
+          <Argument type="String" name="Patient_PostCode"/>
+          <Argument type="String" name="Patient_Username"/>
+          <Argument type="String" name="Patient_Password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPatient_IdendificationLetter" returnType="String" visibility="public"/>
+        <Method name="getPatient_IdentificationNumber" returnType="Integer" visibility="public"/>
+        <Method name="getPatient_Firstname" returnType="String" visibility="public"/>
+        <Method name="getPatient_Surname" returnType="String" visibility="public"/>
+        <Method name="getPatient_Gender" returnType="String" visibility="public"/>
+        <Method name="getPatient_Age" returnType="String" visibility="public"/>
+        <Method name="getPatient_StreetNumber" returnType="String" visibility="public"/>
+        <Method name="getPatient_StreetName" returnType="String" visibility="public"/>
+        <Method name="getPatient_CityName" returnType="String" visibility="public"/>
+        <Method name="getPatient_PostCode" returnType="String" visibility="public"/>
+        <Method name="getPatient_Username" returnType="String" visibility="public"/>
+        <Method name="getPatient_Password" returnType="String" visibility="public"/>
+        <Method name="setPatient_IdendificationLetter" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_IdendificationLetter"/>
+        </Method>
+        <Method name="setPatient_IdentificationNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="Patient_IdentificationNumber"/>
+        </Method>
+        <Method name="setPatient_Firstname" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_Firstname"/>
+        </Method>
+        <Method name="setPatient_Surname" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_Surname"/>
+        </Method>
+        <Method name="setPatient_Gender" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_Gender"/>
+        </Method>
+        <Method name="setPatient_Age" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_Age"/>
+        </Method>
+        <Method name="setPatient_StreetNumber" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_StreetNumber"/>
+        </Method>
+        <Method name="setPatient_StreetName" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_StreetName"/>
+        </Method>
+        <Method name="setPatient_CityName" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_CityName"/>
+        </Method>
+        <Method name="setPatient_PostCode" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_PostCode"/>
+        </Method>
+        <Method name="setPatient_Username" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_Username"/>
+        </Method>
+        <Method name="setPatient_Password" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_Password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Perscriptions" package="soft252.cw.Classes" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="Patient_IDL" type="String" visibility="protected"/>
+        <Field name="Patient_IDN" type="String" visibility="protected"/>
+        <Field name="Perscription_Name" type="String" visibility="protected"/>
+        <Field name="Perscription_Quantity" type="String" visibility="protected"/>
+        <Field name="Perscption_Dosage" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Patient_IDN"/>
+          <Argument type="String" name="Perscription_Name"/>
+          <Argument type="String" name="Perscription_Quantity"/>
+          <Argument type="String" name="Perscption_Dosage"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPatient_IDL" returnType="String" visibility="public"/>
+        <Method name="getPatient_IDN" returnType="String" visibility="public"/>
+        <Method name="getPerscription_Name" returnType="String" visibility="public"/>
+        <Method name="getPerscription_Quantity" returnType="String" visibility="public"/>
+        <Method name="getPerscption_Dosage" returnType="String" visibility="public"/>
+        <Method name="setPatient_IDL" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_IDL"/>
+        </Method>
+        <Method name="setPatient_IDN" returnType="void" visibility="public">
+          <Argument type="String" name="Patient_IDN"/>
+        </Method>
+        <Method name="setPerscription_Name" returnType="void" visibility="public">
+          <Argument type="String" name="Perscription_Name"/>
+        </Method>
+        <Method name="setPerscription_Quantity" returnType="void" visibility="public">
+          <Argument type="String" name="Perscription_Quantity"/>
+        </Method>
+        <Method name="setPerscption_Dosage" returnType="void" visibility="public">
+          <Argument type="String" name="Perscption_Dosage"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Secretary" package="soft252.cw.Classes" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="Secretary_IdentificationLetter" type="String" visibility="protected"/>
+        <Field name="Secretary_IdentificationNumber" type="Integer" visibility="protected"/>
+        <Field name="Secretary_FirstName" type="String" visibility="protected"/>
+        <Field name="Secretary_SurName" type="String" visibility="protected"/>
+        <Field name="Secretary_StreetNumber" type="String" visibility="protected"/>
+        <Field name="Secretary_StreetName" type="String" visibility="protected"/>
+        <Field name="Secretary_City" type="String" visibility="protected"/>
+        <Field name="Secretary_Postcode" type="String" visibility="protected"/>
+        <Field name="Secretary_Username" type="String" visibility="protected"/>
+        <Field name="Secretary_Password" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Secretary_FirstName"/>
+          <Argument type="String" name="Secretary_SurName"/>
+          <Argument type="String" name="Secretary_StreetNumber"/>
+          <Argument type="String" name="Secretary_StreetName"/>
+          <Argument type="String" name="Secretary_City"/>
+          <Argument type="String" name="Secretary_Postcode"/>
+          <Argument type="String" name="Secretary_Username"/>
+          <Argument type="String" name="Secretary_Password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSecretary_IdentificationLetter" returnType="String" visibility="public"/>
+        <Method name="getSecretary_IdentificationNumber" returnType="Integer" visibility="public"/>
+        <Method name="getSecretary_FirstName" returnType="String" visibility="public"/>
+        <Method name="getSecretary_SurName" returnType="String" visibility="public"/>
+        <Method name="getSecretary_StreetNumber" returnType="String" visibility="public"/>
+        <Method name="getSecretary_StreetName" returnType="String" visibility="public"/>
+        <Method name="getSecretary_City" returnType="String" visibility="public"/>
+        <Method name="getSecretary_Postcode" returnType="String" visibility="public"/>
+        <Method name="getSecretary_Username" returnType="String" visibility="public"/>
+        <Method name="getSecretary_Password" returnType="String" visibility="public"/>
+        <Method name="setSecretary_IdentificationLetter" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_IdentificationLetter"/>
+        </Method>
+        <Method name="setSecretary_IdentificationNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="Secretary_IdentificationNumber"/>
+        </Method>
+        <Method name="setSecretary_FirstName" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_FirstName"/>
+        </Method>
+        <Method name="setSecretary_SurName" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_SurName"/>
+        </Method>
+        <Method name="setSecretary_StreetNumber" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_StreetNumber"/>
+        </Method>
+        <Method name="setSecretary_StreetName" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_StreetName"/>
+        </Method>
+        <Method name="setSecretary_City" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_City"/>
+        </Method>
+        <Method name="setSecretary_Postcode" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_Postcode"/>
+        </Method>
+        <Method name="setSecretary_Username" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_Username"/>
+        </Method>
+        <Method name="setSecretary_Password" returnType="void" visibility="public">
+          <Argument type="String" name="Secretary_Password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GUI_Admin" package="soft252.cw.GUI" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="Data" type="DataHandler" visibility="package"/>
+        <Field name="U" type="List_Users" visibility="package"/>
+        <Field name="Btn_LogOut" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_NewAdmin" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Txt_AdminC" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_AdminFN" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_AdminPc" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_AdminPw" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_AdminSn" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_AdminStreetName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_AdminStreetNum" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_AdminUN" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jComboBox1" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="getData" returnType="void" visibility="public">
+          <Argument type="DataHandler" name="data"/>
+        </Method>
+        <Method name="Btn_NewAdminActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_LogOutActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Txt_AdminFNActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="reset" returnType="void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GUI_Doctor" package="soft252.cw.GUI" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="Data" type="DataHandler" visibility="package"/>
+        <Field name="U" type="List_Users" visibility="package"/>
+        <Field name="AP" type="Lists_AP" visibility="package"/>
+        <Field name="C" type="List_Clinic" visibility="package"/>
+        <Field name="R" type="List_Requests" visibility="package"/>
+        <Field name="day" type="int" visibility="package"/>
+        <Field name="maxdays" type="int" visibility="package"/>
+        <Field name="month" type="int" visibility="package"/>
+        <Field name="year" type="int" visibility="package"/>
+        <Field name="CurrentDate" type="String" visibility="package"/>
+        <Field name="whatsdone" type="int[]" visibility="package"/>
+        <Field name="ID" type="Integer" visibility="private" isStatic="true"/>
+        <Field name="Btn_CreateAppt" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_CreatePerscription" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_InspectPatient" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Logout" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_MoveLeft" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_MoveRight" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Notes" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Repeat" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_RequestMeds" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Save" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_ViewAppt" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Cmb_MoveBy" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Cmb_PerName" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_Appts" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_PAppointments" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_PMedications" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_PNotes" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Txt_CityName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_Day" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_Month" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_Notes" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PAge" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PDosage" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PGender" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PHNumber" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PPC" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PSName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PerQuan" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PerscriptionDosage" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PerscriptionName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_PerscriptionQuantity" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_Year" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLayeredPane1" type="javax.swing.JLayeredPane" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane4" type="javax.swing.JScrollPane" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="GetData" returnType="void" visibility="public">
+          <Argument type="DataHandler" name="data"/>
+        </Method>
+        <Method name="setappts" returnType="void" visibility="public"/>
+        <Method name="GetDId" returnType="void" visibility="public">
+          <Argument type="Integer" name="x"/>
+        </Method>
+        <Method name="Btn_ViewApptActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_LogoutActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_InspectPatientActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_NotesActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_SaveActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_MoveLeftActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_MoveRightActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_CreatePerscriptionActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_RequestMedsActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Txt_PAgeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_RepeatActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="GetAppointmnets" returnType="void" visibility="private">
+          <Argument type="int" name="d"/>
+          <Argument type="int" name="m"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="DefultAll" returnType="void" visibility="private"/>
+        <Method name="DisableAll" returnType="void" visibility="private"/>
+        <Method name="OpenHome" returnType="void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GUI_Home" package="soft252.cw.GUI" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="U" type="List_Users" visibility="package"/>
+        <Field name="Data" type="DataHandler" visibility="package"/>
+        <Field name="Username" type="String" visibility="package"/>
+        <Field name="Password" type="String" visibility="package"/>
+        <Field name="Type" type="String" visibility="package"/>
+        <Field name="Btn_LogIn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Cmb_UserType" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Txt_Password" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Txt_Username" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="GetUser" returnType="void" visibility="public">
+          <Argument type="DataHandler" name="data"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="SetLogins" returnType="void" visibility="public"/>
+        <Method name="Btn_LogInActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Cmb_UserTypeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GUI_Secratery" package="soft252.cw.GUI" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="Data" type="DataHandler" visibility="package"/>
+        <Field name="AP" type="Lists_AP" visibility="package"/>
+        <Field name="U" type="List_Users" visibility="package"/>
+        <Field name="C" type="List_Clinic" visibility="package"/>
+        <Field name="R" type="List_Requests" visibility="package"/>
+        <Field name="ID" type="int" visibility="package"/>
+        <Field name="Date" type="String" visibility="package"/>
+        <Field name="TheTime" type="String" visibility="package"/>
+        <Field name="Btn_CreateAppt" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_DelPatApp" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_DelPatDeny" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Handedout" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Logout" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_NewApptApp" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_NewApptDeny" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_NewPatApp" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_NewPatDeny" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_RemovePat" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Restock" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Cmb_DNAppt" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Cmb_PNAppt" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Cmb_RmovePatSelect" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_AccountRemoval" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_ApptsRequests" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_MedsReady" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_NewAccounts" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_Stock" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Txt_Confirm" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane4" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane5" type="javax.swing.JScrollPane" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="GetData" returnType="void" visibility="public">
+          <Argument type="DataHandler" name="data"/>
+        </Method>
+        <Method name="GetId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="private"/>
+        <Method name="GetAppointmentRequests" returnType="void" visibility="private"/>
+        <Method name="GetPerscriptionRequests" returnType="void" visibility="private"/>
+        <Method name="GetNewPatients" returnType="void" visibility="private"/>
+        <Method name="GetDelPatients" returnType="void" visibility="private"/>
+        <Method name="GetHandout" returnType="void" visibility="private"/>
+        <Method name="GetCurrentPats" returnType="void" visibility="private"/>
+        <Method name="GetCurrentDocs" returnType="void" visibility="private"/>
+        <Method name="reset" returnType="void" visibility="private"/>
+        <Method name="Btn_LogoutActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_RestockActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_NewPatAppActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_NewApptAppActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_DelPatAppActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_HandedoutActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_RemovePatActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_NewPatDenyActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_NewApptDenyActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_DelPatDenyActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_CreateApptActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GUI_User" package="soft252.cw.GUI" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="ID" type="Integer" visibility="package" isStatic="true"/>
+        <Field name="U" type="List_Users" visibility="public" isStatic="true"/>
+        <Field name="AP" type="Lists_AP" visibility="public" isStatic="true"/>
+        <Field name="Data" type="DataHandler" visibility="private"/>
+        <Field name="Btn_DeleteAccount" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_LogOut" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_ReqAppoint" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_ViewDR" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_ViewHis" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_ViewPer" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Lst_All" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="GetHandler" returnType="void" visibility="public">
+          <Argument type="DataHandler" name="data"/>
+          <Argument type="int" name="x"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="Btn_LogOutActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_ViewDRActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_ReqAppointActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_ViewPerActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_DeleteAccountActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_ViewHisActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="OpenHome" returnType="void" visibility="private"/>
+        <Method name="Delete" returnType="void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GUI_UserAppointmentRequest" package="soft252.cw.GUI" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="U" type="List_Users" visibility="private"/>
+        <Field name="AP" type="Lists_AP" visibility="private"/>
+        <Field name="R" type="List_Requests" visibility="private"/>
+        <Field name="Data" type="DataHandler" visibility="private"/>
+        <Field name="date" type="Date" visibility="package"/>
+        <Field name="localDate" type="LocalDate" visibility="package"/>
+        <Field name="day" type="int" visibility="package"/>
+        <Field name="month" type="int" visibility="package"/>
+        <Field name="year" type="int" visibility="package"/>
+        <Field name="ID" type="int" visibility="package"/>
+        <Field name="Btn_BookAppt" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Btn_Cancel" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Cmb_Day" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Cmb_Doctor" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Cmb_Month" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_Avalibility" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="Onload" returnType="void" visibility="public">
+          <Argument type="DataHandler" name="data"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="Btn_CancelActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Cmb_DoctorActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Cmb_MonthActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Cmb_DayActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Btn_BookApptActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="getFreeTimes" returnType="void" visibility="private">
+          <Argument type="int" name="doc"/>
+          <Argument type="int" name="d"/>
+          <Argument type="int" name="m"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="DisableAll" returnType="void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Soft252Cw" package="soft252.cw" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="AP" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Clinic" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="AP" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="patientList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Requests" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="C" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
+    <HasRelation name="C" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="AP" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <HasRelation name="AP" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="clinicList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <HasRelation name="appointmentList" source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Appointments" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Appointments&gt;"/>
+    <HasRelation name="R" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="adminList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Admin&gt;"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <UseRelation source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Appointments" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="deletePatientList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
+    <HasRelation name="drugList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <HasRelation name="R" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
+    <HasRelation name="requestPatientList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
+    <HasRelation name="doctorList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Doctors" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Doctors&gt;"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="AP" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <UseRelation source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Perscriptions" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="U" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <UseRelation source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="C" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
+    <HasRelation name="R" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
+    <HasRelation name="requestNewMedications" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <HasRelation name="readyHandoutList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
+    <HasRelation name="secreteryList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Secretary" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Secretary&gt;"/>
+    <HasRelation name="lowsotckList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <HasRelation name="R" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
+    <HasRelation name="requestPerscriptionList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.Lists_AP" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="requestAppointmentList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Appointments" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Appointments&gt;"/>
+    <HasRelation name="perscriptionList" source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -3,6 +3,7 @@
 package soft252.cw.GUI;
 
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import soft252.cw.Classes.DataHandler;
@@ -19,10 +20,10 @@ public class GUI_Home extends javax.swing.JFrame {
     public void GetUser(DataHandler data){
         Data = data;
         U = Data.getU();
-                
-        Username = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
-        Password = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
-        Type = new String[U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1];
+        int number = U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size() + 1;        
+        Username = new String[number];
+        Password = new String[number];
+        Type = new String[number];
         SetLogins();
     }
     
@@ -100,97 +101,115 @@ public class GUI_Home extends javax.swing.JFrame {
 
     public void SetLogins(){
         int LengthOfUsers = 0;
-        LengthOfUsers = U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size();
+        LengthOfUsers = Username.length - 1;
         int count = 0;
+        int counts = 0;
+        int counta = 0;
 //Usernames
     //patients
-        for(Integer x = 0; x <= LengthOfUsers; x++){
+        for(Integer x = 0; x < LengthOfUsers; x++){
             if(x < U.patientList.size()){
                 Username[x] = U.patientList.get(x).getPatient_Username();
-            }
+            } else {
     //doctors
-            if(x > U.patientList.size()){
-                if(x <=U.patientList.size() + U.doctorList.size()){
-                Username[x] = U.doctorList.get(x - x + count).getDoctor_User();
-                count++;
-                }
-    //admin
-            if(x > U.patientList.size() + U.doctorList.size()){
-                count = 0;
-                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
-                Username[x] = U.adminList.get(x - x + count).getAdmin_Username();
-                count++;
-                }
+            if(x >= U.patientList.size()){
+                if(x < U.patientList.size() + U.doctorList.size()){
+                    Username[x] = U.doctorList.get(x - U.patientList.size()).getDoctor_User();
+                    count++;
+                } else {
     //Secretary
-            if(x > U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
-                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.secreteryList.size()){
-                Username[x] = U.secreteryList.get(x - x).getSecretary_Username();
+                if(x < U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                    if(x <= U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                    Username[x] = U.secreteryList.get(x - x + counts).getSecretary_Username();
+                    counts++;
+                    }
+                } else {
+                        //admin
+                    if(x < U.patientList.size() + U.doctorList.size() + U.secreteryList.size() + U.adminList.size()){
+                        if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
+                            Username[x] = U.adminList.get(x - x + counta).getAdmin_Username();
+                            counta++;
+                        }
+                    }
+                    }
                 }
             }
-            }
         }
-        }
+    }
+        
         count = 0;
+        counta = 0;
+        counts = 0;
         
 //Type
     //patients
-        for(Integer x = 0; x <= LengthOfUsers; x++){
+        for(Integer x = 0; x < LengthOfUsers; x++){
             if(x < U.patientList.size()){
                 Type[x] = "P";
-            }
+            } else {
     //doctors
-            if(x > U.patientList.size()){
-                if(x <=U.patientList.size() + U.doctorList.size()){
+            if(x >= U.patientList.size()){
+                if(x < U.patientList.size() + U.doctorList.size()){
                 Type[x] = "D";
                 count++;
-                }
-    //admin
-            if(x > U.patientList.size() + U.doctorList.size()){
-                count = 0;
-                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
-                Type[x] = "A";
-                count++;
-                }
-    //Secretary
-            if(x > U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
-                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.secreteryList.size()){
-                Type[x] = "S";
+                } else {
+                    //Secretary
+                    if(x < U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                        if(x <  U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                            Type[x] = "S";
+                            counts++;
+                        }
+                        } else {
+                            if(x > U.patientList.size() + U.doctorList.size()){
+                                if(x < U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.secreteryList.size()){
+                                    Type[x] = "A";
+                                    counta++;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            }
-        }
         }
         count = 0;
-                        
+        counta = 0;
+        counts = 0;
+                  
 //Passwords    
         //patients
-        for(Integer x = 0; x <= LengthOfUsers; x++){
+        for(Integer x = 0; x < LengthOfUsers; x++){
             if(x < U.patientList.size()){
                 Password[x] = U.patientList.get(x).getPatient_Password();
-            }
+            } else {
     //doctors
-            if(x > U.patientList.size()){
-                if(x <=U.patientList.size() + U.doctorList.size()){
+            if(x >= U.patientList.size()){
+                if(x < U.patientList.size() + U.doctorList.size()){
                     Password[x] = U.doctorList.get(x - x + count).getDoctor_Password();
                     count++;
-                }
-    //admin
-            if(x > U.patientList.size() + U.doctorList.size()){
-                count = 0;
-                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size()){
-                Password[x] = U.adminList.get(x - x + count).getAdmin_Password();
-                count++;
-                }
-    //Secretary
-            if(x > U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
-                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.secreteryList.size()){
-                Password[x] = U.secreteryList.get(x - x).getSecretary_Password();
+                } else {
+                    //Secratery
+                if(x < U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                    if(x <= U.patientList.size() + U.doctorList.size() + U.secreteryList.size()){
+                            Password[x] = U.secreteryList.get(x - x + counts).getSecretary_Password();
+                            counts++;
+                        }
+                    } else {
+                                        //admin
+            if(x >= U.patientList.size() + U.doctorList.size()){
+                if(x <= U.patientList.size() + U.doctorList.size() + U.adminList.size() + U.adminList.size()){
+                    Password[x] = U.adminList.get(x - x + counta).getAdmin_Password();
+                    counta++;
                 }
             }
+                    }
+                }
             }
+            
+
         }
         }
         count=0;
+        
     }
        
     private void Btn_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogInActionPerformed
@@ -263,9 +282,10 @@ public class GUI_Home extends javax.swing.JFrame {
                     if(Type[x].equals("A")){
                         if(Txt_Password.getText().equals(Password[x])){
                         //Open New Window
-//                        GUI_User Next = new GUI_User();
-//                        Next.show();
-                            this.dispose();
+                        GUI_Admin Next = new GUI_Admin();
+                        Next.getData(Data);
+                        Next.setVisible(true);
+                        this.dispose();
                         }
                     } 
                 }        
