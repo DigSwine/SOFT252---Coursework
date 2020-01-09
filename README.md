@@ -1,9 +1,14 @@
 # SOFT252---Coursework
+This document was edited with WordPad.
+
 SOFT252 - Coursework, Due 9th Jan 2020.
 Saved on Github - DigSwine 
 HTML = https://github.com/DigSwine/SOFT252---Coursework
 
+This project was made using: Apache NetBeans  - use of NetBeans IDE will prevent the debugger from working. 
 
+
+If there is NO Data.txt file present, then run the system and check again - The system will create the text file and add defult values.
 
 
 Usernames 		Passwords		UserType
@@ -17,7 +22,17 @@ LWalker		123123		Patient
 KSouthbank		0909			Admin
 SBeonce		9090			Secretary
 
-JDick			123			Patient - added by secratery
+JDick			123			Patient - Allowed to join by 							     secratery
+
+ADeago		123423		Patient - Denyed removal by 								secratery
+
+
+Appointments
+Last Appointment Data - 05/01/2020:
+	
+The Appointments run off a real time clock, so create and accept an appointment using a secratery, to be able to view an appointment, or log into BRoss and go the 5th January 2020 using the buttons.
+
+Appointments can ONLY by made for the current year.
 
 
 
