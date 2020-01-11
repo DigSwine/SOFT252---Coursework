@@ -35,27 +35,100 @@
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="Txt_AdminFN" min="-2" max="-2" attributes="0"/>
+                              <Component id="Txt_Feedback" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Txt_AdminSn" min="-2" max="-2" attributes="0"/>
+                              <Component id="Btn_Feedback" min="-2" pref="262" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Cmb_DocorSecName" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="Cmb_DocOrSecSelect" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Txt_AdminUN" min="-2" max="-2" attributes="0"/>
+                              <Component id="Txt_ConfirmDocorSecDel" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Txt_AdminPw" min="-2" max="-2" attributes="0"/>
+                              <Component id="Btn_DelDocOrSec" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Txt_AdminStreetNum" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Txt_AdminFN" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_AdminSn" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="Txt_AdminStreetName" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_AdminUN" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="Txt_AdminC" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_AdminPw" pref="161" max="32767" attributes="0"/>
+                                  <Component id="Txt_AdminPc" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Btn_NewAdmin" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Txt_AdminStreetNum" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_DoctorStreetNum" max="32767" attributes="0"/>
+                                  <Component id="Txt_DoctorFN" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Txt_AdminStreetName" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_DoctorSn" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="Txt_DoctorStreetName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Txt_AdminC" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_DoctorUN" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="Txt_DoctorC" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Txt_AdminPc" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Txt_DoctorPw" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Txt_DoctorPc" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Btn_NewDoctor" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jComboBox1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="Txt_SecrateryStreetNum" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="Txt_SecrateryFN" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Cmb_DoctorView" min="-2" pref="159" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="Txt_SecrateryStreetName" max="32767" attributes="0"/>
+                                          <Component id="Txt_SecraterySn" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Txt_SecrateryC" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Txt_SecrateryUN" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="Txt_SecrateryPw" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Txt_SecrateryPc" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Btn_NewAdmin2" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="Txt_DoctorRateing" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Btn_NewAdmin" pref="187" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -90,8 +163,75 @@
                   <Component id="Btn_NewAdmin" min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="407" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="Txt_DoctorFN" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txt_DoctorStreetNum" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="Btn_NewDoctor" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="Txt_DoctorUN" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txt_DoctorC" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="Txt_DoctorPw" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txt_DoctorPc" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Txt_SecrateryFN" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Txt_SecraterySn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Txt_SecrateryPw" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Txt_SecrateryUN" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Txt_SecrateryStreetNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Txt_SecrateryStreetName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Txt_SecrateryC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Txt_SecrateryPc" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="Btn_NewAdmin2" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="Txt_DoctorSn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Txt_DoctorStreetName" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Cmb_DoctorView" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Txt_DoctorRateing" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Btn_Feedback" pref="110" max="32767" attributes="0"/>
+                  <Component id="Txt_Feedback" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="Btn_DelDocOrSec" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="Cmb_DocOrSecSelect" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Cmb_DocorSecName" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="Txt_ConfirmDocorSecDel" min="-2" pref="46" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -161,17 +301,204 @@
         <Property name="text" type="java.lang.String" value="- New Admin Password -"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="Cmb_DocOrSecSelect">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="- To remove select Doctor or Secratery -"/>
+            <StringItem index="1" value="Doctor"/>
+            <StringItem index="2" value="Secratery"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cmb_DocOrSecSelectActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="Cmb_DocorSecName">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
-            <StringItem index="0" value="- To remove select Doctor or Secratey -"/>
+            <StringItem index="0" value="- Who would you like to remove -"/>
           </StringArray>
         </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_ConfirmDocorSecDel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-Type CONFIRM to confirm deletion-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_DelDocOrSec">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delete Doctor or Secratary"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_DelDocOrSecActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorUN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor Username -"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Txt_DoctorUNActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorPw">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor Password -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_NewDoctor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add New Doctor"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_NewDoctorActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorSn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor Surname -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorStreetNum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor Street Number -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorStreetName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor Street Name -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor Address City -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorPc">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor Postcode -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_NewAdmin2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add New Secratery"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_NewAdmin2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecrateryFN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery FirstName -"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Txt_SecrateryFNActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecraterySn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery Surname -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecrateryStreetNum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery Street Number -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecrateryStreetName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery Street Name -"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Txt_SecrateryStreetNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecrateryC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery Address City -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecrateryPc">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery Postcode -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecrateryUN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery Username -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_SecrateryPw">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Secratery Password -"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Txt_SecrateryPwActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorFN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- New Doctor FirstName -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="Cmb_DoctorView">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="-Select a doctor to view -"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cmb_DoctorViewActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="Lst_DoctorPatientComments">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JTextField" name="Txt_DoctorRateing">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Doctor Rating -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_Feedback">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Send Feedback"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Feedback">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Feedback -"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

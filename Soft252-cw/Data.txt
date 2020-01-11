@@ -1,11 +1,13 @@
-D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345, 3.5
-D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345, 1
-D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345, 5
+D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345
+D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345
+D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345
+DR, 3, 1, Such a freindly and helpful doctor, 5
+DR, 2, 2, He wanted to cut my leg off for a pain in my arm..., 0
+DR, 1, 1, She seems to know what shes on about for the most part, 3.5
 P, David, Charger, Male, 54, 99, Long Road, Plymouth, PL5 2RT, DCharger, 123456
 P, Kimberly, Little, Female, 23, 12, Foxwood Road, Plymouth, PL2 4DZ, KLittle, 1212
 P, Luke, Walker, Male, 17, 23, Berry Road, Plymouth, PL1 2BR, LWalker, 123123
 A, Karran, Southbank, 29, Hallow Way, Plymouth, PL8 9KL, KSouthbank, 0909
-A, D, D, 1, D, D, D, DD, 1
 S, Shallisa, Beonce, 100, Deo Lane, Plymouth, PL3 2DO, SBeonce, 9090
 C, MadeUp Pharmacy, 50, Long Road, Plymouth, PL5 2RT
 CD, Paracetomol, Over The Counter - Drug, 12 Tablets, Releaves Pain, 10

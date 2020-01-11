@@ -1,7 +1,6 @@
 // @author mwilson-slider
 
 package soft252.cw.Classes;
-import java.util.ArrayList;
 
 public class Doctors 
 {
@@ -16,11 +15,10 @@ public class Doctors
     protected String Doctor_Postcode = "PL1";
     private String Doctor_User = "Unknown";
     private String Doctor_Password = "Unknown";
-    private String Doctor_Rateing = "Unknown";
     
     
     //Constructor
-    public Doctors(String Doctor_FirstName, String Doctor_SurName, String Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode, String Doctor_User, String Doctor_Password, String Doctor_Rateing) {
+    public Doctors(String Doctor_FirstName, String Doctor_SurName, String Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode, String Doctor_User, String Doctor_Password) {
         this.Doctor_FirstName = Doctor_FirstName;
         this.Doctor_SurName = Doctor_SurName;
         this.Doctor_StreetNumber = Doctor_StreetNumber;
@@ -29,7 +27,6 @@ public class Doctors
         this.Doctor_Postcode = Doctor_Postcode;       
         this.Doctor_User = Doctor_User;
         this.Doctor_Password = Doctor_Password;
-        this.Doctor_Rateing = Doctor_Rateing;
     }
 
     //Getters
@@ -62,9 +59,6 @@ public class Doctors
     }
     public String getDoctor_Password() {
         return Doctor_Password;
-    }
-    public String getDoctor_Rateing() {
-        return Doctor_Rateing;
     }
 
     //Setters
@@ -103,9 +97,4 @@ public class Doctors
     public void setDoctor_Password(String Doctor_Password) {
         this.Doctor_Password = Doctor_Password;
     }
-    public void setDoctor_Rateing(String Doctor_Rateing) {
-        this.Doctor_Rateing = Doctor_Rateing;
-    }
-    
-    
 }

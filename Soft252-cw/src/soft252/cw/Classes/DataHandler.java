@@ -38,19 +38,15 @@ public class DataHandler {
     public Lists_AP getAP() {
         return AP;
     }
-
     public List_Requests getR() {
         return R;
     }
-
     public void setR(List_Requests R) {
         this.R = R;
-    }
-
+    } 
     public File getFile() {
         return file;
     }
-
     public void setFile(File file) {
         this.file = file;
     }
@@ -58,9 +54,15 @@ public class DataHandler {
     public void setData() throws IOException{
 // Set Defult Data
         String content = 
-            "D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345, 3.5\n"
-            + "D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345, 1\n"
-            + "D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345, 5\n"
+            "D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345\n"
+            + "D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345\n"
+            + "D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345\n"
+            + "DR, 3, 1, Such a freindly and helpful doctor, 5\n"
+            + "DR, 2, 2, He wanted to cut my leg off for a pain in my arm..., 0\n"
+            + "DR, 1, 1, She seems to know what shes on about for the most part, 3.5\n"
+            + "F, 1, Some stuff can be improved\n"
+            + "F, 2, Why did you try to cut someones leg off for their arm? make this the last time I read this\n"
+            + "F, 3, Keep up the good work\n"
             + "P, David, Charger, Male, 54, 99, Long Road, Plymouth, PL5 2RT, DCharger, 123456\n"
             + "P, Kimberly, Little, Female, 23, 12, Foxwood Road, Plymouth, PL2 4DZ, KLittle, 1212\n"
             + "P, Luke, Walker, Male, 17, 23, Berry Road, Plymouth, PL1 2BR, LWalker, 123123\n"
@@ -124,10 +126,6 @@ public class DataHandler {
                                 int times = 0;
 //Get Each Block Of The String "line"                                
                                 for (String x : arrOfStr){
-                                    if(times == 9){
-                                        Age = x;
-                                        times = 0;
-                                    }
                                     if (times == 8){
                                         Pass = x;
                                         times = times + 1;
@@ -166,10 +164,59 @@ public class DataHandler {
                                 } 
 //Create Instance Of Doctor       
                                 Doctors Doc;
-                                Doc = new Doctors(FirstName, SurName, HAddress, SName, CName, PC, User, Pass, Age);
+                                Doc = new Doctors(FirstName, SurName, HAddress, SName, CName, PC, User, Pass);
                                 U.doctorList.add(Doc);
                             }
                         }
+                        if(a == 'F'){
+                            if(b == ','){
+                                String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    if(times == 2){
+                                        SurName = x;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                    }
+                                    times = times + 1;
+                                }
+                                Feedback FB;
+                                FB = new Feedback(Integer.valueOf(FirstName), SurName);
+                                U.Feedback.add(FB);  
+                            }
+                        }
+                        
+                        //Ratings
+                        if(a == 'D'){
+                            if(b == 'R'){
+                                if(c == ','){
+                                    String[] arrOfStr = line.split(", "); 
+                                int times = 0;
+//Get Each Block Of The String "line"                                
+                                for (String x : arrOfStr){
+                                    
+                                    if(times == 4){
+                                        User = x;
+                                    }
+                                    if(times == 3){
+                                        Age = x;
+                                    }
+                                    if(times == 2){
+                                        SurName = x;
+                                    }
+                                    if(times == 1){
+                                        FirstName = x;
+                                    }
+                                    times = times + 1;
+                                    }                            
+                                DoctorRatings Rate;
+                                Rate = new DoctorRatings(Integer.valueOf(FirstName), Integer.valueOf(SurName), Age, Double.valueOf(User));
+                                U.ratingList.add(Rate);
+                                }                                      
+                                }
+                            }
                         //Patients
                         if(a == 'P'){
                             if(b ==','){
@@ -802,10 +849,115 @@ public class DataHandler {
 //End of while loop  
             }
         }
+       if("D".equals(type)){
+        LoggedinUser = U.doctorList.get(IDN).getDoctor_User();
+        LoggedinPass = U.doctorList.get(IDN).getDoctor_Password();
+        while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+            String User = "Unknown";
+            String Pass = "Unknown";  
+            if(a != 'D'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+            } else if(a == 'D'){
+                if(b == ','){
+                    String[] arrOfStr = line.split(", "); 
+                    int times = 0;
+//Get Each Block Of The String "line"                                
+                        for(String docsec : arrOfStr){
+                            if (times == 8){
+                                Pass = docsec;
+                                times = times + 1;
+                            } else {
+                                if (times == 7) {
+                                    User = docsec;
+                                    times = times + 1;
+                                } else {
+                                    times = times + 1;
+                                }
+                            }
+                        }
+                        if(LoggedinUser.equals(User)){
+                            if(LoggedinPass.equals(Pass)){
+                                U.doctorList.remove(IDN);
+                                line = reader.readLine();
+                            }
+                        }
+                        else {
+                            context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
+                            line = reader.readLine();
+                        x = x + 1;
+                        }
+                        } else {                  
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        line = reader.readLine();
+                        x = x + 1;
+                        }
+                    }
+                }
+            }
+    
+         if("S".equals(type)){
+        LoggedinUser = U.secreteryList.get(IDN).getSecretary_Username();
+        LoggedinPass = U.secreteryList.get(IDN).getSecretary_Password();
         
+        while (line != null) {
+            char a = line.charAt(0);
+            char b = line.charAt(1);
+            String User = "Unknown";
+            String Pass = "Unknown";   
         
-        
-        
+            if(a != 'S'){
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        x = x + 1;
+                        line = reader.readLine();
+                        }
+                    else if(a == 'S'){
+                        if(b == ','){
+                            //Set Each Block Of line                                                              
+                            String[] arrOfStr = line.split(", "); 
+                            int times = 0;
+                        //Get Each Block Of The String "line"                                
+                            for (String Secsec : arrOfStr){
+                                if(times == 8){
+                                    Pass = Secsec;
+                                    times = 0;
+                                } else {
+                                    if(times == 7){
+                                        User = Secsec;
+                                        times = times + 1;
+                                    } else {
+                                        times = times + 1;
+                                    }
+                                }
+                            }
+                          if(LoggedinUser.equals(User)){
+                            if(LoggedinPass.equals(Pass)){
+                                U.secreteryList.remove(IDN);
+                                line = reader.readLine();
+                            }
+                        }
+                        else {
+                            context[x] = line;
+                            context = Arrays.copyOf(context, context.length + 1);
+                            line = reader.readLine();
+                            x = x + 1;
+                        }
+                    } else {                  
+                        context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        line = reader.readLine();
+                        x = x + 1;
+                   }
+                }
+            }
+        }       
 //////R
  if("RD".equals(type)){
         LoggedinUser = R.deletePatientList.get(IDN).getPatient_Username();
@@ -1795,8 +1947,8 @@ public class DataHandler {
         bw.close();
         resetAll();
     }
-    public void AddAdmin(String fn, String sn, String house, String road, String city, String pc, String user, String pass) throws IOException{
-        String toAdd = "A, " + fn + ", " + sn  + ", " + house + ", " + road  + ", " + city  + ", " + pc  + ", " + user + ", " + pass;
+    public void AddPerson(String type, String fn, String sn, String house, String road, String city, String pc, String user, String pass) throws IOException{
+        String toAdd = type + ", " + fn + ", " + sn  + ", " + house + ", " + road  + ", " + city  + ", " + pc  + ", " + user + ", " + pass;
         BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));       
     //Get First Line
         String line = reader.readLine();  

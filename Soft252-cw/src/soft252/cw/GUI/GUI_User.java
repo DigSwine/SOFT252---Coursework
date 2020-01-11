@@ -41,6 +41,11 @@ public class GUI_User extends javax.swing.JFrame {
         Btn_LogOut = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Lst_All = new javax.swing.JList<>();
+        Txt_DocComment = new javax.swing.JTextField();
+        Txt_DocReview = new javax.swing.JTextField();
+        Btn_Reviw = new javax.swing.JButton();
+        Txt_DocName = new javax.swing.JTextField();
+        Btn_CreatReview = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,54 +96,91 @@ public class GUI_User extends javax.swing.JFrame {
         Lst_All.setToolTipText("");
         jScrollPane1.setViewportView(Lst_All);
 
+        Txt_DocComment.setText("- Comment -");
+
+        Txt_DocReview.setText("- Review /5-");
+
+        Btn_Reviw.setText("Submit Review");
+
+        Txt_DocName.setText("- Doctor Name -");
+
+        Btn_CreatReview.setText("Create Review");
+        Btn_CreatReview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_CreatReviewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Btn_ReqAppoint)
-                                .addGap(18, 18, 18)
-                                .addComponent(Btn_ViewDR))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Btn_ViewHis)
-                                .addGap(18, 18, 18)
-                                .addComponent(Btn_ViewPer))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 112, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(680, 680, 680)
                         .addComponent(Btn_DeleteAccount))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Btn_LogOut)))
+                        .addComponent(Btn_LogOut))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Btn_ReqAppoint)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Btn_ViewDR)
+                                        .addComponent(Btn_ViewHis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Btn_ViewPer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Btn_CreatReview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Txt_DocComment, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(Txt_DocName, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Txt_DocReview, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Btn_Reviw, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Btn_LogOut))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Btn_ReqAppoint)
-                    .addComponent(Btn_ViewDR))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Btn_ViewHis)
-                    .addComponent(Btn_ViewPer))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(Btn_DeleteAccount)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(Btn_LogOut))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Btn_ReqAppoint)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Btn_ViewDR)
+                            .addComponent(Btn_ViewPer))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Btn_ViewHis)
+                            .addComponent(Btn_CreatReview))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(Btn_DeleteAccount))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Txt_DocReview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Txt_DocName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Txt_DocComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Btn_Reviw)
+                        .addGap(383, 383, 383)))
                 .addContainerGap())
         );
 
@@ -151,9 +193,18 @@ public class GUI_User extends javax.swing.JFrame {
 
     private void Btn_ViewDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewDRActionPerformed
         String Names[] = new String[U.doctorList.size()];         
+
+        double rating = 0;
         for(int x = 0; x < U.doctorList.size(); x++){
-            Names[x] = U.doctorList.get(x).getDoctor_FirstName() + " " + U.doctorList.get(x).getDoctor_SurName() + "--- Rating = " + U.doctorList.get(x).getDoctor_Rateing() + " /5";
-        }
+            for(int y = 0; y < U.ratingList.size(); y++){
+                if(y + 1 == U.ratingList.get(x).getDoctor_ID()){
+                    rating = U.ratingList.get(y).getRating();
+                    
+                }
+            }
+                Names[x] = U.doctorList.get(x).getDoctor_FirstName() + " " + U.doctorList.get(x).getDoctor_SurName() + "--- Rating = " + rating + " /5";
+            }
+        
             //SetListValues
             DefaultListModel DLM = new DefaultListModel();
             for(int x = 0; x < U.doctorList.size(); x++){
@@ -213,6 +264,21 @@ public class GUI_User extends javax.swing.JFrame {
             }
             Lst_All.setModel(DLM); 
     }//GEN-LAST:event_Btn_ViewHisActionPerformed
+
+    private void Btn_CreatReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CreatReviewActionPerformed
+        Txt_DocName.setVisible(true);
+        Txt_DocComment.setVisible(true);
+        Txt_DocReview.setVisible(true);
+        Btn_Reviw.setVisible(true);
+        
+        int selectedDoc = Lst_All.getSelectedIndex();
+        
+        String DocName = U.doctorList.get(selectedDoc).getDoctor_FirstName() + " " + U.doctorList.get(selectedDoc).getDoctor_SurName();
+        Txt_DocName.setText(DocName);
+        
+        
+        
+    }//GEN-LAST:event_Btn_CreatReviewActionPerformed
     
     private void OpenHome(){
         GUI_Home Home = new GUI_Home();
@@ -258,13 +324,18 @@ public class GUI_User extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_CreatReview;
     private javax.swing.JButton Btn_DeleteAccount;
     private javax.swing.JButton Btn_LogOut;
     private javax.swing.JButton Btn_ReqAppoint;
+    private javax.swing.JButton Btn_Reviw;
     private javax.swing.JButton Btn_ViewDR;
     private javax.swing.JButton Btn_ViewHis;
     private javax.swing.JButton Btn_ViewPer;
     private javax.swing.JList<String> Lst_All;
+    private javax.swing.JTextField Txt_DocComment;
+    private javax.swing.JTextField Txt_DocName;
+    private javax.swing.JTextField Txt_DocReview;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

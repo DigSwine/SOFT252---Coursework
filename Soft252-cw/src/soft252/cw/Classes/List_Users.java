@@ -7,4 +7,6 @@ public class List_Users {
     public ArrayList<Patients> patientList = new ArrayList<>();
     public ArrayList<Admin> adminList = new ArrayList<>();
     public ArrayList<Secretary> secreteryList = new ArrayList<>();
+    public ArrayList<DoctorRatings> ratingList = new ArrayList<>();
+    public ArrayList<Feedback> Feedback = new ArrayList<>();
 }
