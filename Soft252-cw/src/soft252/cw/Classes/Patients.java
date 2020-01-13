@@ -2,7 +2,7 @@
 
 package soft252.cw.Classes;
 public class Patients 
-{
+{ 
     //Variables
     private String Patient_IdendificationLetter = "P";
     private Integer Patient_IdentificationNumber = 0001;
