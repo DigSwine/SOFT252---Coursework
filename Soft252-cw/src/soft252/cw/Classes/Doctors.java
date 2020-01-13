@@ -18,7 +18,9 @@ public class Doctors
     
     
     //Constructor
-    public Doctors(String Doctor_FirstName, String Doctor_SurName, String Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode, String Doctor_User, String Doctor_Password) {
+    public Doctors(String Doctor_IdentificationLetter, int Doctor_IdentificationNumber, String Doctor_FirstName, String Doctor_SurName, String Doctor_StreetNumber, String Doctor_StreetName, String Doctor_City, String Doctor_Postcode, String Doctor_User, String Doctor_Password) {
+        this.Doctor_IdentificationLetter = Doctor_IdentificationLetter;
+        this.Doctor_IdentificationNumber = Doctor_IdentificationNumber;
         this.Doctor_FirstName = Doctor_FirstName;
         this.Doctor_SurName = Doctor_SurName;
         this.Doctor_StreetNumber = Doctor_StreetNumber;

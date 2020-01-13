@@ -54,9 +54,9 @@ public class DataHandler {
     public void setData() throws IOException{
 // Set Defult Data
         String content = 
-            "D, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345\n"
-            + "D, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345\n"
-            + "D, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345\n"
+            "D, 1001, Kimberly, Brook, 123, Shorsberry Avanue, Plymouth, PL3 3TD, KBrook, 12345\n"
+            + "D, 1002, Drew, Valintine, 10, Shortway Road, Plymouth, PL1 1WL, DValintine, 12345\n"
+            + "D, 1003, Bob, Ross, 15, Golden Street, Plymouth, PL4 4DX, BRoss, 12345\n"
             + "DR, 3, 1, Such a freindly and helpful doctor, 5\n"
             + "DR, 2, 2, He wanted to cut my leg off for a pain in my arm..., 0\n"
             + "DR, 1, 1, She seems to know what shes on about for the most part, 3.5\n"
@@ -103,6 +103,8 @@ public class DataHandler {
 			reader = new BufferedReader(new FileReader("Data.txt"));       
                         //Get First Line
                         String line = reader.readLine();                       
+                        String Type = "Unknown";
+                        Integer ID = 0;
                         String FirstName = "Unknown";
                         String SurName = "Unknown";
                         String Gender = "Unknown";
@@ -126,45 +128,50 @@ public class DataHandler {
                                 int times = 0;
 //Get Each Block Of The String "line"                                
                                 for (String x : arrOfStr){
-                                    if (times == 8){
+                                    if (times == 9){
                                         Pass = x;
                                         times = times + 1;
                                     }
-                                    if (times == 7) {
+                                    if (times == 8) {
                                         User = x;
                                         times = times + 1;
                                     }
-                                    if(times == 6){
+                                    if(times == 7){
                                         PC = x;
                                         times = times + 1;
                                     }
-                                    if(times == 5){
+                                    if(times == 6){
                                         CName = x;
                                         times = times + 1;
                                     }
-                                    if(times == 4){
+                                    if(times == 5){
                                         SName = x;
                                         times = times +1;
                                     }
-                                    if(times == 3){
+                                    if(times == 4){
                                         HAddress = x;
                                         times = times + 1;
                                     }
-                                    if(times == 2){
+                                    if(times == 3){
                                         SurName = x;
                                         times = times + 1;
                                     }
-                                    if(times == 1){
+                                    if(times == 2){
                                         FirstName = x;
                                         times = times + 1;
                                     }
+                                    if(times == 1){
+                                        ID = Integer.valueOf(x);
+                                        times = times + 1;
+                                    }
                                     if(times == 0){
+                                        Type = x;
                                         times = times + 1;
                                     }
                                 } 
 //Create Instance Of Doctor       
                                 Doctors Doc;
-                                Doc = new Doctors(FirstName, SurName, HAddress, SName, CName, PC, User, Pass);
+                                Doc = new Doctors(Type, ID, FirstName, SurName, HAddress, SName, CName, PC, User, Pass);
                                 U.doctorList.add(Doc);
                             }
                         }

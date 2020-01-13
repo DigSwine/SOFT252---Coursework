@@ -597,26 +597,18 @@ public class GUI_Admin extends javax.swing.JFrame {
         Lst_DoctorPatientComments.setModel(DLM);
     }//GEN-LAST:event_Cmb_DoctorViewActionPerformed
 
-    
-    
     private void reset(){
         GUI_Admin re = new GUI_Admin();
         re.getData(Data);
         re.setVisible(true);
         this.dispose();
     } 
-//Provide feedback to each doctor based on ratings and comments from patients. 
 
     private void Deny(){
         Cmb_DocorSecName.setEditable(false);
         
     }
-    
-    
-    
-    
-    
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
