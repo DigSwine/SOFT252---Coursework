@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Clinic;
 import soft252.cw.Classes.List_Requests;
@@ -287,6 +288,8 @@ public class GUI_Secratery extends javax.swing.JFrame {
     int ID = 0;
     String Date = "";
     String TheTime = "";
+    String Hour = "";
+    String Minute = "";
     
     public void GetData(DataHandler data){
         Data = data;
@@ -483,8 +486,8 @@ public class GUI_Secratery extends javax.swing.JFrame {
     for(int x = 0; x < 6; x++){
         slotted[x] = time.charAt(x);
     }
-    String Hour = slotted[0] + "" + slotted[1];
-    String Minute = slotted[3] + "" + slotted[4];
+    Hour = slotted[0] + "" + slotted[1];
+    Minute = slotted[3] + "" + slotted[4];
     
     int hour = Integer.valueOf(Hour);
     int minute = Integer.valueOf(Minute);
@@ -549,6 +552,12 @@ public class GUI_Secratery extends javax.swing.JFrame {
         Sec.GetData(Data);
         Sec.setVisible(true);
         this.dispose();
+    }
+    private void toolate(){
+        JOptionPane.showMessageDialog(Btn_CreateAppt, "It is too late to create an appointment.\nOpening Hours: Monday - Friday 09:00-18:00","Error:",2);
+    }
+    private void tooearly(){
+     JOptionPane.showMessageDialog(Btn_CreateAppt, "It is too early to create an appointment.\nOpening Hours: Monday - Friday 09:00-18:00","Error:",2); 
     }
     
     private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
@@ -681,42 +690,35 @@ public class GUI_Secratery extends javax.swing.JFrame {
         int pat = Cmb_PNAppt.getSelectedIndex();
         String doc = String.valueOf(Cmb_DNAppt.getSelectedIndex());
         
-        try {
-            Data.NewAppt(pat, doc, TheTime, Date);
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        reset();
+        int hour = Integer.valueOf(Hour);
+        int minute = Integer.valueOf(Minute);
+        if(hour > 17){
+            if(minute > 30){
+                toolate();
+            } else {
+            }
+        } else {
+                if(hour < 9){
+                    if(minute >= 59){
+                        tooearly();
+                    } else {               
+                        try {
+                            Data.NewAppt(pat, doc, TheTime, Date);
+                        } catch (IOException ex) {
+                            Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                } else {
+                    try {
+                        Data.NewAppt(pat, doc, TheTime, Date);
+                    } catch (IOException ex) {
+                        Logger.getLogger(GUI_Secratery.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+    reset();
     }//GEN-LAST:event_Btn_CreateApptActionPerformed
 
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -61,7 +61,7 @@ public class DataHandler {
             + "DR, 2, 2, He wanted to cut my leg off for a pain in my arm..., 0\n"
             + "DR, 1, 1, She seems to know what shes on about for the most part, 3.5\n"
             + "F, 1, Some stuff can be improved\n"
-            + "F, 2, Why did you try to cut someones leg off for their arm? make this the last time I read this\n"
+            + "F, 2, Why did you try to cut someones leg off for a pain in their arm?\n"
             + "F, 3, Keep up the good work\n"
             + "P, David, Charger, Male, 54, 99, Long Road, Plymouth, PL5 2RT, DCharger, 123456\n"
             + "P, Kimberly, Little, Female, 23, 12, Foxwood Road, Plymouth, PL2 4DZ, KLittle, 1212\n"
@@ -1315,8 +1315,20 @@ public class DataHandler {
                                             context[x] = New;
                                             context = Arrays.copyOf(context, context.length + 1);
                                             x = x + 1;
+                                        } else {
+                                              context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        x = x + 1;
                                         }
+                                    } else {
+                                          context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        x = x + 1;
                                     }
+                                } else {
+                                      context = Arrays.copyOf(context, context.length + 1);
+                        context[x] = line;
+                        x = x + 1;
                                 }
                         } else {
                             context = Arrays.copyOf(context, context.length + 1);

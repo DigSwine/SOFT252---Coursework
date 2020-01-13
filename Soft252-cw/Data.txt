@@ -5,7 +5,7 @@ DR, 3, 1, Such a freindly and helpful doctor, 5
 DR, 2, 2, He wanted to cut my leg off for a pain in my arm..., 0
 DR, 1, 1, She seems to know what shes on about for the most part, 3.5
 F, 1, Some stuff can be improved
-F, 2, Why did you try to cut someones leg off for their arm? make this the last time I read this
+F, 2, Why did you try to cut someones leg off for a pain in their arm?
 F, 3, Keep up the good work
 P, David, Charger, Male, 54, 99, Long Road, Plymouth, PL5 2RT, DCharger, 123456
 P, Kimberly, Little, Female, 23, 12, Foxwood Road, Plymouth, PL2 4DZ, KLittle, 1212
