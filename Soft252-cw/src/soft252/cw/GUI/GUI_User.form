@@ -24,45 +24,53 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="680" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="778" max="-2" attributes="0"/>
                       <Component id="Btn_DeleteAccount" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="Btn_LogOut" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Btn_ReqAppoint" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Btn_ViewDR" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Btn_ViewHis" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="Btn_ViewPer" max="32767" attributes="0"/>
-                                      <Component id="Btn_CreatReview" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Btn_LogOut" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="Txt_DocComment" alignment="1" min="-2" pref="509" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="Txt_DocName" min="-2" pref="421" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Txt_DocReview" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Btn_ReqAppoint" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="Btn_ViewDR" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Btn_ViewHis" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="Btn_ViewPer" max="32767" attributes="0"/>
+                                                  <Component id="Btn_CreatReview" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="Txt_DocComment" alignment="1" min="-2" pref="509" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="Txt_DocName" min="-2" pref="421" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="Txt_DocReview" min="-2" pref="82" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="Btn_Reviw" min="-2" pref="509" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane1" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="Btn_Reviw" min="-2" pref="509" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" alignment="1" min="-2" pref="787" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -87,7 +95,7 @@
                           <Component id="Btn_ViewPer" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Btn_ViewHis" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="Btn_CreatReview" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -202,6 +210,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit Review"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_ReviwActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="Txt_DocName">
       <Properties>
@@ -210,7 +221,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="Btn_CreatReview">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create Review"/>
+        <Property name="text" type="java.lang.String" value="Create Review (select from ratings)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_CreatReviewActionPerformed"/>

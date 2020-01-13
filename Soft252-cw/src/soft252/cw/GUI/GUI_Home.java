@@ -41,6 +41,7 @@ public class GUI_Home extends javax.swing.JFrame {
         Btn_LogIn = new javax.swing.JButton();
         Txt_Password = new javax.swing.JTextField();
         Txt_Username = new javax.swing.JTextField();
+        Btn_NewAcc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +64,13 @@ public class GUI_Home extends javax.swing.JFrame {
 
         Txt_Username.setText("Username");
 
+        Btn_NewAcc.setText("Request Account");
+        Btn_NewAcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_NewAccActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,12 +80,13 @@ public class GUI_Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Cmb_UserType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Btn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Btn_LogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Txt_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(Txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Btn_NewAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -92,6 +101,8 @@ public class GUI_Home extends javax.swing.JFrame {
                     .addComponent(Txt_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Btn_LogIn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Btn_NewAcc)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -297,6 +308,13 @@ public class GUI_Home extends javax.swing.JFrame {
     
     }//GEN-LAST:event_Cmb_UserTypeActionPerformed
 
+    private void Btn_NewAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewAccActionPerformed
+        GUI_NewPatient newpat = new GUI_NewPatient();
+        newpat.getData(Data);
+        newpat.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Btn_NewAccActionPerformed
+
   
    
     public static void main(String args[]) {
@@ -311,6 +329,7 @@ public class GUI_Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_LogIn;
+    private javax.swing.JButton Btn_NewAcc;
     private javax.swing.JComboBox<String> Cmb_UserType;
     private javax.swing.JTextField Txt_Password;
     private javax.swing.JTextField Txt_Username;

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="Btn_logout" min="-2" pref="115" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Txt_Num" max="32767" attributes="0"/>
+                          <Component id="Txt_Firstname" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="Txt_Surname" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txt_Age" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txt_Gender" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="Txt_StreetName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txt_City" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Txt_PostCode" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Txt_User" max="32767" attributes="0"/>
+                          <Component id="Txt_Pass" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Btn_Request" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Btn_logout" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Btn_Request" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Txt_Firstname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_Surname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_Age" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_Gender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_User" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Txt_Num" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_StreetName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_City" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_PostCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Txt_Pass" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="Btn_Request">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Request Account"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_RequestActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Firstname">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Firstname -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Surname">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Surname -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Age">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Age -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Gender">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- (Birth) Gender -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Num">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Address Line 1 -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_StreetName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Street Name-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_City">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Address City -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_PostCode">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Post Code- "/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Txt_PostCodeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="New Patient Request Form"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_logout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_logoutActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_User">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Username -"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Txt_Pass">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- Password -"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

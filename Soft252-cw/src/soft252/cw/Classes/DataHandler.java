@@ -2264,27 +2264,84 @@ public class DataHandler {
             Logger.getLogger(DataHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    public void requestNewPat(String type, String fn, String sn, String gen, String Age, String house, String road, String city, String pc, String user, String pass) throws FileNotFoundException, IOException{
+        String toAdd = type + ", " + fn + ", " + sn  + ", " + gen + ", " + Age + ", " + house + ", " + road  + ", " + city  + ", " + pc  + ", " + user + ", " + pass;
+        BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));       
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String context[] = new String[1];
+        int x = 0;
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+                while (line != null) {
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        line = reader.readLine();
+                        x = x + 1;
+                }
+                for(int g = 0; g < context.length - 1; g++){
+                    bw.write(context[g] + "\n");
+                }
+                
+                
+                
+                
+                bw.write(toAdd);
+        bw.close();
+        resetAll();
+    }
+    public void createReview(int Doctor_ID, int Patient_ID, String Patient_comment, double Rating) throws FileNotFoundException, IOException{
+        String newreview = "DR, " + Doctor_ID + ", " + Patient_ID + ", " + Patient_comment + ", " + Rating;
+        
+        BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));       
+    //Get First Line
+        String line = reader.readLine();  
+        
+    //Set Content    
+        String context[] = new String[1];
+        int x = 0;
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+                while (line != null) {
+                        context[x] = line;
+                        context = Arrays.copyOf(context, context.length + 1);
+                        line = reader.readLine();
+                        x = x + 1;
+                }
+                for(int g = 0; g < context.length - 1; g++){
+                    bw.write(context[g] + "\n");
+                }
+                bw.write(newreview);
+        bw.close();
+        resetAll();  
+    }    
+    
+    
     private void resetAll() throws IOException{
         //clear all data
         U.adminList.clear();
         U.doctorList.clear();
         U.patientList.clear();
         U.secreteryList.clear();
+        U.Feedback.clear();
+        U.ratingList.clear();
         AP.appointmentList.clear();
         AP.perscriptionList.clear();
         C.clinicList.clear();
         C.drugList.clear();
-        C.lowsotckList.clear();;
+        C.lowsotckList.clear();
+        R.requestNewMedications.clear();
         R.deletePatientList.clear();
         R.readyHandoutList.clear();
         R.requestAppointmentList.clear();
         R.requestPatientList.clear();
         R.requestPerscriptionList.clear();
         
+        
         //reload all data
         getData();
     }
 //End of Class
 }
-    
