@@ -1,4 +1,4 @@
-
+// @author mwilson-slider
 package soft252.cw.GUI;
 
 import java.io.IOException;
@@ -278,8 +278,7 @@ public class GUI_Secratery extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    
+ 
     DataHandler Data = new DataHandler();
     Lists_AP AP = new Lists_AP();
     List_Users U = new List_Users();
@@ -299,11 +298,9 @@ public class GUI_Secratery extends javax.swing.JFrame {
         R = Data.getR();
         setAll();
     }
-    
     public void GetId(int id){
         ID = id;
     }
-    
     private void setAll(){
         GetAppointmentRequests();
         GetPerscriptionRequests();
@@ -566,7 +563,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         Home.show();
         this.hide();
     }//GEN-LAST:event_Btn_LogoutActionPerformed
-
     private void Btn_RestockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RestockActionPerformed
         String type = "";
         int id = Lst_Stock.getSelectedIndex();
@@ -587,7 +583,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         reset();
         
     }//GEN-LAST:event_Btn_RestockActionPerformed
-
     private void Btn_NewPatAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewPatAppActionPerformed
     String type = "R";
     int pid = Lst_NewAccounts.getSelectedIndex();
@@ -598,7 +593,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_Btn_NewPatAppActionPerformed
-
     private void Btn_NewApptAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewApptAppActionPerformed
         int pid = Lst_ApptsRequests.getSelectedIndex();
         
@@ -609,7 +603,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_Btn_NewApptAppActionPerformed
-
     private void Btn_DelPatAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DelPatAppActionPerformed
         int pid = Lst_AccountRemoval.getSelectedIndex();
         try {
@@ -619,7 +612,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_Btn_DelPatAppActionPerformed
-
     private void Btn_HandedoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HandedoutActionPerformed
        int did = Lst_MedsReady.getSelectedIndex();
        
@@ -630,7 +622,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_Btn_HandedoutActionPerformed
-
     private void Btn_RemovePatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RemovePatActionPerformed
         int confirmed = 0;
         
@@ -653,7 +644,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
             reset();
         }
     }//GEN-LAST:event_Btn_RemovePatActionPerformed
-
     private void Btn_NewPatDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewPatDenyActionPerformed
        String type = "R";
     int pid = Lst_NewAccounts.getSelectedIndex();
@@ -664,7 +654,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();       
     }//GEN-LAST:event_Btn_NewPatDenyActionPerformed
-
     private void Btn_NewApptDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewApptDenyActionPerformed
        int pid = Lst_ApptsRequests.getSelectedIndex();
         
@@ -675,7 +664,6 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_Btn_NewApptDenyActionPerformed
-
     private void Btn_DelPatDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DelPatDenyActionPerformed
          int pid = Lst_AccountRemoval.getSelectedIndex();
         try {
@@ -685,8 +673,11 @@ public class GUI_Secratery extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_Btn_DelPatDenyActionPerformed
-
     private void Btn_CreateApptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CreateApptActionPerformed
+        createappt();
+    }//GEN-LAST:event_Btn_CreateApptActionPerformed
+
+    private void createappt(){
         int pat = Cmb_PNAppt.getSelectedIndex();
         String doc = String.valueOf(Cmb_DNAppt.getSelectedIndex());
         
@@ -717,8 +708,9 @@ public class GUI_Secratery extends javax.swing.JFrame {
                 }
             }
     reset();
-    }//GEN-LAST:event_Btn_CreateApptActionPerformed
-
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -451,12 +451,10 @@ public class GUI_Doctor extends javax.swing.JFrame {
             monthstg[10] = "November";
             monthstg[11] = "December";
         Txt_Month.setText(monthstg[month - 1]);
-    }
-    
+    } 
     public void setappts() throws ParseException{
         GetAppointmnets(day, month, year);
-    }
-    
+    }   
     public void GetDId(Integer x) {
         ID = x;
         feedback();
@@ -470,11 +468,9 @@ public class GUI_Doctor extends javax.swing.JFrame {
             Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_ViewApptActionPerformed
-
     private void Btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogoutActionPerformed
         OpenHome();
     }//GEN-LAST:event_Btn_LogoutActionPerformed
-
     private void Btn_InspectPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_InspectPatientActionPerformed
        
         int selectedPat = Lst_Appts.getSelectedIndex();
@@ -545,12 +541,10 @@ public class GUI_Doctor extends javax.swing.JFrame {
          Lst_PNotes.disable();
          
     }//GEN-LAST:event_Btn_InspectPatientActionPerformed
-
     private void Btn_NotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NotesActionPerformed
         Txt_Notes.enable();
         whatsdone[0] = 1;
     }//GEN-LAST:event_Btn_NotesActionPerformed
-
     private void Btn_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SaveActionPerformed
         //try {
             int selectedPat = Lst_Appts.getSelectedIndex();
@@ -591,7 +585,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
             Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_SaveActionPerformed
-
     private void Btn_MoveLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MoveLeftActionPerformed
          String SelectedMove = Cmb_MoveBy.getSelectedItem().toString();
         if("Day".equals(SelectedMove)){
@@ -627,7 +620,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
                  Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
              }    
     }//GEN-LAST:event_Btn_MoveLeftActionPerformed
-
     private void Btn_MoveRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MoveRightActionPerformed
         String SelectedMove = Cmb_MoveBy.getSelectedItem().toString();
 
@@ -664,7 +656,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
                  Logger.getLogger(GUI_Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }//GEN-LAST:event_Btn_MoveRightActionPerformed
-
     private void Btn_CreatePerscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CreatePerscriptionActionPerformed
         Cmb_PerName.enable();
         Txt_PDosage.enable();
@@ -682,7 +673,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_Btn_CreatePerscriptionActionPerformed
-
     private void Btn_RequestMedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RequestMedsActionPerformed
         Txt_PerscriptionName.enable();
         Txt_PerscriptionDosage.enable();
@@ -691,11 +681,9 @@ public class GUI_Doctor extends javax.swing.JFrame {
         whatsdone[2] = 1;
         
     }//GEN-LAST:event_Btn_RequestMedsActionPerformed
-
     private void Txt_PAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_PAgeActionPerformed
         // Mistake That Cant Be Undone.
     }//GEN-LAST:event_Txt_PAgeActionPerformed
-
     private void Btn_RepeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RepeatActionPerformed
         int selectedPat = Lst_Appts.getSelectedIndex();
         String Pat = AP.appointmentList.get(selectedPat).getPatient_IDN();
@@ -720,7 +708,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
             New.show();
             this.dispose();
     }//GEN-LAST:event_Btn_RepeatActionPerformed
-
     private void GetAppointmnets(int d, int m, int y) throws ParseException{
         int APSize = AP.appointmentList.size();
         String Appointments[] = new String[APSize + 1];
@@ -750,7 +737,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
             }
             Lst_Appts.setModel(DLM);
     }
-    
     private void DefultAll(){
         Txt_PName.setText("-Patient Name-");
         Txt_PAge.setText("-Patient Age-"); 
@@ -783,7 +769,6 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_PDosage.setText("-Perscription Dosage-");
         Txt_PerQuan.setText("-Perscription Quantity-");
     }
-
     private void DisableAll(){
         Txt_PName.disable();
         Txt_PAge.disable();
@@ -803,8 +788,7 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Txt_PDosage.disable();
         Txt_PerQuan.disable();
         Lst_PNotes.disable();
-    }
-    
+    }  
     private void feedback(){
         int flength = U.Feedback.size();
         String[] Feedback = new String[flength];
@@ -825,36 +809,13 @@ public class GUI_Doctor extends javax.swing.JFrame {
         Lst_Feedback.setModel(DLM);
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
     private void OpenHome(){
           GUI_Home Home = new GUI_Home();
           Home.GetUser(Data);
           Home.show();
           this.dispose();
     }
-    
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -929,6 +890,4 @@ public class GUI_Doctor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
-
-  
 }

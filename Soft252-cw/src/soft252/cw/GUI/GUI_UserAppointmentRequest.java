@@ -184,23 +184,19 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
         
         
     }  
-    
     private void Btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CancelActionPerformed
         GUI_User made = new GUI_User();
         made.GetHandler(Data, ID);
         made.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_CancelActionPerformed
-
     private void Cmb_DoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cmb_DoctorActionPerformed
         DisableAll();
         Cmb_Month.enable();
     }//GEN-LAST:event_Cmb_DoctorActionPerformed
-
     private void Cmb_MonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cmb_MonthActionPerformed
         Cmb_Day.enable();
     }//GEN-LAST:event_Cmb_MonthActionPerformed
-
     private void Cmb_DayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cmb_DayActionPerformed
         int thedoc = Cmb_Doctor.getSelectedIndex();
         int themonth = Cmb_Month.getSelectedIndex();
@@ -208,7 +204,6 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
         int theyear = year;
         getFreeTimes(thedoc, theday, themonth, theyear);  
     }//GEN-LAST:event_Cmb_DayActionPerformed
-
     private void Btn_BookApptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BookApptActionPerformed
             String Who = String.valueOf(Cmb_Doctor.getSelectedIndex());
             String Time = Lst_Avalibility.getSelectedValue();
@@ -227,7 +222,6 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_Btn_BookApptActionPerformed
-
     private void getFreeTimes(int doc, int d, int m, int y){
         int Slotsize = 19;
         int Taken = AP.appointmentList.size();              
@@ -302,15 +296,11 @@ public class GUI_UserAppointmentRequest extends javax.swing.JFrame {
         }
     Lst_Avalibility.setModel(DLM);
     }
-    
-    
-    
     private void DisableAll(){        
         Cmb_Day.disable();
         Cmb_Month.disable();
         Lst_Avalibility.disable();
     }
-    
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

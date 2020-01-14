@@ -1,4 +1,4 @@
-// @author morgan wilson-slider
+// @author mwilson-slider
 package soft252.cw.GUI;
 
 import java.io.IOException;
@@ -163,29 +163,22 @@ public class GUI_NewPatient extends javax.swing.JFrame {
         
         logout();
     }//GEN-LAST:event_Btn_RequestActionPerformed
-
     private void Btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_logoutActionPerformed
         logout();
     }//GEN-LAST:event_Btn_logoutActionPerformed
-
     private void Txt_PostCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_PostCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_PostCodeActionPerformed
-
     private void logout(){
         GUI_Home home = new GUI_Home();
         home.GetUser(Data);
         home.setVisible(true);
         this.dispose();
     }
-    
     public void getData(DataHandler data){
         Data = data;
     }
-    
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

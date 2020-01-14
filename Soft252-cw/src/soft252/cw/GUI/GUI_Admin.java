@@ -1,4 +1,4 @@
-
+// @author mwilson-slider
 package soft252.cw.GUI;
 
 import java.io.IOException;
@@ -387,7 +387,6 @@ public class GUI_Admin extends javax.swing.JFrame {
         }
         
     }
-  
     private void SetData(){
 //Remove options        
         Cmb_DocorSecName.removeAllItems();
@@ -415,8 +414,6 @@ public class GUI_Admin extends javax.swing.JFrame {
     }
     }
     }
-    
-    
     private void Btn_NewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewAdminActionPerformed
         String firstname = Txt_AdminFN.getText();
         String surname = Txt_AdminSn.getText();
@@ -437,23 +434,19 @@ public class GUI_Admin extends javax.swing.JFrame {
         }
         reset();       
     }//GEN-LAST:event_Btn_NewAdminActionPerformed
-
     private void Btn_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogOutActionPerformed
         GUI_Home re = new GUI_Home();
         re.GetUser(Data);
         re.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_LogOutActionPerformed
-
     private void Txt_AdminFNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_AdminFNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_AdminFNActionPerformed
-
     private void Cmb_DocOrSecSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cmb_DocOrSecSelectActionPerformed
         Cmb_DocorSecName.setEditable(true);
         SetData();
     }//GEN-LAST:event_Cmb_DocOrSecSelectActionPerformed
-
     private void Btn_DelDocOrSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DelDocOrSecActionPerformed
         String input = Txt_ConfirmDocorSecDel.getText();
         if(input.equals("CONFIRM")){
@@ -500,7 +493,6 @@ public class GUI_Admin extends javax.swing.JFrame {
             reset();
         }
     }//GEN-LAST:event_Btn_DelDocOrSecActionPerformed
-
     private void Btn_NewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewDoctorActionPerformed
         String firstname = Txt_DoctorFN.getText();
         String surname = Txt_DoctorSn.getText();
@@ -524,7 +516,6 @@ public class GUI_Admin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_Btn_NewDoctorActionPerformed
-
     private void Btn_NewAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewAdmin2ActionPerformed
         String firstname = Txt_SecrateryFN.getText();
         String surname = Txt_SecraterySn.getText();
@@ -542,23 +533,18 @@ public class GUI_Admin extends javax.swing.JFrame {
         }
         reset();  
     }//GEN-LAST:event_Btn_NewAdmin2ActionPerformed
-
     private void Txt_SecrateryFNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_SecrateryFNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_SecrateryFNActionPerformed
-
     private void Txt_DoctorUNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_DoctorUNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_DoctorUNActionPerformed
-
     private void Txt_SecrateryPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_SecrateryPwActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_SecrateryPwActionPerformed
-
     private void Txt_SecrateryStreetNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_SecrateryStreetNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_SecrateryStreetNameActionPerformed
-
     private void Cmb_DoctorViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cmb_DoctorViewActionPerformed
         Lst_DoctorPatientComments.removeAll();
         Txt_DoctorRateing.setText("- Doctor Rating -");
@@ -596,14 +582,12 @@ public class GUI_Admin extends javax.swing.JFrame {
         Txt_DoctorRateing.setText(String.valueOf(endrating));
         Lst_DoctorPatientComments.setModel(DLM);
     }//GEN-LAST:event_Cmb_DoctorViewActionPerformed
-
     private void reset(){
         GUI_Admin re = new GUI_Admin();
         re.getData(Data);
         re.setVisible(true);
         this.dispose();
     } 
-
     private void Deny(){
         Cmb_DocorSecName.setEditable(false);
         

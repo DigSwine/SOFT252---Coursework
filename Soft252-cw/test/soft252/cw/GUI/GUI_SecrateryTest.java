@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author Mwilson-slider
+ * @author mwilson-slider
  */
 public class GUI_SecrateryTest {
     

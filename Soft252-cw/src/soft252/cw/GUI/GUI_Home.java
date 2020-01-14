@@ -1,9 +1,7 @@
 // @author mwilson-slider
-
 package soft252.cw.GUI;
 
 import java.text.ParseException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import soft252.cw.Classes.DataHandler;
@@ -26,8 +24,7 @@ public class GUI_Home extends javax.swing.JFrame {
         Type = new String[number];
         SetLogins();
     }
-    
-    // Creates new form GUI_Home 
+     
     public GUI_Home() {
         initComponents();
     }
@@ -221,8 +218,7 @@ public class GUI_Home extends javax.swing.JFrame {
         }
         count=0;
         
-    }
-       
+    }     
     private void Btn_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogInActionPerformed
     int LengthOfUsers = 0;
         LengthOfUsers = U.doctorList.size() + U.patientList.size() + U.secreteryList.size() + U.adminList.size();        
@@ -303,11 +299,9 @@ public class GUI_Home extends javax.swing.JFrame {
             }   
         }              
     }//GEN-LAST:event_Btn_LogInActionPerformed
-
     private void Cmb_UserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cmb_UserTypeActionPerformed
     
     }//GEN-LAST:event_Cmb_UserTypeActionPerformed
-
     private void Btn_NewAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NewAccActionPerformed
         GUI_NewPatient newpat = new GUI_NewPatient();
         newpat.getData(Data);
@@ -315,8 +309,6 @@ public class GUI_Home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Btn_NewAccActionPerformed
 
-  
-   
     public static void main(String args[]) {
        //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -9,14 +9,16 @@ import javax.swing.DefaultListModel;
 import soft252.cw.Classes.DataHandler;
 import soft252.cw.Classes.List_Users;
 import soft252.cw.Classes.Lists_AP;
+import soft252.cw.Patterns.Adding;
+import soft252.cw.Patterns.Context;
 
-public class GUI_User extends javax.swing.JFrame {
+public class GUI_User extends javax.swing.JFrame{
    static Integer ID;
 
-   public static List_Users U = new List_Users();
-   public static Lists_AP AP = new Lists_AP();
-   private DataHandler Data = new DataHandler();
-   
+   private static List_Users U = new List_Users();
+   private static Lists_AP AP = new Lists_AP();
+   private DataHandler Data = new DataHandler(); 
+
     public GUI_User() {
         initComponents();
     }
@@ -203,7 +205,6 @@ public class GUI_User extends javax.swing.JFrame {
     private void Btn_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LogOutActionPerformed
         OpenHome();
     }//GEN-LAST:event_Btn_LogOutActionPerformed
-
     private void Btn_ViewDRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewDRActionPerformed
         int check = U.ratingList.size();
         int DSize = U.doctorList.size();
@@ -212,12 +213,12 @@ public class GUI_User extends javax.swing.JFrame {
         double have = 0;
         double toadd = 0;
         int added = 0;
+        Context context = new Context(new Adding());
         for(int x = 0; x < DSize; x++){
             for(int y = 0; y < check; y++){               
                 if(x + 1 == U.ratingList.get(y).getDoctor_ID()){
                     toadd = U.ratingList.get(y).getRating();
-                    have = have + toadd;
-                    
+                    have = context.executeStrategy(have, toadd);
                     added = added + 1;
                 }
                 rating = have/added;
@@ -235,14 +236,12 @@ public class GUI_User extends javax.swing.JFrame {
             Lst_All.setModel(DLM);
             Btn_CreatReview.setEnabled(true);
     }//GEN-LAST:event_Btn_ViewDRActionPerformed
-
     private void Btn_ReqAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ReqAppointActionPerformed
              GUI_UserAppointmentRequest request = new GUI_UserAppointmentRequest();
              request.Onload(Data, ID);
              request.show();
              this.dispose();
     }//GEN-LAST:event_Btn_ReqAppointActionPerformed
-
     private void Btn_ViewPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewPerActionPerformed
        int lengthofperscriptions = 0;
        lengthofperscriptions = AP.perscriptionList.size();
@@ -259,7 +258,6 @@ public class GUI_User extends javax.swing.JFrame {
             }
             Lst_All.setModel(DLM);
     }//GEN-LAST:event_Btn_ViewPerActionPerformed
-
     private void Btn_DeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DeleteAccountActionPerformed
        try {
            Delete();
@@ -268,13 +266,11 @@ public class GUI_User extends javax.swing.JFrame {
            Logger.getLogger(GUI_User.class.getName()).log(Level.SEVERE, null, ex);
        }
     }//GEN-LAST:event_Btn_DeleteAccountActionPerformed
-
     private void Btn_ViewHisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ViewHisActionPerformed
         Txt_DocComment.setEnabled(false);
         Txt_DocReview.setEnabled(false);
         Btn_Reviw.setEnabled(false);
         Btn_CreatReview.setEnabled(false);
-
 
         int APSize = AP.appointmentList.size();
         String Appointments[] = new String[APSize + 1];
@@ -293,7 +289,6 @@ public class GUI_User extends javax.swing.JFrame {
             }
             Lst_All.setModel(DLM); 
     }//GEN-LAST:event_Btn_ViewHisActionPerformed
-
     private void Btn_CreatReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CreatReviewActionPerformed
         Txt_DocComment.setEnabled(true);
         Txt_DocReview.setEnabled(true);
@@ -304,7 +299,6 @@ public class GUI_User extends javax.swing.JFrame {
         String DocName = U.doctorList.get(selectedDoc).getDoctor_FirstName() + " " + U.doctorList.get(selectedDoc).getDoctor_SurName();
         Txt_DocName.setText(DocName);
     }//GEN-LAST:event_Btn_CreatReviewActionPerformed
-
     private void Btn_ReviwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ReviwActionPerformed
         String tofind = Txt_DocName.getText();
         
@@ -329,18 +323,15 @@ public class GUI_User extends javax.swing.JFrame {
        }
         reload();
     }//GEN-LAST:event_Btn_ReviwActionPerformed
-    
     private void OpenHome(){
         GUI_Home Home = new GUI_Home();
             Home.GetUser(Data);
             Home.show();
             this.dispose();
-    }
-   
+    }  
     private void Delete() throws IOException{
         Data.RequestDeletion("P", ID);
         }
-
     private void reload(){
          GUI_User set = new GUI_User();
         set.GetHandler(Data, ID);

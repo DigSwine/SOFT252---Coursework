@@ -154,7 +154,12 @@ public class DataHandlerTest {
     }
 
     @Test
-    public void testRequestNewPat() throws Exception {
+    public void testRequestNewPat(String FN, String SN, String User) throws Exception {        
+        char fn = FN.charAt(0);
+        String CU = fn + "" + SN;
+        if(!User.equals(CU)){
+            throw new IllegalArgumentException("Username must be the first letter of your firstname followed by your surname");
+        }
     }
 
     @Test
