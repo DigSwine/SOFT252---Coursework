@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Soft252-cw">
   <ClassDiagramComponents>
-    <Class name="Admin" package="soft252.cw.Classes" visibility="public" xPosition="5493.0" yPosition="4398.0">
+    <Class name="Admin" package="soft252.cw.Classes" visibility="public" xPosition="5697.0" yPosition="4393.0">
       <Fields>
         <Field name="Admin_IdentificationLetter" type="String" visibility="protected"/>
         <Field name="Admin_IdentificationNumber" type="Integer" visibility="protected"/>
@@ -70,7 +70,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Appointments" package="soft252.cw.Classes" visibility="public" xPosition="4174.0" yPosition="2306.0">
+    <Class name="Appointments" package="soft252.cw.Classes" visibility="public" xPosition="45.0" yPosition="4275.0">
       <Fields>
         <Field name="Appointment_Number" type="Integer" visibility="protected"/>
         <Field name="Patient_IDL" type="String" visibility="protected"/>
@@ -125,7 +125,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Clinic" package="soft252.cw.Classes" visibility="public" xPosition="2647.0" yPosition="1487.0">
+    <Class name="Clinic" package="soft252.cw.Classes" visibility="public" xPosition="1647.0" yPosition="125.0">
       <Fields>
         <Field name="Clinic_Name" type="String" visibility="protected"/>
         <Field name="Clinic_StreetNumber" type="String" visibility="protected"/>
@@ -198,7 +198,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="DataHandler" package="soft252.cw.Classes" visibility="public" xPosition="7493.0" yPosition="151.0">
+    <Class name="DataHandler" package="soft252.cw.Classes" visibility="public" xPosition="1695.0" yPosition="1199.0">
       <Fields>
         <Field name="U" type="List_Users" visibility="private"/>
         <Field name="C" type="List_Clinic" visibility="private"/>
@@ -336,7 +336,7 @@
         <Method name="resetAll" returnType="void" visibility="private"/>
       </Methods>
     </Class>
-    <Class name="DoctorRatings" package="soft252.cw.Classes" visibility="public" xPosition="7482.0" yPosition="3766.0">
+    <Class name="DoctorRatings" package="soft252.cw.Classes" visibility="public" xPosition="3567.0" yPosition="2158.0">
       <Fields>
         <Field name="Doctor_ID" type="int" visibility="private"/>
         <Field name="Patient_ID" type="int" visibility="private"/>
@@ -370,7 +370,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Doctors" package="soft252.cw.Classes" visibility="public" xPosition="6715.0" yPosition="4622.0">
+    <Class name="Doctors" package="soft252.cw.Classes" visibility="public" xPosition="5183.0" yPosition="2725.0">
       <Fields>
         <Field name="Doctor_IdentificationLetter" type="String" visibility="protected"/>
         <Field name="Doctor_IdentificationNumber" type="Integer" visibility="protected"/>
@@ -440,7 +440,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Feedback" package="soft252.cw.Classes" visibility="public" xPosition="6991.0" yPosition="4014.0">
+    <Class name="Feedback" package="soft252.cw.Classes" visibility="public" xPosition="3614.0" yPosition="4564.0">
       <Fields>
         <Field name="Doctor_Id" type="int" visibility="private"/>
         <Field name="Doctor_Feedback" type="String" visibility="private"/>
@@ -462,7 +462,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Lists_AP" package="soft252.cw.Classes" visibility="public" xPosition="5820.0" yPosition="1779.0">
+    <Class name="Lists_AP" package="soft252.cw.Classes" visibility="public" xPosition="2835.0" yPosition="2767.0">
       <Fields>
         <Field name="perscriptionList" type="ArrayList&lt;Perscriptions&gt;" visibility="public"/>
         <Field name="appointmentList" type="ArrayList&lt;Appointments&gt;" visibility="public"/>
@@ -479,7 +479,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="List_Clinic" package="soft252.cw.Classes" visibility="public" xPosition="2820.0" yPosition="440.0">
+    <Class name="List_Clinic" package="soft252.cw.Classes" visibility="public" xPosition="2938.0" yPosition="466.0">
       <Fields>
         <Field name="clinicList" type="ArrayList&lt;Clinic&gt;" visibility="public"/>
         <Field name="drugList" type="ArrayList&lt;Clinic&gt;" visibility="public"/>
@@ -488,7 +488,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="List_Requests" package="soft252.cw.Classes" visibility="public" xPosition="2578.0" yPosition="2886.0">
+    <Class name="List_Requests" package="soft252.cw.Classes" visibility="public" xPosition="1295.0" yPosition="5219.0">
       <Fields>
         <Field name="requestAppointmentList" type="ArrayList&lt;Appointments&gt;" visibility="public"/>
         <Field name="requestNewMedications" type="ArrayList&lt;Clinic&gt;" visibility="public"/>
@@ -500,7 +500,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="List_Users" package="soft252.cw.Classes" visibility="public" xPosition="7205.0" yPosition="3109.0">
+    <Class name="List_Users" package="soft252.cw.Classes" visibility="public" xPosition="4188.0" yPosition="3065.0">
       <Fields>
         <Field name="doctorList" type="ArrayList&lt;Doctors&gt;" visibility="public"/>
         <Field name="patientList" type="ArrayList&lt;Patients&gt;" visibility="public"/>
@@ -512,7 +512,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Patients" package="soft252.cw.Classes" visibility="public" xPosition="3747.0" yPosition="4096.0">
+    <Class name="Patients" package="soft252.cw.Classes" visibility="public" xPosition="4188.0" yPosition="4827.0">
       <Fields>
         <Field name="Patient_IdendificationLetter" type="String" visibility="private"/>
         <Field name="Patient_IdentificationNumber" type="Integer" visibility="private"/>
@@ -592,7 +592,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Perscriptions" package="soft252.cw.Classes" visibility="public" xPosition="4875.0" yPosition="2827.0">
+    <Class name="Perscriptions" package="soft252.cw.Classes" visibility="public" xPosition="2898.0" yPosition="4393.0">
       <Fields>
         <Field name="Patient_IDL" type="String" visibility="protected"/>
         <Field name="Patient_IDN" type="String" visibility="protected"/>
@@ -631,7 +631,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Secretary" package="soft252.cw.Classes" visibility="public" xPosition="8737.0" yPosition="3900.0">
+    <Class name="Secretary" package="soft252.cw.Classes" visibility="public" xPosition="5966.0" yPosition="3545.0">
       <Fields>
         <Field name="Secretary_IdentificationLetter" type="String" visibility="protected"/>
         <Field name="Secretary_IdentificationNumber" type="Integer" visibility="protected"/>
@@ -699,7 +699,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="GUI_Admin" package="soft252.cw.GUI" visibility="public" xPosition="8571.0" yPosition="2633.0">
+    <Class name="GUI_Admin" package="soft252.cw.GUI" visibility="public" xPosition="5183.0" yPosition="1453.0">
       <Fields>
         <Field name="Data" type="DataHandler" visibility="package"/>
         <Field name="U" type="List_Users" visibility="package"/>
@@ -795,7 +795,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="GUI_Doctor" package="soft252.cw.GUI" visibility="public" xPosition="4186.0" yPosition="563.0">
+    <Class name="GUI_Doctor" package="soft252.cw.GUI" visibility="public" xPosition="843.0" yPosition="1945.0">
       <Fields>
         <Field name="Data" type="DataHandler" visibility="package"/>
         <Field name="U" type="List_Users" visibility="package"/>
@@ -823,6 +823,7 @@
         <Field name="Cmb_MoveBy" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
         <Field name="Cmb_PerName" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
         <Field name="Lst_Appts" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="Lst_Feedback" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
         <Field name="Lst_PAppointments" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
         <Field name="Lst_PMedications" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
         <Field name="Lst_PNotes" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
@@ -848,6 +849,7 @@
         <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
         <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
         <Field name="jScrollPane4" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane5" type="javax.swing.JScrollPane" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -901,13 +903,14 @@
         </Method>
         <Method name="DefultAll" returnType="void" visibility="private"/>
         <Method name="DisableAll" returnType="void" visibility="private"/>
+        <Method name="feedback" returnType="void" visibility="private"/>
         <Method name="OpenHome" returnType="void" visibility="private"/>
         <Method name="main" returnType="void" visibility="public" isStatic="true">
           <Argument type="String" name="args"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="GUI_Home" package="soft252.cw.GUI" visibility="public" xPosition="7826.0" yPosition="2540.0">
+    <Class name="GUI_Home" package="soft252.cw.GUI" visibility="public" xPosition="747.0" yPosition="908.0">
       <Fields>
         <Field name="U" type="List_Users" visibility="package"/>
         <Field name="Data" type="DataHandler" visibility="package"/>
@@ -943,7 +946,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="GUI_NewPatient" package="soft252.cw.GUI" visibility="public" xPosition="8698.0" yPosition="294.0">
+    <Class name="GUI_NewPatient" package="soft252.cw.GUI" visibility="public" xPosition="86.0" yPosition="1545.0">
       <Fields>
         <Field name="Data" type="DataHandler" visibility="package"/>
         <Field name="Btn_Request" type="javax.swing.JButton" visibility="private"/>
@@ -983,7 +986,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="GUI_Secratery" package="soft252.cw.GUI" visibility="public" xPosition="1926.0" yPosition="246.0">
+    <Class name="GUI_Secratery" package="soft252.cw.GUI" visibility="public" xPosition="2022.0" yPosition="3359.0">
       <Fields>
         <Field name="Data" type="DataHandler" visibility="package"/>
         <Field name="AP" type="Lists_AP" visibility="package"/>
@@ -993,6 +996,8 @@
         <Field name="ID" type="int" visibility="package"/>
         <Field name="Date" type="String" visibility="package"/>
         <Field name="TheTime" type="String" visibility="package"/>
+        <Field name="Hour" type="String" visibility="package"/>
+        <Field name="Minute" type="String" visibility="package"/>
         <Field name="Btn_CreateAppt" type="javax.swing.JButton" visibility="private"/>
         <Field name="Btn_DelPatApp" type="javax.swing.JButton" visibility="private"/>
         <Field name="Btn_DelPatDeny" type="javax.swing.JButton" visibility="private"/>
@@ -1040,6 +1045,8 @@
         <Method name="GetCurrentPats" returnType="void" visibility="private"/>
         <Method name="GetCurrentDocs" returnType="void" visibility="private"/>
         <Method name="reset" returnType="void" visibility="private"/>
+        <Method name="toolate" returnType="void" visibility="private"/>
+        <Method name="tooearly" returnType="void" visibility="private"/>
         <Method name="Btn_LogoutActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
@@ -1073,16 +1080,17 @@
         <Method name="Btn_CreateApptActionPerformed" returnType="void" visibility="private">
           <Argument type="java.awt.event.ActionEvent" name="evt"/>
         </Method>
+        <Method name="createappt" returnType="void" visibility="private"/>
         <Method name="main" returnType="void" visibility="public" isStatic="true">
           <Argument type="String" name="args"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="GUI_User" package="soft252.cw.GUI" visibility="public" xPosition="6701.0" yPosition="2127.0">
+    <Class name="GUI_User" package="soft252.cw.GUI" visibility="public" xPosition="4273.0" yPosition="606.0">
       <Fields>
         <Field name="ID" type="Integer" visibility="package" isStatic="true"/>
-        <Field name="U" type="List_Users" visibility="public" isStatic="true"/>
-        <Field name="AP" type="Lists_AP" visibility="public" isStatic="true"/>
+        <Field name="U" type="List_Users" visibility="private" isStatic="true"/>
+        <Field name="AP" type="Lists_AP" visibility="private" isStatic="true"/>
         <Field name="Data" type="DataHandler" visibility="private"/>
         <Field name="Btn_CreatReview" type="javax.swing.JButton" visibility="private"/>
         <Field name="Btn_DeleteAccount" type="javax.swing.JButton" visibility="private"/>
@@ -1140,7 +1148,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="GUI_UserAppointmentRequest" package="soft252.cw.GUI" visibility="public" xPosition="5662.0" yPosition="3109.0">
+    <Class name="GUI_UserAppointmentRequest" package="soft252.cw.GUI" visibility="public" xPosition="35.0" yPosition="2376.0">
       <Fields>
         <Field name="U" type="List_Users" visibility="private"/>
         <Field name="AP" type="Lists_AP" visibility="private"/>
@@ -1197,7 +1205,34 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Soft252Cw" package="soft252.cw" visibility="public" xPosition="8420.0" yPosition="795.0">
+    <Class name="Adding" package="soft252.cw.Patterns" visibility="public" xPosition="5329.0" yPosition="236.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doOperation" returnType="double" visibility="public">
+          <Argument type="double" name="num1"/>
+          <Argument type="double" name="num2"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Context" package="soft252.cw.Patterns" visibility="public" xPosition="5329.0" yPosition="534.0">
+      <Fields>
+        <Field name="strategy" type="Strategy" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Strategy" name="strategy"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="executeStrategy" returnType="double" visibility="public">
+          <Argument type="double" name="num1"/>
+          <Argument type="double" name="num2"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Soft252Cw" package="soft252.cw" visibility="public" xPosition="5329.0" yPosition="773.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -1206,63 +1241,73 @@
         </Method>
       </Methods>
     </Class>
+    <Interface name="Strategy" package="soft252.cw.Patterns" visibility="public" xPosition="5329.0" yPosition="395.0">
+      <Methods>
+        <Method name="doOperation" returnType="double" visibility="public">
+          <Argument type="double" name="num1"/>
+          <Argument type="double" name="num2"/>
+        </Method>
+      </Methods>
+    </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="adminList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Admin&gt;"/>
-    <UseRelation source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="doctorList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Doctors" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Doctors&gt;"/>
-    <HasRelation name="requestNewMedications" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
-    <HasRelation name="AP" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
-    <HasRelation name="perscriptionList" source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
-    <HasRelation name="U" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
-    <HasRelation name="R" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
-    <HasRelation name="Feedback" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Feedback" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Feedback&gt;"/>
-    <HasRelation name="Data" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="readyHandoutList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
-    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Clinic" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="appointmentList" source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Appointments" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Appointments&gt;"/>
-    <HasRelation name="AP" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
-    <HasRelation name="C" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
-    <HasRelation name="clinicList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
-    <HasRelation name="requestAppointmentList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Appointments" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Appointments&gt;"/>
-    <UseRelation source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="U" source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
-    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Perscriptions" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="requestPerscriptionList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
-    <HasRelation name="U" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
     <HasRelation name="Data" source="soft252.cw.GUI.GUI_NewPatient" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="Data" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="drugList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
-    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Requests" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="soft252.cw.GUI.GUI_NewPatient" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="U" source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
-    <UseRelation source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="R" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
-    <HasRelation name="requestPatientList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
-    <UseRelation source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Appointments" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="secreteryList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Secretary" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Secretary&gt;"/>
-    <HasRelation name="lowsotckList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
-    <HasRelation name="patientList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
-    <HasRelation name="U" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
-    <HasRelation name="ratingList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.DoctorRatings" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;DoctorRatings&gt;"/>
-    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="deletePatientList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
-    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.Lists_AP" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="R" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
-    <UseRelation source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="U" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
-    <HasRelation name="C" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
-    <HasRelation name="C" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
-    <HasRelation name="AP" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
-    <HasRelation name="AP" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
     <HasRelation name="R" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
-    <HasRelation name="U" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
-    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="clinicList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="perscriptionList" source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
+    <HasRelation name="requestPerscriptionList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
+    <HasRelation name="drugList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <UseRelation source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Appointments" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Feedback" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Feedback" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Feedback&gt;"/>
+    <HasRelation name="ratingList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.DoctorRatings" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;DoctorRatings&gt;"/>
+    <HasRelation name="requestAppointmentList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Appointments" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Appointments&gt;"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="readyHandoutList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Perscriptions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perscriptions&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="soft252.cw.Patterns.Adding" target="soft252.cw.Patterns.Strategy"/>
+    <HasRelation name="C" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
+    <HasRelation name="AP" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Admin" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.Lists_AP" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="AP" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="AP" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <HasRelation name="appointmentList" source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Appointments" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Appointments&gt;"/>
+    <HasRelation name="C" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="R" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
     <HasRelation name="AP" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <HasRelation name="adminList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Admin&gt;"/>
+    <UseRelation source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <UseRelation source="soft252.cw.Classes.Lists_AP" target="soft252.cw.Classes.Perscriptions" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="R" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="requestNewMedications" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <HasRelation name="deletePatientList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="AP" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.Lists_AP" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lists_AP"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Doctor" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="R" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Requests" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Requests"/>
+    <UseRelation source="soft252.cw.GUI.GUI_NewPatient" target="soft252.cw.Classes.DataHandler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="U" source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="requestPatientList" source="soft252.cw.Classes.List_Requests" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
+    <HasRelation name="strategy" source="soft252.cw.Patterns.Context" target="soft252.cw.Patterns.Strategy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="lowsotckList" source="soft252.cw.Classes.List_Clinic" target="soft252.cw.Classes.Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Clinic&gt;"/>
+    <HasRelation name="doctorList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Doctors" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Doctors&gt;"/>
+    <HasRelation name="Data" source="soft252.cw.GUI.GUI_Home" target="soft252.cw.Classes.DataHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Requests" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="secreteryList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Secretary" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Secretary&gt;"/>
+    <UseRelation source="soft252.cw.Classes.DataHandler" target="soft252.cw.Classes.List_Clinic" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_User" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="U" source="soft252.cw.GUI.GUI_UserAppointmentRequest" target="soft252.cw.Classes.List_Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Users"/>
+    <HasRelation name="patientList" source="soft252.cw.Classes.List_Users" target="soft252.cw.Classes.Patients" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Patients&gt;"/>
+    <HasRelation name="C" source="soft252.cw.GUI.GUI_Secratery" target="soft252.cw.Classes.List_Clinic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List_Clinic"/>
   </ClassDiagramRelations>
 </ClassDiagram>

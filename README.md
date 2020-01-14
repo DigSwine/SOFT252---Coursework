@@ -40,7 +40,7 @@ Issues that need to be fixed -
 
 No "," can be added in doctors notes as the seprator for the read in lines is ", ". Fixable by using a converter function to change the comma to a hiphon for saving and reverse this for the read in.
 
-Users do NOT have a 4 digit ID number, but have a 1 digit ID number based on an ArrayList. Fixiable by adding a 4 digit ID number into the file and having a read in for it, and hav it save as an int.
+Users do NOT have a 4 digit ID number, but have a 1 digit ID number based on an ArrayList. Fixiable by adding a 4 digit ID number into the file and having a read in for it, and have it save as an int - this was done for the saving of reviews and feedback.
 
 Most things get saved as an int, when starting i did not understand java that well, so when it cam to reading in a file, i did not know that Integer.valueOf(String) existed and though i would change this when i figured this out, however it was almost two months into the project when this was noticed, and only 4 days before the hand in date, this has been left but can easily be fixed, as seen in the doctor read in.
 
